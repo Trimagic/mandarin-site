@@ -1,155 +1,26 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-  --font-heading: var(--font-unbounded);
-  --font-brand: var(--font-unbounded);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-:root {
-  --background: #131110;
-  --foreground: #f3eee7;
-  --card: #1a1613;
-  --card-foreground: #f3eee7;
-  --popover: #1a1613;
-  --popover-foreground: #f3eee7;
-  --primary: #ff6a1f;
-  --primary-foreground: #131110;
-  --secondary: #221a14;
-  --secondary-foreground: #f3eee7;
-  --muted: #221a14;
-  --muted-foreground: #8a8278;
-  --accent: #ff8c42;
-  --accent-foreground: #131110;
-  --destructive: #ff5a52;
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #ff8c42;
-  --chart-1: #ff6a1f;
-  --chart-2: #ff8c42;
-  --chart-3: #c9c2b8;
-  --chart-4: #8a8278;
-  --chart-5: #655f56;
-  --radius: 0.75rem;
-  --sidebar: #1a1613;
-  --sidebar-foreground: #f3eee7;
-  --sidebar-primary: #ff6a1f;
-  --sidebar-primary-foreground: #131110;
-  --sidebar-accent: #221a14;
-  --sidebar-accent-foreground: #f3eee7;
-  --sidebar-border: rgba(255, 255, 255, 0.1);
-  --sidebar-ring: #ff8c42;
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-background font-sans text-foreground;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-
-  ::selection {
-    background: #ff6a1f;
-    color: #131110;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-@layer utilities {
-  .font-brand {
-    font-family: var(--font-unbounded), var(--font-manrope), sans-serif;
-  }
-
-  .mandarin-section {
-    @apply px-5 py-20 sm:px-8 lg:py-24;
-  }
-
-  .mandarin-container {
-    @apply mx-auto w-full max-w-7xl;
-  }
-
-  .mandarin-card {
-    background: #1a1613;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .mandarin-gradient-card {
-    background: linear-gradient(135deg, #221a14, #171310);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .mandarin-grid-bg {
-    background-image:
-      linear-gradient(rgba(255, 106, 31, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 106, 31, 0.06) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-
-  .mandarin-blob {
-    animation: floatBlob 8s ease-in-out infinite;
-  }
-}
-
-@keyframes floatBlob {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(20px, -30px) scale(1.05);
-  }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
