@@ -1,69 +1,87 @@
 import Image from "next/image";
+import {
+  IconArrowRight,
+  IconChevronRight,
+  IconClock,
+  IconReceipt,
+  IconShieldCheck,
+} from "@tabler/icons-react";
 
-export default function Home() {
+import { SiteHeader } from "@/components/site/site-header";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div id="top" className="min-w-[1280px] transition-colors">
+      <SiteHeader />
+
+      <main>
+        <section className="relative overflow-hidden">
+          <div className="mx-auto grid min-h-[calc(100vh-5rem)] w-full max-w-[1440px] grid-cols-[0.82fr_1.18fr] items-center gap-6 px-12 py-14">
+            <div className="relative z-10 pb-2">
+              <p className="mb-5 text-xs font-extrabold tracking-[0.14em] text-primary uppercase">
+                Ремонт техники в Борисове
+              </p>
+
+              <h1 className="max-w-[590px] text-[76px] leading-[0.91] font-extrabold tracking-[-0.07em] text-[#211a17] dark:text-[#fff7f0]">
+                Техника
+                <span className="block text-[#eb550d] dark:text-[#ff7418]">снова</span>
+                <span className="block text-[#df2034] dark:text-[#ff4054]">работает</span>
+              </h1>
+
+              <p className="mt-7 max-w-[510px] text-[17px] leading-7 text-[#6f625c] dark:text-[#c5b8b1]">
+                Ремонт телефонов, ноутбуков и компьютеров с предварительным согласованием стоимости.
+              </p>
+
+              <div className="mt-8 flex items-center gap-4">
+                <a href="tel:+375291506888" className={buttonVariants({ variant: "brand", size: "xl" })}>
+                  Узнать стоимость
+                  <IconArrowRight data-icon="inline-end" />
+                </a>
+                <a
+                  href="https://wa.me/375291506888"
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "xl" }),
+                    "text-primary dark:text-[#ff9a3d] dark:hover:bg-white/6",
+                  )}
+                >
+                  Написать мастеру
+                  <IconChevronRight data-icon="inline-end" />
+                </a>
+              </div>
+
+              <div className="mt-12 flex items-center gap-8 border-t border-[#eadbd1] pt-6 dark:border-[#3e2c25]">
+                <TrustItem icon={<IconClock />} label="От 20 минут" />
+                <TrustItem icon={<IconShieldCheck />} label="Гарантия до года" />
+                <TrustItem icon={<IconReceipt />} label="Цена до ремонта" />
+              </div>
+            </div>
+
+            <div className="relative flex min-h-[650px] items-center justify-end">
+              <div className="absolute right-[-7%] bottom-[4%] h-32 w-[78%] rounded-full bg-[#ec3d14]/12 blur-3xl" />
+              <Image
+                src="/brand/hero-devices-platform.png"
+                alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
+                width={1426}
+                height={1103}
+                sizes="(min-width: 1280px) 760px"
+                className="relative z-10 h-auto w-[760px] max-w-none object-contain"
+                priority
+              />
+            </div>
+          </div>
+        </section>
       </main>
+    </div>
+  );
+}
+
+function TrustItem({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <div className="flex items-center gap-2.5 whitespace-nowrap text-[13px] font-semibold text-[#443a35] dark:text-[#ddd0c8]">
+      <span className="grid size-8 place-items-center rounded-full bg-[#fff0e5] text-primary dark:bg-[#ff7a18]/12 dark:text-[#ff9a3d] [&_svg]:size-4">{icon}</span>
+      <span>{label}</span>
     </div>
   );
 }
