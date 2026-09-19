@@ -15,7 +15,6 @@ export default function HomePage() {
   return (
     <div id="top" className="min-w-[1280px] transition-colors">
       <SiteHeader />
-
       <main>
         <section className="relative overflow-hidden">
           <div className="mx-auto grid min-h-[calc(100vh-5rem)] w-full max-w-[1440px] grid-cols-[0.82fr_1.18fr] items-center gap-6 px-12 py-14">
@@ -26,16 +25,24 @@ export default function HomePage() {
 
               <h1 className="max-w-[590px] text-[76px] leading-[0.91] font-extrabold tracking-[-0.07em] text-[#211a17] dark:text-[#fff7f0]">
                 Техника
-                <span className="block text-[#eb550d] dark:text-[#ff7418]">снова</span>
-                <span className="block text-[#df2034] dark:text-[#ff4054]">работает</span>
+                <span className="block text-[#eb550d] dark:text-[#ff7418]">
+                  снова
+                </span>
+                <span className="block text-[#df2034] dark:text-[#ff4054]">
+                  работает
+                </span>
               </h1>
 
               <p className="mt-7 max-w-[510px] text-[17px] leading-7 text-[#6f625c] dark:text-[#c5b8b1]">
-                Ремонт телефонов, ноутбуков и компьютеров с предварительным согласованием стоимости.
+                Ремонт телефонов, ноутбуков и компьютеров с предварительным
+                согласованием стоимости.
               </p>
 
               <div className="mt-8 flex items-center gap-4">
-                <a href="tel:+375291506888" className={buttonVariants({ variant: "brand", size: "xl" })}>
+                <a
+                  href="tel:+375291506888"
+                  className={buttonVariants({ variant: "brand", size: "xl" })}
+                >
                   Узнать стоимость
                   <IconArrowRight data-icon="inline-end" />
                 </a>
@@ -53,7 +60,10 @@ export default function HomePage() {
 
               <div className="mt-12 flex items-center gap-8 border-t border-[#eadbd1] pt-6 dark:border-[#3e2c25]">
                 <TrustItem icon={<IconClock />} label="От 20 минут" />
-                <TrustItem icon={<IconShieldCheck />} label="Гарантия до года" />
+                <TrustItem
+                  icon={<IconShieldCheck />}
+                  label="Гарантия до года"
+                />
                 <TrustItem icon={<IconReceipt />} label="Цена до ремонта" />
               </div>
             </div>
@@ -80,7 +90,9 @@ export default function HomePage() {
 function TrustItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center gap-2.5 whitespace-nowrap text-[13px] font-semibold text-[#443a35] dark:text-[#ddd0c8]">
-      <span className="grid size-8 place-items-center rounded-full bg-[#fff0e5] text-primary dark:bg-[#ff7a18]/12 dark:text-[#ff9a3d] [&_svg]:size-4">{icon}</span>
+      <span className="grid size-8 place-items-center rounded-full bg-[#fff0e5] text-primary dark:bg-[#ff7a18]/12 dark:text-[#ff9a3d] [&_svg]:size-4">
+        {icon}
+      </span>
       <span>{label}</span>
     </div>
   );
