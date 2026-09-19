@@ -19,16 +19,16 @@ export default function HomePage() {
         <section className="relative overflow-hidden">
           <div className="mx-auto grid w-full max-w-[1440px] grid-cols-[0.82fr_1.18fr] items-start gap-6 px-12 pt-6 pb-10">
             <div className="relative z-10 pt-8 pb-2">
-              <p className="mb-5 text-xs font-extrabold tracking-[0.14em] text-primary uppercase">
+              <p className="mb-5 text-xs font-extrabold tracking-[0.14em] text-[#ef101c] uppercase dark:text-[#ff2533]">
                 Ремонт техники в Борисове
               </p>
 
               <h1 className="max-w-[590px] text-[76px] leading-[0.91] font-extrabold tracking-[-0.07em] text-[#211a17] dark:text-[#fff7f0]">
                 Техника
-                <span className="block text-[#eb550d] dark:text-[#ff7418]">
+                <span className="block text-[#f04a00] dark:text-[#ff6107]">
                   снова
                 </span>
-                <span className="block text-[#df2034] dark:text-[#ff4054]">
+                <span className="block text-[#dc0822] dark:text-[#ef232e]">
                   работает
                 </span>
               </h1>
@@ -41,7 +41,10 @@ export default function HomePage() {
               <div className="mt-8 flex items-center gap-4">
                 <a
                   href="tel:+375291506888"
-                  className={buttonVariants({ variant: "brand", size: "xl" })}
+                  className={cn(
+                    buttonVariants({ variant: "brand", size: "xl" }),
+                    "h-14 bg-[#eb4900] px-6 text-sm text-white shadow-none hover:bg-[#d64000] dark:bg-[#f45500] dark:hover:bg-[#ff6508] has-data-[icon=inline-end]:pr-5",
+                  )}
                 >
                   Узнать стоимость
                   <IconArrowRight data-icon="inline-end" />
@@ -50,7 +53,7 @@ export default function HomePage() {
                   href="https://wa.me/375291506888"
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "xl" }),
-                    "text-primary dark:text-[#ff9a3d] dark:hover:bg-white/6",
+                    "h-14 px-6 text-sm text-[#f04a00] hover:bg-[#f04a00]/8 dark:text-[#ff6800] dark:hover:bg-[#ff6800]/10 has-data-[icon=inline-end]:pr-5",
                   )}
                 >
                   Написать мастеру
@@ -69,7 +72,6 @@ export default function HomePage() {
             </div>
 
             <div className="relative flex items-center justify-end">
-              <div className="absolute right-[-7%] bottom-[4%] h-32 w-[78%] rounded-full bg-[#ec3d14]/12 blur-3xl" />
               <Image
                 src="/brand/hero-devices-platform.png"
                 alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"

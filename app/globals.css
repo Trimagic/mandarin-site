@@ -93,9 +93,6 @@
   html { @apply font-sans; }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--primary) 6%, transparent), transparent 24rem),
-      radial-gradient(circle at 100% 15%, color-mix(in srgb, var(--accent-red) 4%, transparent), transparent 22rem);
   }
   ::selection { background: color-mix(in srgb, var(--primary) 25%, transparent); }
   button, a { -webkit-tap-highlight-color: transparent; }
