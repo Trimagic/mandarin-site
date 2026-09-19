@@ -1,15 +1,53 @@
 import Image from "next/image";
 import {
   IconArrowRight,
+  IconBrandWindows,
   IconChevronRight,
   IconClock,
+  IconDeviceDesktop,
+  IconDeviceLaptop,
+  IconDeviceMobile,
   IconReceipt,
   IconShieldCheck,
 } from "@tabler/icons-react";
 
 import { SiteHeader } from "@/components/site/site-header";
+import { SiteFooter } from "@/components/site/site-footer";
+import { DeviceProblems } from "@/components/site/device-problems";
+import { PopularServices } from "@/components/site/popular-services";
+import { WhyMandarin } from "@/components/site/why-mandarin";
+import { RepairProcess } from "@/components/site/repair-process";
+import { CustomerReviews } from "@/components/site/customer-reviews";
+import { ContactSection } from "@/components/site/contact-section";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+const serviceDirections = [
+  {
+    title: "Ремонт телефонов",
+    description: "Диагностика и ремонт смартфонов любых брендов",
+    icon: IconDeviceMobile,
+    color: "text-[#ff4b00] dark:text-[#ff6800]",
+  },
+  {
+    title: "Ремонт ноутбуков",
+    description: "Любая сложность, включая залитие и замену комплектующих",
+    icon: IconDeviceLaptop,
+    color: "text-[#ef172c] dark:text-[#ff293a]",
+  },
+  {
+    title: "Ремонт компьютеров",
+    description: "Настольные ПК, моноблоки и сборка под ваши задачи",
+    icon: IconDeviceDesktop,
+    color: "text-[#ff4b00] dark:text-[#ff6800]",
+  },
+  {
+    title: "Установка Windows",
+    description: "Установка и настройка Windows, драйверов и программ",
+    icon: IconBrandWindows,
+    color: "text-[#009cff] dark:text-[#00a6ff]",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -84,7 +122,45 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <section
+          id="services"
+          aria-labelledby="services-heading"
+          className="relative z-20 mx-auto -mt-16 w-full max-w-[1440px] scroll-mt-24 px-12 pb-10"
+        >
+          <h2 id="services-heading" className="sr-only">
+            Основные направления ремонта
+          </h2>
+          <div className="grid grid-cols-4 gap-4">
+            {serviceDirections.map(({ title, description, icon: Icon, color }) => (
+              <article
+                key={title}
+                className="flex min-h-44 items-start gap-5 rounded-xl border border-[#ece5df] bg-[#fffefd] p-7 dark:border-[#46301f] dark:bg-[#15110e]"
+              >
+                <Icon
+                  aria-hidden="true"
+                  stroke={1.5}
+                  className={cn("mt-1 size-11 shrink-0", color)}
+                />
+                <div>
+                  <h3 className="max-w-40 text-lg leading-6 font-bold tracking-[-0.025em] text-[#171717] dark:text-[#fff7f0]">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
+                    {description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <DeviceProblems />
+        <PopularServices />
+        <WhyMandarin />
+        <RepairProcess />
+        <CustomerReviews />
+        <ContactSection />
       </main>
+      <SiteFooter />
     </div>
   );
 }
