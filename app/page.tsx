@@ -17,8 +17,8 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <section className="relative overflow-hidden">
-          <div className="mx-auto grid min-h-[calc(100vh-5rem)] w-full max-w-[1440px] grid-cols-[0.82fr_1.18fr] items-center gap-6 px-12 py-14">
-            <div className="relative z-10 pb-2">
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-[0.82fr_1.18fr] items-start gap-6 px-12 pt-6 pb-10">
+            <div className="relative z-10 pt-8 pb-2">
               <p className="mb-5 text-xs font-extrabold tracking-[0.14em] text-primary uppercase">
                 Ремонт техники в Борисове
               </p>
@@ -58,7 +58,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="mt-12 flex items-center gap-8 border-t border-[#eadbd1] pt-6 dark:border-[#3e2c25]">
+              <div className="mt-12 flex items-center divide-x divide-[#ff6a00]/35 dark:divide-[#ff7a18]/45 [&>div]:px-5 [&>div:first-child]:pl-0 [&>div:last-child]:pr-0">
                 <TrustItem icon={<IconClock />} label="От 20 минут" />
                 <TrustItem
                   icon={<IconShieldCheck />}
@@ -68,7 +68,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative flex min-h-[650px] items-center justify-end">
+            <div className="relative flex items-center justify-end">
               <div className="absolute right-[-7%] bottom-[4%] h-32 w-[78%] rounded-full bg-[#ec3d14]/12 blur-3xl" />
               <Image
                 src="/brand/hero-devices-platform.png"
