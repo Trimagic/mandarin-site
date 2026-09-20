@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { IconMenu2, IconMoon, IconSun } from "@tabler/icons-react";
+import { IconMenu2, IconMoon, IconPhone, IconSun } from "@tabler/icons-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -48,7 +48,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#eee4de] bg-[#fffaf6]/92 backdrop-blur-xl transition-colors dark:border-[#382922] dark:bg-[#120d0b]/92">
-      <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center px-6 xl:px-12">
+      <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-center px-5 md:h-20 md:px-6 xl:px-12">
         <Brand />
 
         <nav className="ml-20 hidden items-center gap-8 xl:flex" aria-label="Основная навигация">
@@ -63,16 +63,17 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-5">
-          <a href="tel:+375291506888" className="text-sm font-extrabold tracking-[-0.02em] text-[#211a17] dark:text-[#fff7f0]">
-            +375 29 150-68-88
+        <div className="ml-auto flex items-center gap-2 md:gap-5">
+          <a href="tel:+375291506888" aria-label="Позвонить: +375 29 150-68-88" className="grid size-11 place-items-center rounded-full border border-[#eadbd1] text-sm font-extrabold tracking-[-0.02em] text-[#211a17] md:block md:size-auto md:rounded-none md:border-0 dark:border-[#49352d] dark:text-[#fff7f0]">
+            <IconPhone aria-hidden="true" className="size-5 md:hidden" />
+            <span className="hidden md:inline">+375 29 150-68-88</span>
           </a>
           <button
             type="button"
             onClick={toggleTheme}
             aria-label="Переключить цветовую тему"
             title="Переключить цветовую тему"
-            className="grid size-11 place-items-center rounded-xl border border-[#eadbd1] bg-white text-[#443a35] transition-colors hover:border-primary hover:text-primary dark:border-[#49352d] dark:bg-[#211815] dark:text-[#fff7f0] dark:hover:border-[#ff7a18] dark:hover:text-[#ff9a3d]"
+            className="hidden size-11 place-items-center rounded-xl border border-[#eadbd1] bg-white text-[#443a35] transition-colors hover:border-primary hover:text-primary md:grid dark:border-[#49352d] dark:bg-[#211815] dark:text-[#fff7f0] dark:hover:border-[#ff7a18] dark:hover:text-[#ff9a3d]"
           >
             <IconMoon className="size-4 dark:hidden" />
             <IconSun className="hidden size-4 dark:block" />
@@ -90,12 +91,17 @@ export function SiteHeader() {
             <summary aria-label="Открыть меню" className="grid size-11 cursor-pointer list-none place-items-center rounded-xl border border-[#eadbd1] text-[#443a35] focus-visible:outline-2 focus-visible:outline-primary dark:border-[#49352d] dark:text-[#fff7f0] [&::-webkit-details-marker]:hidden">
               <IconMenu2 aria-hidden="true" className="size-5" />
             </summary>
-            <nav aria-label="Планшетная навигация" className="absolute top-14 right-0 w-64 rounded-xl border border-border bg-background p-2 shadow-lg">
+            <nav aria-label="Компактная навигация" className="absolute top-14 right-0 w-64 max-w-[calc(100vw-40px)] rounded-xl border border-border bg-background p-2 shadow-lg">
               {navigation.map(([label, href]) => (
                 <a key={href} href={href} onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="block rounded-lg px-4 py-3 text-sm font-semibold hover:bg-secondary focus-visible:outline-2 focus-visible:outline-primary">
                   {label}
                 </a>
               ))}
+              <button type="button" onClick={toggleTheme} className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold hover:bg-secondary md:hidden">
+                <IconMoon aria-hidden="true" className="size-4 dark:hidden" />
+                <IconSun aria-hidden="true" className="hidden size-4 dark:block" />
+                Переключить тему
+              </button>
             </nav>
           </details>
         </div>

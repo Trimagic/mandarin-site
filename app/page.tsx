@@ -51,6 +51,13 @@ const serviceDirections = [
 ];
 
 export default function HomePage() {
+  const { props: mobileHero } = getImageProps({
+    src: "/brand/hero-devices-platform-mobile.png",
+    alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
+    width: 921,
+    height: 1708,
+    sizes: "100vw",
+  });
   const { props: tabletHero } = getImageProps({
     src: "/brand/hero-devices-platform-tablet.png",
     alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
@@ -59,24 +66,24 @@ export default function HomePage() {
     sizes: "(min-width: 1024px) 928px, calc(100vw - 48px)",
   });
   return (
-    <div id="top" className="min-w-[768px] transition-colors">
+    <div id="top" className="min-w-[320px] overflow-x-clip transition-colors">
       <SiteHeader />
       <main>
         <section className="relative overflow-hidden">
-          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-6 pt-6 xl:grid-cols-[0.82fr_1.18fr] xl:gap-6 xl:px-12 xl:pb-10">
-            <div className="relative z-10 pt-2 pb-2 text-center xl:pt-8 xl:text-left">
-              <p className="mb-5 text-xs font-extrabold tracking-[0.14em] text-[#ef101c] uppercase dark:text-[#ff2533]">
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-5 pt-4 md:px-6 md:pt-6 xl:grid-cols-[0.82fr_1.18fr] xl:gap-6 xl:px-12 xl:pb-10">
+            <div className="relative z-10 min-w-0 pt-2 pb-2 text-left md:text-center xl:pt-8 xl:text-left">
+              <p className="mb-4 text-[11px] font-extrabold tracking-[0.06em] text-[#ef101c] uppercase md:mb-5 md:text-xs md:tracking-[0.14em] dark:text-[#ff2533]">
                 Ремонт техники в Борисове
               </p>
 
-              <h1 className="mx-auto max-w-[920px] text-[52px] leading-[1.05] font-extrabold tracking-[-0.055em] text-[#211a17] lg:text-[60px] xl:mx-0 xl:max-w-[590px] xl:text-[76px] xl:leading-[0.91] xl:tracking-[-0.07em] dark:text-[#fff7f0]">
+              <h1 className="mx-auto max-w-[920px] text-[clamp(44px,12vw,60px)] leading-[0.98] font-extrabold tracking-[-0.055em] text-[#211a17] md:text-[52px] md:leading-[1.05] lg:text-[60px] xl:mx-0 xl:max-w-[590px] xl:text-[76px] xl:leading-[0.91] xl:tracking-[-0.07em] dark:text-[#fff7f0]">
                 Техника
                 {" "}
-                <span className="text-[#f04a00] xl:block dark:text-[#ff6107]">
+                <span className="block text-[#f04a00] md:inline xl:block dark:text-[#ff6107]">
                   снова
                 </span>
                 {" "}
-                <span className="text-[#dc0822] xl:block dark:text-[#ef232e]">
+                <span className="block text-[#dc0822] md:inline xl:block dark:text-[#ef232e]">
                   работает
                 </span>
               </h1>
@@ -86,12 +93,12 @@ export default function HomePage() {
                 согласованием стоимости.
               </p>
 
-              <div className="mt-6 flex items-center justify-center gap-4 xl:mt-8 xl:justify-start">
+              <div className="mt-5 flex flex-col items-start gap-1 md:mt-6 md:flex-row md:items-center md:justify-center md:gap-4 xl:mt-8 xl:justify-start">
                 <a
                   href="tel:+375291506888"
                   className={cn(
                     buttonVariants({ variant: "brand", size: "xl" }),
-                    "h-14 bg-[#eb4900] px-6 text-sm text-white shadow-none hover:bg-[#d64000] dark:bg-[#f45500] dark:hover:bg-[#ff6508] has-data-[icon=inline-end]:pr-5",
+                    "h-12 w-full bg-[#eb4900] px-6 text-sm text-white shadow-none hover:bg-[#d64000] md:h-14 md:w-auto dark:bg-[#f45500] dark:hover:bg-[#ff6508] has-data-[icon=inline-end]:pr-5",
                   )}
                 >
                   Узнать стоимость
@@ -101,7 +108,7 @@ export default function HomePage() {
                   href="https://wa.me/375291506888"
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "xl" }),
-                    "h-14 px-6 text-sm text-[#f04a00] hover:bg-[#f04a00]/8 dark:text-[#ff6800] dark:hover:bg-[#ff6800]/10 has-data-[icon=inline-end]:pr-5",
+                    "h-11 px-0 text-sm text-[#f04a00] hover:bg-[#f04a00]/8 md:h-14 md:px-6 dark:text-[#ff6800] dark:hover:bg-[#ff6800]/10 has-data-[icon=inline-end]:pr-0 md:has-data-[icon=inline-end]:pr-5",
                   )}
                 >
                   Написать мастеру
@@ -109,7 +116,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="mt-7 flex items-center justify-center divide-x divide-[#ff6a00]/35 xl:mt-12 xl:justify-start dark:divide-[#ff7a18]/45 [&>div]:px-5 [&>div:first-child]:pl-0 [&>div:last-child]:pr-0">
+              <div className="mt-7 hidden items-center justify-center divide-x divide-[#ff6a00]/35 md:flex xl:mt-12 xl:justify-start dark:divide-[#ff7a18]/45 [&>div]:px-5 [&>div:first-child]:pl-0 [&>div:last-child]:pr-0">
                 <TrustItem icon={<IconClock />} label="От 20 минут" />
                 <TrustItem
                   icon={<IconShieldCheck />}
@@ -119,8 +126,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative mx-auto -mt-4 flex w-full max-w-[928px] items-center justify-center xl:mx-0 xl:mt-0 xl:max-w-none xl:justify-end">
-              <div className="absolute top-[14%] left-[4%] z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 xl:top-10 xl:left-3 xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810]">
+            <div className="relative mx-auto mt-2 flex w-full max-w-[928px] items-center justify-center md:-mt-4 xl:mx-0 xl:mt-0 xl:max-w-none xl:justify-end">
+              <div className="absolute top-2 left-0 z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 md:top-[14%] md:left-[4%] xl:top-10 xl:left-3 xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810]">
                 <p className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">
                   Диагностика при
                   <br />
@@ -134,7 +141,8 @@ export default function HomePage() {
                   />
                 </span>
               </div>
-              <picture className="relative z-10 block w-full xl:w-[760px] xl:shrink-0">
+              <picture className="relative z-10 -mx-5 block w-[calc(100%+40px)] shrink-0 md:mx-0 md:w-full xl:w-[760px] xl:shrink-0">
+                <source media="(max-width: 767px)" srcSet={mobileHero.srcSet} sizes={mobileHero.sizes} width={921} height={1708} />
                 <source media="(max-width: 1279px)" srcSet={tabletHero.srcSet} sizes={tabletHero.sizes} width={1536} height={1024} />
                 <Image
                 src="/brand/hero-devices-platform.png"
@@ -142,18 +150,23 @@ export default function HomePage() {
                 width={1441}
                 height={1091}
                 sizes="(min-width: 1280px) 760px, calc(100vw - 48px)"
-                className="h-auto w-full object-contain"
+                className="aspect-square h-auto w-full object-cover object-[center_57%] md:aspect-auto md:object-contain"
                 loading="eager"
                 fetchPriority="high"
               />
               </picture>
+            </div>
+            <div className="relative z-20 -mt-4 mb-6 divide-y divide-dotted divide-[#ded8d2] rounded-xl border border-[#ece5df] bg-[#fffefd] px-4 md:hidden dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e] [&>div]:py-3 [&_span:first-child]:bg-transparent [&_span:first-child]:text-current [&_svg]:size-6">
+              <TrustItem icon={<IconClock />} label="От 20 минут" />
+              <TrustItem icon={<IconShieldCheck />} label="Гарантия до года" />
+              <TrustItem icon={<IconReceipt />} label="Цена до ремонта" />
             </div>
           </div>
         </section>
         <section
           id="services"
           aria-labelledby="services-heading"
-          className="relative z-20 mx-auto -mt-[104px] w-full max-w-[1440px] scroll-mt-24 px-6 pb-10 xl:-mt-16 xl:px-12"
+          className="relative z-20 mx-auto w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:-mt-[104px] md:px-6 xl:-mt-16 xl:px-12"
         >
           <h2 id="services-heading" className="sr-only">
             Основные направления ремонта
