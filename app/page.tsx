@@ -9,6 +9,7 @@ import {
   IconDeviceMobile,
   IconReceipt,
   IconShieldCheck,
+  IconStethoscope,
 } from "@tabler/icons-react";
 
 import { SiteHeader } from "@/components/site/site-header";
@@ -110,11 +111,25 @@ export default function HomePage() {
             </div>
 
             <div className="relative flex items-center justify-end">
+              <div className="absolute top-10 left-3 z-20 flex items-center gap-4 rounded-xl border border-[#eee7df] bg-[#fffefd] px-5 py-4 dark:border-[#78502d] dark:bg-[#211810]">
+                <p className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">
+                  Диагностика при
+                  <br />
+                  ремонте — бесплатно
+                </p>
+                <span className="grid size-12 shrink-0 place-items-center rounded-full border border-[#7bb64b]/60 text-[#65a832] dark:border-[#83af3f]/50 dark:text-[#8ab943]">
+                  <IconStethoscope
+                    aria-hidden="true"
+                    stroke={1.5}
+                    className="size-7"
+                  />
+                </span>
+              </div>
               <Image
                 src="/brand/hero-devices-platform.png"
                 alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
-                width={1426}
-                height={1103}
+                width={1441}
+                height={1091}
                 sizes="(min-width: 1280px) 760px"
                 className="relative z-10 h-auto w-[760px] max-w-none object-contain"
                 priority
@@ -131,26 +146,28 @@ export default function HomePage() {
             Основные направления ремонта
           </h2>
           <div className="grid grid-cols-4 gap-4">
-            {serviceDirections.map(({ title, description, icon: Icon, color }) => (
-              <article
-                key={title}
-                className="flex min-h-44 items-start gap-5 rounded-xl border border-[#ece5df] bg-[#fffefd] p-7 dark:border-[#46301f] dark:bg-[#15110e]"
-              >
-                <Icon
-                  aria-hidden="true"
-                  stroke={1.5}
-                  className={cn("mt-1 size-11 shrink-0", color)}
-                />
-                <div>
-                  <h3 className="max-w-40 text-lg leading-6 font-bold tracking-[-0.025em] text-[#171717] dark:text-[#fff7f0]">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
-                    {description}
-                  </p>
-                </div>
-              </article>
-            ))}
+            {serviceDirections.map(
+              ({ title, description, icon: Icon, color }) => (
+                <article
+                  key={title}
+                  className="flex min-h-44 items-start gap-5 rounded-xl border border-[#ece5df] bg-[#fffefd] p-7 dark:border-[#46301f] dark:bg-[#15110e]"
+                >
+                  <Icon
+                    aria-hidden="true"
+                    stroke={1.5}
+                    className={cn("mt-1 size-11 shrink-0", color)}
+                  />
+                  <div>
+                    <h3 className="max-w-40 text-lg leading-6 font-bold tracking-[-0.025em] text-[#171717] dark:text-[#fff7f0]">
+                      {title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
+                      {description}
+                    </p>
+                  </div>
+                </article>
+              ),
+            )}
           </div>
         </section>
         <DeviceProblems />
