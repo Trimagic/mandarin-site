@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import {
   IconArrowRight,
   IconBrandWindows,
@@ -51,33 +51,42 @@ const serviceDirections = [
 ];
 
 export default function HomePage() {
+  const { props: tabletHero } = getImageProps({
+    src: "/brand/hero-devices-platform-tablet.png",
+    alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
+    width: 1536,
+    height: 1024,
+    sizes: "(min-width: 1024px) 928px, calc(100vw - 48px)",
+  });
   return (
-    <div id="top" className="min-w-[1280px] transition-colors">
+    <div id="top" className="min-w-[768px] transition-colors">
       <SiteHeader />
       <main>
         <section className="relative overflow-hidden">
-          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-[0.82fr_1.18fr] items-start gap-6 px-12 pt-6 pb-10">
-            <div className="relative z-10 pt-8 pb-2">
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-6 pt-6 xl:grid-cols-[0.82fr_1.18fr] xl:gap-6 xl:px-12 xl:pb-10">
+            <div className="relative z-10 pt-2 pb-2 text-center xl:pt-8 xl:text-left">
               <p className="mb-5 text-xs font-extrabold tracking-[0.14em] text-[#ef101c] uppercase dark:text-[#ff2533]">
                 Ремонт техники в Борисове
               </p>
 
-              <h1 className="max-w-[590px] text-[76px] leading-[0.91] font-extrabold tracking-[-0.07em] text-[#211a17] dark:text-[#fff7f0]">
+              <h1 className="mx-auto max-w-[920px] text-[52px] leading-[1.05] font-extrabold tracking-[-0.055em] text-[#211a17] lg:text-[60px] xl:mx-0 xl:max-w-[590px] xl:text-[76px] xl:leading-[0.91] xl:tracking-[-0.07em] dark:text-[#fff7f0]">
                 Техника
-                <span className="block text-[#f04a00] dark:text-[#ff6107]">
+                {" "}
+                <span className="text-[#f04a00] xl:block dark:text-[#ff6107]">
                   снова
                 </span>
-                <span className="block text-[#dc0822] dark:text-[#ef232e]">
+                {" "}
+                <span className="text-[#dc0822] xl:block dark:text-[#ef232e]">
                   работает
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-[510px] text-[17px] leading-7 text-[#6f625c] dark:text-[#c5b8b1]">
+              <p className="mx-auto mt-5 max-w-[560px] text-base leading-7 text-[#6f625c] xl:mx-0 xl:mt-7 xl:max-w-[510px] xl:text-[17px] dark:text-[#c5b8b1]">
                 Ремонт телефонов, ноутбуков и компьютеров с предварительным
                 согласованием стоимости.
               </p>
 
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-6 flex items-center justify-center gap-4 xl:mt-8 xl:justify-start">
                 <a
                   href="tel:+375291506888"
                   className={cn(
@@ -100,7 +109,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="mt-12 flex items-center divide-x divide-[#ff6a00]/35 dark:divide-[#ff7a18]/45 [&>div]:px-5 [&>div:first-child]:pl-0 [&>div:last-child]:pr-0">
+              <div className="mt-7 flex items-center justify-center divide-x divide-[#ff6a00]/35 xl:mt-12 xl:justify-start dark:divide-[#ff7a18]/45 [&>div]:px-5 [&>div:first-child]:pl-0 [&>div:last-child]:pr-0">
                 <TrustItem icon={<IconClock />} label="От 20 минут" />
                 <TrustItem
                   icon={<IconShieldCheck />}
@@ -110,8 +119,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative flex items-center justify-end">
-              <div className="absolute top-10 left-3 z-20 flex items-center gap-4 rounded-xl border border-[#eee7df] bg-[#fffefd] px-5 py-4 dark:border-[#78502d] dark:bg-[#211810]">
+            <div className="relative mx-auto -mt-4 flex w-full max-w-[928px] items-center justify-center xl:mx-0 xl:mt-0 xl:max-w-none xl:justify-end">
+              <div className="absolute top-[14%] left-[4%] z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 xl:top-10 xl:left-3 xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810]">
                 <p className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">
                   Диагностика при
                   <br />
@@ -125,27 +134,31 @@ export default function HomePage() {
                   />
                 </span>
               </div>
-              <Image
+              <picture className="relative z-10 block w-full xl:w-[760px] xl:shrink-0">
+                <source media="(max-width: 1279px)" srcSet={tabletHero.srcSet} sizes={tabletHero.sizes} width={1536} height={1024} />
+                <Image
                 src="/brand/hero-devices-platform.png"
                 alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
                 width={1441}
                 height={1091}
-                sizes="(min-width: 1280px) 760px"
-                className="relative z-10 h-auto w-[760px] max-w-none object-contain"
-                priority
+                sizes="(min-width: 1280px) 760px, calc(100vw - 48px)"
+                className="h-auto w-full object-contain"
+                loading="eager"
+                fetchPriority="high"
               />
+              </picture>
             </div>
           </div>
         </section>
         <section
           id="services"
           aria-labelledby="services-heading"
-          className="relative z-20 mx-auto -mt-16 w-full max-w-[1440px] scroll-mt-24 px-12 pb-10"
+          className="relative z-20 mx-auto -mt-[104px] w-full max-w-[1440px] scroll-mt-24 px-6 pb-10 xl:-mt-16 xl:px-12"
         >
           <h2 id="services-heading" className="sr-only">
             Основные направления ремонта
           </h2>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
             {serviceDirections.map(
               ({ title, description, icon: Icon, color }) => (
                 <article

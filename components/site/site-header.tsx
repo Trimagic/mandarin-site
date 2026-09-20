@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { IconMoon, IconSun } from "@tabler/icons-react";
+import { IconMenu2, IconMoon, IconSun } from "@tabler/icons-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -47,11 +47,11 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 min-w-[1280px] border-b border-[#eee4de] bg-[#fffaf6]/92 backdrop-blur-xl transition-colors dark:border-[#382922] dark:bg-[#120d0b]/92">
-      <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center px-12">
+    <header className="sticky top-0 z-50 border-b border-[#eee4de] bg-[#fffaf6]/92 backdrop-blur-xl transition-colors dark:border-[#382922] dark:bg-[#120d0b]/92">
+      <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center px-6 xl:px-12">
         <Brand />
 
-        <nav className="ml-20 flex items-center gap-8" aria-label="Основная навигация">
+        <nav className="ml-20 hidden items-center gap-8 xl:flex" aria-label="Основная навигация">
           {navigation.map(([label, href]) => (
             <Link
               key={href}
@@ -81,11 +81,23 @@ export function SiteHeader() {
             href="tel:+375291506888"
             className={cn(
               buttonVariants({ variant: "brand-outline", size: "xl" }),
-              "h-11 px-5 dark:border-[#ff7a18]/55 dark:bg-transparent dark:text-[#fff7f0] dark:hover:bg-[#ff7a18]/12 dark:hover:text-[#ff9a3d]",
+              "hidden h-11 px-5 xl:inline-flex dark:border-[#ff7a18]/55 dark:bg-transparent dark:text-[#fff7f0] dark:hover:bg-[#ff7a18]/12 dark:hover:text-[#ff9a3d]",
             )}
           >
             Записаться
           </a>
+          <details className="group relative xl:hidden">
+            <summary aria-label="Открыть меню" className="grid size-11 cursor-pointer list-none place-items-center rounded-xl border border-[#eadbd1] text-[#443a35] focus-visible:outline-2 focus-visible:outline-primary dark:border-[#49352d] dark:text-[#fff7f0] [&::-webkit-details-marker]:hidden">
+              <IconMenu2 aria-hidden="true" className="size-5" />
+            </summary>
+            <nav aria-label="Планшетная навигация" className="absolute top-14 right-0 w-64 rounded-xl border border-border bg-background p-2 shadow-lg">
+              {navigation.map(([label, href]) => (
+                <a key={href} href={href} onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="block rounded-lg px-4 py-3 text-sm font-semibold hover:bg-secondary focus-visible:outline-2 focus-visible:outline-primary">
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </details>
         </div>
       </div>
     </header>

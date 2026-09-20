@@ -11,10 +11,10 @@ const devices = [
 
 export function DeviceProblems() {
   return (
-    <section aria-labelledby="problems-heading" className="mx-auto w-full max-w-[1440px] px-12 pb-10">
-      <div className="rounded-xl border border-[#ece5df] bg-[#fffefd] px-7 py-7 dark:border-[#46301f] dark:bg-[#15110e]">
-        <Tabs.Root defaultValue="phone" className="relative pr-64">
-          <h2 id="problems-heading" className="text-[28px] leading-tight font-extrabold tracking-[-0.035em] text-[#171717] dark:text-[#fff7f0]">
+    <section aria-labelledby="problems-heading" className="mx-auto w-full max-w-[1440px] px-6 pb-10 xl:px-12">
+      <div className="rounded-xl border border-[#ece5df] bg-[#fffefd] p-6 xl:p-7 dark:border-[#46301f] dark:bg-[#15110e]">
+        <Tabs.Root defaultValue="phone" className="relative pr-40 lg:pr-48 xl:pr-64">
+          <h2 id="problems-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
             Что случилось с техникой?
           </h2>
           <Tabs.List aria-label="Тип техники" className="mt-5 flex gap-8 border-b border-[#e9e6e2] dark:border-[#46301f]">
@@ -30,13 +30,13 @@ export function DeviceProblems() {
           </Tabs.List>
           {devices.map((device) => (
             <Tabs.Panel key={device.id} value={device.id} className="pt-6 outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#ff6800]">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-3 xl:grid-cols-3 xl:gap-4">
                 {device.problems.map((problem) => (
                   <a
                     key={problem}
                     href={`https://wa.me/375291506888?text=${encodeURIComponent(`Здравствуйте! ${device.label}: ${problem.toLowerCase()}. Подскажите, пожалуйста, по ремонту.`)}`}
                     aria-label={`${device.label}: ${problem}. Написать мастеру в WhatsApp`}
-                    className="flex min-h-14 items-center justify-between gap-3 rounded-lg border border-[#e9e6e2] px-4 py-3 text-sm text-[#414149] transition-colors hover:border-[#ff6800] hover:bg-[#ff6800]/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6800] dark:border-[#3b2d22] dark:text-[#e3d9ce]"
+                    className="flex min-h-14 min-w-0 items-center justify-between gap-2 rounded-lg border border-[#e9e6e2] px-3 py-3 text-sm text-[#414149] transition-colors hover:border-[#ff6800] hover:bg-[#ff6800]/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6800] xl:gap-3 xl:px-4 dark:border-[#3b2d22] dark:text-[#e3d9ce]"
                   >
                     {problem}
                     <IconChevronRight aria-hidden="true" className="size-4 shrink-0 text-[#ff4b00] dark:text-[#ff6800]" />
@@ -54,8 +54,8 @@ export function DeviceProblems() {
 
 function DeviceIllustration({ device }: { device: string }) {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex w-56 items-center justify-center">
-      <svg viewBox="0 0 220 240" className="h-60 w-56 text-[#171717] dark:text-[#cec5bb]" fill="none">
+    <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex w-36 items-center justify-center lg:w-44 xl:w-56">
+      <svg viewBox="0 0 220 240" className="h-auto w-full text-[#171717] dark:text-[#cec5bb]" fill="none">
         <circle cx="105" cy="127" r="76" className="fill-[#fff0e5] dark:fill-[#24170f]" />
         {Array.from({ length: 20 }, (_, i) => (
           <path key={i} d={`M${157 + (i % 4) * 14} ${49 + Math.floor(i / 4) * 14}h4m-2-2v4`} stroke="#ff6800" strokeOpacity=".35" />

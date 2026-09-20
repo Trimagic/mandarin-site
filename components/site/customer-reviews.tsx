@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { IconChevronRight, IconStarFilled } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
 
 // Demonstration copy from the design; replace with verified reviews before publishing.
 const reviews = [
@@ -23,26 +27,27 @@ const reviews = [
 ];
 
 export function CustomerReviews() {
+  const [page, setPage] = useState(0);
   return (
-    <section id="reviews" aria-labelledby="reviews-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-12 pb-10">
-      <div className="rounded-xl border border-[#ece5df] bg-[#fffefd] p-6 dark:border-[#46301f] dark:bg-[#15110e]">
+    <section id="reviews" aria-labelledby="reviews-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-6 pb-10 xl:px-12">
+      <div className="xl:rounded-xl xl:border xl:border-[#ece5df] xl:bg-[#fffefd] xl:p-6 xl:dark:border-[#46301f] xl:dark:bg-[#15110e]">
         <div className="mb-5 flex items-center justify-between gap-6">
-          <h2 id="reviews-heading" className="text-[28px] leading-tight font-extrabold tracking-[-0.035em] text-[#171717] dark:text-[#fff7f0]">
+          <h2 id="reviews-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
             Отзывы клиентов
           </h2>
           <button
             type="button"
             disabled
             title="Страница отзывов появится позже"
-            className="flex items-center gap-3 text-sm font-semibold text-[#f04a00] disabled:cursor-default dark:text-[#ff6800]"
+            className="hidden items-center gap-3 text-sm font-semibold text-[#f04a00] disabled:cursor-default xl:flex dark:text-[#ff6800]"
           >
             Смотреть все отзывы
             <IconChevronRight aria-hidden="true" className="size-4" />
           </button>
         </div>
-        <div className="grid grid-cols-3 gap-6">
-          {reviews.map((review) => (
-            <figure key={review.name} className="rounded-[6px] border border-[#e9e6e2] p-5 dark:border-[#3b2d22]">
+        <div id="review-cards" className="grid grid-cols-2 gap-4 xl:grid-cols-3 xl:gap-6">
+          {reviews.map((review, index) => (
+            <figure key={review.name} className={cn("min-w-0 rounded-[6px] border border-[#e9e6e2] bg-[#fffefd] p-5 dark:border-[#3b2d22] dark:bg-[#15110e]", (index < page || index > page + 1) && "hidden xl:block")}>
               <figcaption className="flex items-center justify-between gap-4">
                 <span className="text-sm font-semibold text-[#171717] dark:text-[#fff7f0]">{review.name}</span>
                 <time dateTime={review.dateTime} className="text-xs text-[#898589] dark:text-[#a79b8f]">{review.date}</time>
@@ -56,7 +61,23 @@ export function CustomerReviews() {
             </figure>
           ))}
         </div>
-        <p className="mt-3 text-xs text-[#898589] dark:text-[#a79b8f]">Примеры отзывов из макета.</p>
+        <div className="mt-2 flex justify-center xl:hidden" role="group" aria-label="Переключение отзывов">
+          {[0, 1].map((index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setPage(index)}
+              aria-label={index === 0 ? "Отзывы Алексея и Ирины" : "Отзывы Ирины и Дмитрия"}
+              aria-pressed={page === index}
+              aria-controls="review-cards"
+              className="grid size-11 place-items-center rounded-full focus-visible:outline-2 focus-visible:outline-[#ff6800]"
+            >
+              <span className={cn("size-2.5 rounded-full", page === index ? "bg-[#ff4b00] dark:bg-[#ff6800]" : "bg-[#d5d3d1] dark:bg-[#655449]")} />
+            </button>
+          ))}
+        </div>
+        <p aria-live="polite" className="sr-only xl:hidden">Показаны отзывы {page + 1} и {page + 2} из {reviews.length}.</p>
+        <p className="mt-1 text-center text-xs text-[#898589] xl:mt-3 xl:text-left dark:text-[#a79b8f]">Примеры отзывов из макета.</p>
       </div>
     </section>
   );

@@ -11,10 +11,11 @@ const mapQuery = encodeURIComponent(`${address}, Беларусь`);
 
 export function ContactSection() {
   return (
-    <section id="contacts" aria-labelledby="contact-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-12 pb-10">
-      <div className="grid grid-cols-[1fr_1.05fr_1.1fr] items-stretch gap-6 rounded-xl border border-[#ece5df] bg-[#fffefd] p-5 dark:border-[#46301f] dark:bg-[#15110e]">
-        <div className="border-r border-[#e9e6e2] py-1 pr-6 dark:border-[#3b2d22]">
-          <h2 id="contact-heading" className="max-w-80 text-[28px] leading-tight font-extrabold tracking-[-0.035em] text-[#242833] dark:text-[#e2d3c2]">
+    <section id="contacts" aria-labelledby="contact-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-6 pb-10 xl:px-12">
+      <div className="grid grid-cols-1 items-stretch gap-3 xl:grid-cols-[1fr_1.05fr_1.1fr] xl:gap-6 xl:rounded-xl xl:border xl:border-[#ece5df] xl:bg-[#fffefd] xl:p-5 xl:dark:border-[#46301f] xl:dark:bg-[#15110e]">
+        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-5 rounded-xl border border-[#ece5df] bg-[#fffefd] p-5 xl:contents dark:border-[#46301f] dark:bg-[#15110e]">
+        <div className="min-w-0 border-r border-[#e9e6e2] py-1 pr-5 xl:pr-6 dark:border-[#3b2d22]">
+          <h2 id="contact-heading" className="max-w-80 text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#242833] xl:text-[28px] dark:text-[#e2d3c2]">
             Не знаете, что именно сломалось?
           </h2>
           <p className="mt-3 max-w-80 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
@@ -25,7 +26,7 @@ export function ContactSection() {
             <IconChevronRight aria-hidden="true" className="size-4" />
           </a>
         </div>
-        <div className="flex flex-col justify-center py-1">
+        <div className="flex min-w-0 flex-col justify-center py-1">
           <address className="space-y-5 text-sm not-italic">
             <div className="flex items-start gap-4">
               <IconMapPin aria-hidden="true" stroke={1.5} className="mt-0.5 size-6 shrink-0 text-[#54545d] dark:text-[#c5b8b1]" />
@@ -44,7 +45,7 @@ export function ContactSection() {
               </div>
             </div>
           </address>
-          <div className="mt-6 flex gap-2">
+          <div className="mt-5 flex flex-wrap gap-2 xl:mt-6 xl:flex-nowrap">
             <a href="viber://chat?number=%2B375291506888" className="inline-flex h-10 items-center justify-center gap-2 rounded-[6px] border border-[#9975e0]/60 px-3 text-xs font-medium text-[#8254d0] hover:bg-[#8254d0]/5 dark:text-[#b38bed]">
               <IconPhone aria-hidden="true" className="size-4" />Viber
             </a>
@@ -56,7 +57,8 @@ export function ContactSection() {
             </a>
           </div>
         </div>
-        <div className="relative min-h-56 overflow-hidden rounded-lg border border-[#e9e6e2] bg-[#f1eee8] dark:border-[#3b2d22]">
+        </div>
+        <div className="relative h-48 overflow-hidden rounded-lg border border-[#e9e6e2] bg-[#f1eee8] lg:h-56 xl:h-auto xl:min-h-56 dark:border-[#3b2d22]">
           <iframe
             title="Карта: Борисов, улица Чапаева, 34"
             src={`https://maps.google.com/maps?q=${mapQuery}&z=16&output=embed`}

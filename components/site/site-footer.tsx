@@ -22,15 +22,15 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto w-full max-w-[1440px] px-12 pb-6">
-      <div className="grid grid-cols-[1.35fr_0.9fr_0.9fr_0.95fr_1.25fr] gap-8 border-t border-[#e9e6e2] pt-7 dark:border-[#30251d]">
-        <div>
-          <a href="#top" aria-label="Mandarin Сервис — на главную" className="inline-flex items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800]">
+    <footer className="mx-auto w-full max-w-[1440px] px-6 pb-6 xl:px-12">
+      <div className="grid grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,1.2fr)] gap-4 border-t border-[#e9e6e2] pt-6 xl:grid-cols-[1.35fr_0.9fr_0.9fr_0.95fr_1.25fr] xl:gap-8 xl:pt-7 dark:border-[#30251d]">
+        <div className="min-w-0">
+          <a href="#top" aria-label="Mandarin Сервис — на главную" className="inline-flex items-center gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] xl:gap-3">
             <span aria-hidden="true" className="relative grid size-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(145deg,#ff9b2f,#ff5a0a_55%,#df1831)]">
               <span className="absolute -top-1 left-1/2 h-3 w-5 -translate-x-1/2 -rotate-12 rounded-[100%_0_100%_0] bg-[#5e9f35]" />
               <span className="mt-1 text-lg font-black text-white">M</span>
             </span>
-            <span className="leading-[0.95] font-extrabold tracking-[-0.035em]">
+            <span className="text-sm leading-[0.95] font-extrabold tracking-[-0.035em] xl:text-base">
               <span className="block text-[#e7550d]">Mandarin</span>
               <span className="block text-[#df2034]">Сервис</span>
             </span>
@@ -40,7 +40,7 @@ export function SiteFooter() {
           </p>
         </div>
         {columns.map((column) => (
-          <nav key={column.title} aria-label={`${column.title} — нижнее меню`}>
+          <nav key={column.title} aria-label={`${column.title} — нижнее меню`} className="min-w-0">
             <h2 className="mb-2 text-xs font-bold text-[#171717] dark:text-[#fff7f0]">{column.title}</h2>
             <ul className="space-y-1">
               {column.links.map(([label, href]) => (
@@ -51,16 +51,16 @@ export function SiteFooter() {
             </ul>
           </nav>
         ))}
-        <div className="text-right">
-          <a href="tel:+375291506888" className="whitespace-nowrap text-lg font-extrabold tracking-[-0.025em] text-[#171717] hover:text-[#f04a00] dark:text-[#e2d3c2] dark:hover:text-[#ff6800]">+375 29 150-68-88</a>
-          <div className="mt-4 flex justify-end gap-3">
+        <div className="min-w-0 text-right">
+          <a href="tel:+375291506888" className="whitespace-nowrap text-sm font-extrabold tracking-[-0.025em] text-[#171717] hover:text-[#f04a00] xl:text-lg dark:text-[#e2d3c2] dark:hover:text-[#ff6800]">+375 29 150-68-88</a>
+          <div className="mt-4 flex justify-end gap-2 xl:gap-3">
             <a href="https://t.me/+375291506888" aria-label="Написать в Telegram" className="grid size-8 place-items-center rounded-full bg-[#08a9e6] text-white transition-opacity hover:opacity-80"><IconBrandTelegram aria-hidden="true" className="size-5" /></a>
             <a href="https://wa.me/375291506888" aria-label="Написать в WhatsApp" className="grid size-8 place-items-center rounded-full bg-[#16bc39] text-white transition-opacity hover:opacity-80"><IconBrandWhatsapp aria-hidden="true" className="size-5" /></a>
             <a href="viber://chat?number=%2B375291506888" aria-label="Написать в Viber" className="grid size-8 place-items-center rounded-full bg-[#8054c7] text-white transition-opacity hover:opacity-80"><IconPhone aria-hidden="true" className="size-5" /></a>
           </div>
         </div>
       </div>
-      <div className="mt-6 flex items-center justify-between gap-6 text-xs text-[#898589] dark:text-[#a79b8f]">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-xs text-[#898589] dark:text-[#a79b8f]">
         <p>© Mandarin Сервис, {new Date().getFullYear()}</p>
         <p>ИП Павловский Н. А. <span aria-hidden="true" className="mx-3">·</span> УНП 691381798</p>
       </div>
