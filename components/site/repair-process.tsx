@@ -35,7 +35,7 @@ export function RepairProcess() {
     <section
       id="process"
       aria-labelledby="repair-process-heading"
-      className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-6 pb-10 xl:px-12"
+      className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:px-6 xl:px-12"
     >
       <h2
         id="repair-process-heading"
@@ -43,9 +43,10 @@ export function RepairProcess() {
       >
         Как проходит ремонт
       </h2>
-      <ol className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4 xl:mt-7 xl:grid-cols-4 xl:gap-8">
+      <ol className="mt-5 grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-4 xl:mt-7 xl:grid-cols-4 xl:gap-8">
         {steps.map(({ title, description, icon: Icon }, index) => (
           <li key={title} className="relative flex items-start gap-4 xl:block">
+            {index < steps.length - 1 && <span aria-hidden="true" className="absolute top-11 bottom-[-16px] left-[17px] border-l border-dotted border-[#ff9b72] md:hidden dark:border-[#75401d]" />}
             <div className="flex shrink-0 items-center gap-4 xl:gap-5">
               <span aria-hidden="true" className="grid size-9 shrink-0 place-items-center rounded-full bg-[#f04a00] text-lg font-bold text-white dark:bg-[#ff6107]">
                 {index + 1}

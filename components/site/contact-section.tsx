@@ -11,17 +11,17 @@ const mapQuery = encodeURIComponent(`${address}, Беларусь`);
 
 export function ContactSection() {
   return (
-    <section id="contacts" aria-labelledby="contact-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-6 pb-10 xl:px-12">
+    <section id="contacts" aria-labelledby="contact-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:px-6 xl:px-12">
       <div className="grid grid-cols-1 items-stretch gap-3 xl:grid-cols-[1fr_1.05fr_1.1fr] xl:gap-6 xl:rounded-xl xl:border xl:border-[#ece5df] xl:bg-[#fffefd] xl:p-5 xl:dark:border-[#46301f] xl:dark:bg-[#15110e]">
-        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-5 rounded-xl border border-[#ece5df] bg-[#fffefd] p-5 xl:contents dark:border-[#46301f] dark:bg-[#15110e]">
-        <div className="min-w-0 border-r border-[#e9e6e2] py-1 pr-5 xl:pr-6 dark:border-[#3b2d22]">
+        <div className="grid grid-cols-1 gap-5 rounded-xl border border-[#ece5df] bg-[#fffefd] p-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:p-5 xl:contents dark:border-[#46301f] dark:bg-[#15110e]">
+        <div className="min-w-0 border-b border-[#e9e6e2] pt-1 pb-5 md:border-r md:border-b-0 md:py-1 md:pr-5 xl:pr-6 dark:border-[#3b2d22]">
           <h2 id="contact-heading" className="max-w-80 text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#242833] xl:text-[28px] dark:text-[#e2d3c2]">
             Не знаете, что именно сломалось?
           </h2>
           <p className="mt-3 max-w-80 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
             Опишите проблему — подскажем решение и ориентируем по стоимости.
           </p>
-          <a href="https://wa.me/375291506888" className="mt-4 inline-flex h-12 items-center gap-5 rounded-[6px] bg-[#eb4900] px-5 text-sm font-semibold text-white hover:bg-[#d64000] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] dark:bg-[#f45500] dark:hover:bg-[#ff6508]">
+          <a href="https://wa.me/375291506888" className="mt-4 inline-flex h-12 w-full items-center justify-center gap-5 rounded-[6px] bg-[#eb4900] px-5 text-sm font-semibold text-white hover:bg-[#d64000] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] md:w-auto dark:bg-[#f45500] dark:hover:bg-[#ff6508]">
             Написать мастеру
             <IconChevronRight aria-hidden="true" className="size-4" />
           </a>
@@ -45,7 +45,7 @@ export function ContactSection() {
               </div>
             </div>
           </address>
-          <div className="mt-5 flex flex-wrap gap-2 xl:mt-6 xl:flex-nowrap">
+          <div className="mt-5 flex flex-wrap gap-2 max-md:[&>a]:flex-1 max-md:[&>a]:gap-1 max-md:[&>a]:px-2 xl:mt-6 xl:flex-nowrap">
             <a href="viber://chat?number=%2B375291506888" className="inline-flex h-10 items-center justify-center gap-2 rounded-[6px] border border-[#9975e0]/60 px-3 text-xs font-medium text-[#8254d0] hover:bg-[#8254d0]/5 dark:text-[#b38bed]">
               <IconPhone aria-hidden="true" className="size-4" />Viber
             </a>

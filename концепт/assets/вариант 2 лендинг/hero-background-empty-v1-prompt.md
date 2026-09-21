@@ -1,0 +1,5 @@
+# Пустой фон hero
+
+Инструмент: встроенный image_gen, редактирование исходного изображения пользователя.
+
+Precise object removal edit of supplied image. Remove ONLY the smartphone, the entire laptop/computer, the mandarin fruit and leaves, all logos/text on these objects, and all their cast/contact shadows and reflections. Seamlessly reconstruct the orange background surface behind them. Preserve EXACT original 1426x1103 canvas aspect ratio, framing, silhouette and position of orange polygon, all rounded corners, slanted left edge, diagonal lower-left edge, slightly slanted right side, bottom margin and top margin. Preserve existing orange hues, saturation, subtle texture, subtle technical cross/grid pattern at the right, gradient and illumination without adding glow. Do not enlarge, crop, stretch, rotate, redesign or reshape anything. Result is the identical empty orange hero backdrop with no objects or text. Outside the orange shape should be genuinely transparent alpha; checkerboard in reference represents transparency, do not bake checker squares into output. Keep outside contour identical. No new shadows or highlights.

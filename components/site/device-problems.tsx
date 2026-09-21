@@ -11,13 +11,13 @@ const devices = [
 
 export function DeviceProblems() {
   return (
-    <section aria-labelledby="problems-heading" className="mx-auto w-full max-w-[1440px] px-6 pb-10 xl:px-12">
-      <div className="rounded-xl border border-[#ece5df] bg-[#fffefd] p-6 xl:p-7 dark:border-[#46301f] dark:bg-[#15110e]">
-        <Tabs.Root defaultValue="phone" className="relative pr-40 lg:pr-48 xl:pr-64">
+    <section aria-labelledby="problems-heading" className="mx-auto w-full max-w-[1440px] px-5 pb-10 md:px-6 xl:px-12">
+      <div className="rounded-xl border border-[#ece5df] bg-[#fffefd] p-4 md:p-6 xl:p-7 dark:border-[#46301f] dark:bg-[#15110e]">
+        <Tabs.Root defaultValue="phone" className="relative md:pr-40 lg:pr-48 xl:pr-64">
           <h2 id="problems-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
             Что случилось с техникой?
           </h2>
-          <Tabs.List aria-label="Тип техники" className="mt-5 flex gap-8 border-b border-[#e9e6e2] dark:border-[#46301f]">
+          <Tabs.List aria-label="Тип техники" className="mt-5 flex justify-between gap-2 border-b border-[#e9e6e2] md:justify-start md:gap-8 dark:border-[#46301f]">
             {devices.map((device) => (
               <Tabs.Tab
                 key={device.id}
@@ -30,7 +30,7 @@ export function DeviceProblems() {
           </Tabs.List>
           {devices.map((device) => (
             <Tabs.Panel key={device.id} value={device.id} className="pt-6 outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#ff6800]">
-              <div className="grid grid-cols-2 gap-3 xl:grid-cols-3 xl:gap-4">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 xl:grid-cols-3 xl:gap-4">
                 {device.problems.map((problem) => (
                   <a
                     key={problem}
@@ -54,7 +54,7 @@ export function DeviceProblems() {
 
 function DeviceIllustration({ device }: { device: string }) {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex w-36 items-center justify-center lg:w-44 xl:w-56">
+    <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 hidden w-36 items-center justify-center md:flex lg:w-44 xl:w-56">
       <svg viewBox="0 0 220 240" className="h-auto w-full text-[#171717] dark:text-[#cec5bb]" fill="none">
         <circle cx="105" cy="127" r="76" className="fill-[#fff0e5] dark:fill-[#24170f]" />
         {Array.from({ length: 20 }, (_, i) => (
