@@ -20,7 +20,7 @@ export type DirectionPageData = {
     accent: string;
     description: string;
     image: { src: string; alt: string };
-    backgrounds: { desktop: string; mobile: string };
+    backgrounds: { desktop: string; tablet: string; mobile: string };
     badge?: string;
     primaryAction: PageLink;
     secondaryAction: PageLink;

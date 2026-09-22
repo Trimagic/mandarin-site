@@ -8,7 +8,7 @@ export const computerRepairData: DirectionPageData = {
     title: "Ремонт и модернизация компьютеров", accent: "в Борисове",
     description: "От диагностики до сборки ПК под ваши задачи. Согласуем стоимость и комплектующие до начала работ.",
     image: { src: "/hero/computer-repair-cutout-v1.png", alt: "Системный блок, монитор, клавиатура и мандарин" },
-    backgrounds: { desktop: "/backgrounds/hero-background-empty-v1.png", mobile: "/backgrounds/hero-background-mobile-v1.png" },
+    backgrounds: { desktop: "/backgrounds/hero-background-empty-v1.png", tablet: "/backgrounds/hero-background-wide-draft.png", mobile: "/backgrounds/hero-background-mobile-v1.png" },
     badge: "Диагностика перед ремонтом",
     primaryAction: { label: "Узнать стоимость", href: "#services" },
     secondaryAction: { label: "Написать мастеру", href: "https://wa.me/375291506888" },

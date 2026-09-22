@@ -18,6 +18,7 @@ export const phoneRepairData = {
     image: { src: "/hero/phone-repair-cutout-v1.png", alt: "Два смартфона и мандарин" },
     backgrounds: {
       desktop: "/backgrounds/hero-background-empty-v1.png",
+      tablet: "/backgrounds/hero-background-wide-draft.png",
       mobile: "/backgrounds/hero-background-mobile-v1.png",
     },
     badge: "Диагностика перед ремонтом",
