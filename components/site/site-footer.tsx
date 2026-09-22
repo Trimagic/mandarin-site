@@ -1,22 +1,23 @@
+import Link from "next/link";
 import { IconBrandTelegram, IconBrandWhatsapp, IconChevronRight, IconPhone } from "@tabler/icons-react";
 
 const columns = [
   { title: "Услуги", links: [
-    ["Ремонт телефонов", "#services"],
-    ["Ремонт ноутбуков", "#services"],
-    ["Ремонт компьютеров", "#services"],
-    ["Установка Windows", "#prices"],
-    ["Все услуги и цены", "#prices"],
+    ["Ремонт телефонов", "/remont-telefonov/"],
+    ["Ремонт ноутбуков", "/#services"],
+    ["Ремонт компьютеров", "/#services"],
+    ["Установка Windows", "/#prices"],
+    ["Все услуги и цены", "/#prices"],
   ] },
   { title: "Информация", links: [
-    ["Как проходит ремонт", "#process"],
-    ["Гарантия", "#warranty"],
-    ["Отзывы", "#reviews"],
+    ["Как проходит ремонт", "/#process"],
+    ["Гарантия", "/#warranty"],
+    ["Отзывы", "/#reviews"],
   ] },
   { title: "Компания", links: [
-    ["О нас", "#warranty"],
-    ["Контакты", "#contacts"],
-    ["Адрес и режим работы", "#contacts"],
+    ["О нас", "/#warranty"],
+    ["Контакты", "/#contacts"],
+    ["Адрес и режим работы", "/#contacts"],
   ] },
 ];
 
@@ -25,7 +26,7 @@ export function SiteFooter() {
     <footer className="mx-auto w-full max-w-[1440px] px-5 pb-6 md:px-6 xl:px-12">
       <div className="grid grid-cols-1 gap-4 border-t border-[#e9e6e2] pt-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,1.2fr)] xl:grid-cols-[1.35fr_0.9fr_0.9fr_0.95fr_1.25fr] xl:gap-8 xl:pt-7 dark:border-[#30251d]">
         <div className="min-w-0">
-          <a href="#top" aria-label="Mandarin Сервис — на главную" className="inline-flex items-center gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] xl:gap-3">
+          <Link href="/" aria-label="Mandarin Сервис — на главную" className="inline-flex items-center gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] xl:gap-3">
             <span aria-hidden="true" className="relative grid size-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(145deg,#ff9b2f,#ff5a0a_55%,#df1831)]">
               <span className="absolute -top-1 left-1/2 h-3 w-5 -translate-x-1/2 -rotate-12 rounded-[100%_0_100%_0] bg-[#5e9f35]" />
               <span className="mt-1 text-lg font-black text-white">M</span>
@@ -34,7 +35,7 @@ export function SiteFooter() {
               <span className="block text-[#e7550d]">Mandarin</span>
               <span className="block text-[#df2034]">Сервис</span>
             </span>
-          </a>
+          </Link>
           <p className="mt-3 max-w-80 text-sm leading-5 text-[#79757a] md:max-w-56 md:text-xs dark:text-[#a79b8f]">
             Профессиональный ремонт телефонов, ноутбуков и компьютеров в Борисове.
           </p>

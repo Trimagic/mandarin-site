@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 function Brand() {
   return (
-    <Link href="#top" className="flex items-center gap-3" aria-label="Mandarin Сервис — на главную">
+    <Link href="/" className="flex items-center gap-3" aria-label="Mandarin Сервис — на главную">
       <span className="relative grid size-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(145deg,#ff9b2f,#ff5a0a_55%,#df1831)] shadow-[0_8px_22px_-10px_rgba(220,69,0,.9)]">
         <span className="absolute -top-1 left-1/2 h-3 w-5 -translate-x-1/2 -rotate-12 rounded-[100%_0_100%_0] bg-[#5e9f35]" />
         <span className="mt-1 text-lg font-black text-white">M</span>
@@ -30,7 +30,7 @@ const navigation = [
   ["Контакты", "#contacts"],
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("mandarin-theme");
     const useDarkTheme = savedTheme
@@ -55,7 +55,7 @@ export function SiteHeader() {
           {navigation.map(([label, href]) => (
             <Link
               key={href}
-              href={href}
+              href={homeLinks ? `/${href}` : href}
               className="text-[13px] font-semibold text-[#5d514b] transition-colors hover:text-primary dark:text-[#c7b9b1] dark:hover:text-[#ff8a32]"
             >
               {label}
@@ -93,7 +93,7 @@ export function SiteHeader() {
             </summary>
             <nav aria-label="Компактная навигация" className="absolute top-14 right-0 w-64 max-w-[calc(100vw-40px)] rounded-xl border border-border bg-background p-2 shadow-lg">
               {navigation.map(([label, href]) => (
-                <a key={href} href={href} onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="block rounded-lg px-4 py-3 text-sm font-semibold hover:bg-secondary focus-visible:outline-2 focus-visible:outline-primary">
+                <a key={href} href={homeLinks ? `/${href}` : href} onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="block rounded-lg px-4 py-3 text-sm font-semibold hover:bg-secondary focus-visible:outline-2 focus-visible:outline-primary">
                   {label}
                 </a>
               ))}
