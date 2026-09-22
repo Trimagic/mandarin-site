@@ -7,6 +7,7 @@ const devices = [
   { id: "phone", label: "Телефон", problems: ["Не включается", "Разбит экран", "Быстро разряжается", "Не заряжается", "Проблемы со звуком", "Попала вода"] },
   { id: "laptop", label: "Ноутбук", problems: ["Не включается", "Разбит экран", "Перегревается", "Не заряжается", "Тормозит", "Залили жидкостью"] },
   { id: "desktop", label: "Компьютер", problems: ["Не включается", "Нет изображения", "Перегревается", "Перезагружается", "Тормозит", "Синий экран"] },
+  { id: "tv", label: "Телевизор", problems: ["Не включается", "Есть звук, нет изображения", "Полосы на экране", "Нет звука", "Сам выключается", "Зависает и перезагружается"] },
 ];
 
 export function DeviceProblems() {
@@ -17,7 +18,7 @@ export function DeviceProblems() {
           <h2 id="problems-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
             Что случилось с техникой?
           </h2>
-          <Tabs.List aria-label="Тип техники" className="mt-5 flex justify-between gap-2 border-b border-[#e9e6e2] md:justify-start md:gap-8 dark:border-[#46301f]">
+          <Tabs.List aria-label="Тип техники" className="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-b border-[#e9e6e2] md:gap-x-6 xl:gap-x-8 dark:border-[#46301f]">
             {devices.map((device) => (
               <Tabs.Tab
                 key={device.id}
@@ -68,7 +69,11 @@ function DeviceIllustration({ device }: { device: string }) {
         ) : (
           <>
             <rect x="29" y="57" width="166" height="111" rx="8" className="fill-[#fffefd] dark:fill-[#15110e]" stroke="currentColor" strokeWidth="3" />
-            {device === "laptop" ? <path d="M29 169 14 184h196l-15-15M91 184h42" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /> : <path d="M112 169v26m-34 0h68" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />}
+            {device === "laptop" ? <path d="M29 169 14 184h196l-15-15M91 184h42" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /> : device === "tv" ? <>
+              <path d="m62 169-12 19m112-19 12 19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+              <rect x="36" y="64" width="152" height="95" rx="3" stroke="currentColor" strokeOpacity=".2" />
+              <circle cx="112" cy="164" r="2" fill="#ff6800" />
+            </> : <path d="M112 169v26m-34 0h68" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />}
           </>
         )}
         <text x="112" y="132" textAnchor="middle" fill="#ef232e" fontSize="48" fontWeight="800">?</text>

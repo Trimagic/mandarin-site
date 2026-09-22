@@ -1,17 +1,14 @@
 import Image, { getImageProps } from "next/image";
 import {
   IconArrowRight,
-  IconBrandWindows,
   IconChevronRight,
   IconClock,
-  IconDeviceDesktop,
-  IconDeviceLaptop,
-  IconDeviceMobile,
   IconReceipt,
   IconShieldCheck,
   IconStethoscope,
 } from "@tabler/icons-react";
 
+import { HomeDirections } from "@/components/site/home-directions";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { DeviceProblems } from "@/components/site/device-problems";
@@ -22,33 +19,6 @@ import { CustomerReviews } from "@/components/site/customer-reviews";
 import { ContactSection } from "@/components/site/contact-section";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const serviceDirections = [
-  {
-    title: "Ремонт телефонов",
-    description: "Диагностика и ремонт смартфонов любых брендов",
-    icon: IconDeviceMobile,
-    color: "text-[#ff4b00] dark:text-[#ff6800]",
-  },
-  {
-    title: "Ремонт ноутбуков",
-    description: "Любая сложность, включая залитие и замену комплектующих",
-    icon: IconDeviceLaptop,
-    color: "text-[#ef172c] dark:text-[#ff293a]",
-  },
-  {
-    title: "Ремонт компьютеров",
-    description: "Настольные ПК, моноблоки и сборка под ваши задачи",
-    icon: IconDeviceDesktop,
-    color: "text-[#ff4b00] dark:text-[#ff6800]",
-  },
-  {
-    title: "Установка Windows",
-    description: "Установка и настройка Windows, драйверов и программ",
-    icon: IconBrandWindows,
-    color: "text-[#009cff] dark:text-[#00a6ff]",
-  },
-];
 
 export default function HomePage() {
   const { props: mobileHero } = getImageProps({
@@ -70,7 +40,7 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <section className="relative overflow-x-clip">
-          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-5 pt-4 md:px-6 md:pt-6 xl:grid-cols-[0.82fr_1.18fr] xl:gap-6 xl:px-12 xl:pb-10">
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-5 pt-4 md:px-6 md:pt-6 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:gap-6 xl:px-12 xl:pb-10">
             <div className="relative z-10 min-w-0 pt-2 pb-2 text-left md:text-center xl:pt-8 xl:text-left">
               <p className="mb-4 text-[11px] font-extrabold tracking-[0.06em] text-[#ef101c] uppercase md:mb-5 md:text-xs md:tracking-[0.14em] dark:text-[#ff2533]">
                 Ремонт техники в Борисове
@@ -124,7 +94,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative mx-auto mt-6 flex h-[calc(100vw*1.2)] w-full max-w-[928px] items-center justify-center md:-mt-4 md:h-auto xl:mx-0 xl:mt-0 xl:max-w-none xl:justify-end">
+            <div className="relative mx-auto mt-6 flex min-w-0 h-[calc(100vw*1.2)] w-full max-w-[928px] items-center justify-center md:-mt-4 md:h-auto xl:mx-0 xl:mt-0 xl:max-w-none xl:justify-start">
               <div className="absolute top-2 left-0 z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 md:top-[14%] md:left-[4%] xl:top-10 xl:left-3 xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810]">
                 <p className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">
                   Диагностика при
@@ -166,46 +136,14 @@ export default function HomePage() {
                 />
               </picture>
             </div>
-            <div className="relative z-20 -mt-[180px] mb-12 divide-y divide-dotted divide-[#ded8d2] rounded-xl border border-[#ece5df] bg-[#fffefd] px-4 md:hidden dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e] [&>div]:py-3 [&_span:first-child]:bg-transparent [&_span:first-child]:text-current [&_svg]:size-6">
+            <div className="relative z-20 -mt-[130px] mb-12 divide-y divide-dotted divide-[#ded8d2] rounded-xl border border-[#ece5df] bg-[#fffefd] px-4 md:hidden dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e] [&>div]:py-3 [&_span:first-child]:bg-transparent [&_span:first-child]:text-current [&_svg]:size-6">
               <TrustItem icon={<IconClock />} label="От 20 минут" />
               <TrustItem icon={<IconShieldCheck />} label="Гарантия до года" />
               <TrustItem icon={<IconReceipt />} label="Цена до ремонта" />
             </div>
           </div>
         </section>
-        <section
-          id="services"
-          aria-labelledby="services-heading"
-          className="relative z-20 mx-auto -mt-10 w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:-mt-[104px] md:px-6 xl:-mt-16 xl:px-12"
-        >
-          <h2 id="services-heading" className="sr-only">
-            Основные направления ремонта
-          </h2>
-          <div className="grid grid-cols-2 gap-3 md:gap-4 xl:grid-cols-4">
-            {serviceDirections.map(
-              ({ title, description, icon: Icon, color }) => (
-                <article
-                  key={title}
-                  className="flex min-w-0 flex-col items-start gap-3 rounded-xl border border-[#ece5df] bg-[#fffefd] p-4 md:min-h-44 md:flex-row md:gap-5 md:p-7 dark:border-[#46301f] dark:bg-[#15110e]"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    stroke={1.5}
-                    className={cn("size-8 shrink-0 md:mt-1 md:size-11", color)}
-                  />
-                  <div>
-                    <h3 className="max-w-40 text-sm leading-5 font-bold tracking-[-0.025em] text-[#171717] md:text-lg md:leading-6 dark:text-[#fff7f0]">
-                      {title}
-                    </h3>
-                    <p className="mt-2 text-xs leading-5 text-[#393939] md:mt-3 md:text-sm md:leading-6 dark:text-[#d1c7bd]">
-                      {description}
-                    </p>
-                  </div>
-                </article>
-              ),
-            )}
-          </div>
-        </section>
+        <HomeDirections />
         <DeviceProblems />
         <PopularServices />
         <WhyMandarin />
