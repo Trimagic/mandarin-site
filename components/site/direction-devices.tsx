@@ -29,7 +29,7 @@ export function DirectionDevices({ data }: { data: Pick<DirectionPageData, "devi
       <div className="border-b border-[#e6e2de] pb-7 dark:border-[#46301f]">
         <h2 id="direction-devices-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">{devices.title}</h2>
         <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-8">
-          <ul aria-label="Бренды телефонов" className="flex flex-1 flex-wrap items-center justify-between gap-x-8 gap-y-5 text-[#171717] dark:text-[#fff7f0]">
+          <ul aria-label={devices.title} className="flex flex-1 flex-wrap items-center justify-between gap-x-8 gap-y-5 text-[#171717] dark:text-[#fff7f0]">
             {devices.brands.map((brand) => <li key={brand}><BrandLabel name={brand} /></li>)}
           </ul>
           <p className="text-xs leading-5 text-muted-foreground lg:w-[270px] lg:shrink-0 lg:border-l lg:border-[#ded8d2] lg:py-1 lg:pl-7 dark:lg:border-[#49352d]">{devices.note}</p>

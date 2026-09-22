@@ -1,0 +1,3 @@
+Generated using the built-in imagegen tool.
+
+Photorealistic website hero cutout of ONE upright black smartphone with completely dark turned-off screen, subtle faint hairline cracks near lower glass, three quarter front view, leaning slightly to the right. Entire phone visible with generous transparent margins, centered, occupies 85 percent image height. Premium studio product photography, restrained warm orange edge reflections matching an orange website backdrop. Truly transparent alpha background, no floor or backdrop, no glow, no text, no logos, no labels, no extra objects. Landscape 3:2 image.

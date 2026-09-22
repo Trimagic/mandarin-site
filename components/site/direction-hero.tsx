@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IconArrowRight, IconChevronRight, IconMessage, IconReceipt, IconShieldCheck, IconStethoscope, IconTool } from "@tabler/icons-react";
+import { IconArrowRight, IconChevronRight, IconClock, IconMessage, IconReceipt, IconShieldCheck, IconStethoscope, IconTag, IconTool } from "@tabler/icons-react";
 import type { DirectionPageData } from "@/data/directions";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,7 @@ type DirectionHeroProps = {
 };
 
 const benefitIcons = [IconTool, IconReceipt, IconShieldCheck];
+const namedBenefitIcons = { price: IconTag, clock: IconClock, shield: IconShieldCheck, diagnostics: IconStethoscope };
 
 export function DirectionHero({ data: { hero, breadcrumbs }, primaryHref }: DirectionHeroProps) {
   return (
@@ -44,13 +45,13 @@ export function DirectionHero({ data: { hero, breadcrumbs }, primaryHref }: Dire
             </div>
             <ul className="mt-10 lg:mt-7 flex flex-wrap gap-y-4 divide-x divide-[#ded8d2] dark:divide-[#49352d]">
               {hero.benefits.map((benefit, index) => {
-                const Icon = benefitIcons[index % benefitIcons.length];
+                const Icon = benefit.icon ? namedBenefitIcons[benefit.icon] : benefitIcons[index % benefitIcons.length];
                 return (
                   <li key={benefit.title} className="flex min-w-0 flex-1 items-start gap-2 px-4 first:pl-0 last:pr-0">
                     <Icon aria-hidden="true" stroke={1.5} className="size-6 shrink-0 text-[#ff5000]" />
                     <div>
                       <p className="text-xs leading-5 font-semibold">{benefit.title}</p>
-                      <p className="mt-1 max-w-[140px] text-[11px] leading-[1.5] text-muted-foreground">{benefit.description}</p>
+                      {benefit.description && <p className="mt-1 max-w-[140px] text-[11px] leading-[1.5] text-muted-foreground">{benefit.description}</p>}
                     </div>
                   </li>
                 );
@@ -63,10 +64,10 @@ export function DirectionHero({ data: { hero, breadcrumbs }, primaryHref }: Dire
             <div className="absolute inset-x-[3%] top-[7%] bottom-[5%] z-10 lg:-translate-x-[30px]">
               <Image src={hero.image.src} alt={hero.image.alt} fill sizes="(min-width: 1440px) 704px, (min-width: 1024px) 52vw, 94vw" className="object-contain" loading="eager" fetchPriority="high" />
             </div>
-            <div className="absolute top-[8%] right-[3%] z-20 flex max-w-[190px] items-center gap-3 rounded-lg border border-[#ece5df] bg-[#fffefd] px-4 py-3 text-[#171717] dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
+            {hero.badge && <div className="absolute top-[8%] right-[3%] z-20 flex max-w-[190px] items-center gap-3 rounded-lg border border-[#ece5df] bg-[#fffefd] px-4 py-3 text-[#171717] dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
               <IconStethoscope aria-hidden="true" stroke={1.5} className="size-7 shrink-0 text-[#65a832]" />
               <span className="text-xs leading-5 font-bold">{hero.badge}</span>
-            </div>
+            </div>}
           </div>
         </div>
       </div>

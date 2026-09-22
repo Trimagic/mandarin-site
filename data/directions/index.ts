@@ -1,10 +1,12 @@
 import { phoneRepairData } from "./phones";
+import { computerRepairData } from "./computers";
+export { computerRepairData } from "./computers";
 import type { DirectionPageData } from "./types";
 
 export { phoneRepairData } from "./phones";
 export type { DirectionPageData, DirectionPrice, DirectionService } from "./types";
 
-export const directionPages: DirectionPageData[] = [phoneRepairData];
+export const directionPages: DirectionPageData[] = [phoneRepairData, computerRepairData];
 
 export function getDirectionPage(slug: string): DirectionPageData | undefined {
   return directionPages.find((page) => page.slug === slug);

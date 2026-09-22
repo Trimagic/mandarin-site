@@ -5,7 +5,7 @@ const columns = [
   { title: "Услуги", links: [
     ["Ремонт телефонов", "/remont-telefonov/"],
     ["Ремонт ноутбуков", "/#services"],
-    ["Ремонт компьютеров", "/#services"],
+    ["Ремонт компьютеров", "/remont-kompyuterov/"],
     ["Установка Windows", "/#prices"],
     ["Все услуги и цены", "/#prices"],
   ] },

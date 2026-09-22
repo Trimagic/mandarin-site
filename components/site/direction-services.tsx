@@ -18,6 +18,7 @@ const serviceIcons: Record<string, typeof IconTool> = {
 
 function priceLabel(price: DirectionPrice) {
   if (price.kind === "from") return `от ${price.amount} ${price.currency}`;
+  if (price.kind === "negotiated") return "Договорная";
   return price.kind === "by-model" ? "По модели" : "После диагностики";
 }
 

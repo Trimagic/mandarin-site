@@ -1,0 +1,3 @@
+Generated with the built-in imagegen tool.
+
+Create a photorealistic website hero cutout on a truly transparent alpha background. Two upright black smartphones/display components, three-quarter product photography: left a complete phone with heavily cracked black front glass and visible spiderweb impact in its lower middle; right a pristine black replacement display module, slightly behind, with small orange and black flex cables visible on its right edge. Both lean subtly, full objects visible with generous clear margins. Premium realistic studio rendering, warm orange edge reflections to match an orange website backdrop. No backdrop, no floor, no text, no logos, no labels, no badges, no extra objects. Landscape 3:2 composition, centered pair occupying 80% of height.

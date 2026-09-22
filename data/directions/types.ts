@@ -2,7 +2,7 @@ export type PageLink = { label: string; href: string };
 
 export type DirectionPrice =
   | { kind: "from"; amount: number; currency: "BYN"; note?: string }
-  | { kind: "by-model" | "after-diagnosis" };
+  | { kind: "by-model" | "after-diagnosis" | "negotiated" };
 
 export type DirectionService = {
   slug: string;
@@ -21,10 +21,10 @@ export type DirectionPageData = {
     description: string;
     image: { src: string; alt: string };
     backgrounds: { desktop: string; mobile: string };
-    badge: string;
+    badge?: string;
     primaryAction: PageLink;
     secondaryAction: PageLink;
-    benefits: { title: string; description: string }[];
+    benefits: { title: string; description: string; icon?: "price" | "clock" | "shield" | "diagnostics" }[];
   };
   services: {
     title: string;
