@@ -103,10 +103,12 @@ export function ServiceSymptoms({ data, columns = 6, note }: { data: ServiceSymp
             return (
               <li key={item.id} className={`relative flex items-center gap-4 border-[#e6e2de] py-4 sm:px-4 sm:py-1 dark:border-[#46301f] ${itemLayout[columns]}`}>
                 {index > 0 && <span aria-hidden="true" className={rowRuleClassName(index, perRow)} />}
-                <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-[#ff5000]/[0.08] dark:bg-[#ff5000]/[0.12]">
-                  <Icon aria-hidden="true" stroke={1.5} className={item.icon === "spot" ? "size-7 text-[#171717] dark:text-[#fff7f0]" : "size-7 text-[#ff5000]"} />
+                {/* Light theme: translucent plate and a soft text halo blend into the tinted panel while
+                    keeping the icon and label clear of the circuit lines behind them. */}
+                <span className="grid size-12 shrink-0 place-items-center rounded-xl border border-[#ff5000]/[0.12] bg-[#fff6ee]/80 backdrop-blur-[2px] dark:border-transparent dark:bg-[#ff5000]/[0.12] dark:backdrop-blur-none">
+                  <Icon aria-hidden="true" stroke={1.5} className={item.icon === "spot" ? "size-7 text-[#171717] dark:text-[#fff7f0]" : "size-7 text-[#e64800] dark:text-[#ff5000]"} />
                 </span>
-                <span className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">{item.title}</span>
+                <span className="text-sm leading-5 font-bold text-[#171717] [text-shadow:0_0_6px_#fffefd,0_0_12px_#fffefd] dark:text-[#fff7f0] dark:[text-shadow:none]">{item.title}</span>
               </li>
             );
           })}
