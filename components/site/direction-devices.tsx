@@ -1,14 +1,33 @@
-
+import { IconDeviceDesktop, IconDeviceGamepad2, IconDeviceImac, IconDeviceDesktopCog } from "@tabler/icons-react";
 import type { DirectionPageData } from "@/data/directions";
+import { cn } from "@/lib/utils";
 
 const brandImages: Record<string, string> = {
   Apple: "apple", Samsung: "samsung", Xiaomi: "xiaomi", Huawei: "huawei", Honor: "honor",
+  Asus: "asus", Lenovo: "lenovo", HP: "hp", Acer: "acer", Dell: "dell", MSI: "msi",
+  LG: "lg", Sony: "sony", Philips: "philips",
 };
 
+const computerIcons: Record<string, typeof IconDeviceDesktop> = {
+  "Настольные ПК": IconDeviceDesktopCog,
+  "Игровые ПК": IconDeviceGamepad2,
+  "Офисные ПК": IconDeviceDesktop,
+  "Моноблоки": IconDeviceImac,
+};
+
+const wordmarks = new Set(["Samsung", "Honor", "Asus", "Lenovo", "Acer", "Sony", "Philips", "LG"]);
+
 function BrandLabel({ name }: { name: string }) {
+  const ComputerIcon = computerIcons[name];
+  if (ComputerIcon) return (
+    <span className="flex flex-col items-center justify-center gap-2 text-center xl:flex-row xl:gap-3">
+      <ComputerIcon aria-hidden="true" stroke={1.5} className="size-9 shrink-0 text-[#ff5000]" />
+      <span className="text-sm font-semibold xl:text-base">{name}</span>
+    </span>
+  );
   const image = brandImages[name];
   if (!image) return <span className="break-words text-center text-sm font-semibold xl:text-lg">{name}</span>;
-  const wordmark = name === "Samsung" || name === "Honor";
+  const wordmark = wordmarks.has(name);
   const tone = name === "Samsung"
     ? "text-[#1428a0] dark:text-[#91a5ff]"
     : name === "Xiaomi" ? "text-[#ff6900]"
@@ -29,7 +48,7 @@ export function DirectionDevices({ data }: { data: Pick<DirectionPageData, "devi
       <div className="border-b border-[#e6e2de] pb-7 dark:border-[#46301f]">
         <h2 id="direction-devices-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">{devices.title}</h2>
         <div className="mt-5 flex flex-col gap-4 xl:mt-6 xl:flex-row xl:items-center xl:gap-8">
-          <ul aria-label={devices.title} className="grid min-w-0 flex-1 grid-cols-2 gap-3 text-[#171717] sm:grid-cols-3 md:grid-cols-5 xl:flex xl:flex-wrap xl:items-center xl:justify-between xl:gap-x-8 xl:gap-y-5 dark:text-[#fff7f0]">
+          <ul aria-label={devices.title} className={cn("grid min-w-0 flex-1 grid-cols-2 gap-3 text-[#171717] sm:grid-cols-3 md:grid-cols-5 xl:items-center dark:text-[#fff7f0]", devices.brands.length > 5 ? "xl:grid-cols-4 xl:gap-4" : "xl:flex xl:flex-wrap xl:justify-between xl:gap-x-8 xl:gap-y-5")}>
             {devices.brands.map((brand) => <li key={brand} className="flex min-h-20 min-w-0 items-center justify-center rounded-xl border border-[#ece5df] bg-[#fffefd] px-3 py-3 xl:min-h-0 xl:rounded-none xl:border-0 xl:bg-transparent xl:p-0 dark:border-[#46301f] dark:bg-[#15110e] dark:xl:bg-transparent"><BrandLabel name={brand} /></li>)}
           </ul>
           <p className="rounded-xl border border-[#f0e3d7] bg-[#fff6ee] px-4 py-3 text-xs leading-5 text-muted-foreground xl:w-[270px] xl:shrink-0 xl:rounded-none xl:border-0 xl:border-l xl:border-[#ded8d2] xl:bg-transparent xl:py-1 xl:pr-0 xl:pl-7 dark:border-[#49352d] dark:bg-[#211810] dark:xl:bg-transparent">{devices.note}</p>

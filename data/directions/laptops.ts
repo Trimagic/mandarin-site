@@ -15,7 +15,7 @@ export const laptopRepairData = {
     title: "Ремонт ноутбуков",
     accent: "в Борисове",
     description: "От чистки системы охлаждения до ремонта материнской платы. Согласуем стоимость до начала работ.",
-    image: { src: "/hero/laptop-repair-placeholder.svg", alt: "Ноутбук и мандарин" },
+    image: { src: "/hero/laptop-repair-cutout-v1.png", alt: "Открытый ноутбук с оранжевым экраном и мандарин с листиком" },
     backgrounds: {
       desktop: "/backgrounds/hero-background-empty-v1.png",
       tablet: "/backgrounds/hero-background-wide-draft.png",
