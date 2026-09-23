@@ -1,4 +1,4 @@
-import { IconDeviceMobile, IconDeviceMobileCheck, IconSearch, IconTools } from "@tabler/icons-react";
+import { IconBulb, IconCloudUpload, IconCpu, IconDeviceDesktop, IconDeviceTv, IconDeviceLaptop, IconDeviceMobile, IconDeviceMobileCheck, IconGauge, IconListCheck, IconSearch, IconSparkles, IconTools } from "@tabler/icons-react";
 import { useId } from "react";
 import type { ServiceIncludedData, ServiceIncludedIcon } from "@/data/services/types";
 
@@ -7,6 +7,15 @@ const includedIcons = {
   part: IconDeviceMobile,
   repair: IconTools,
   check: IconDeviceMobileCheck,
+  cleaning: IconSparkles,
+  data: IconCloudUpload,
+  component: IconCpu,
+  laptop: IconDeviceLaptop,
+  test: IconGauge,
+  desktop: IconDeviceDesktop,
+  selection: IconListCheck,
+  tv: IconDeviceTv,
+  backlight: IconBulb,
 } satisfies Record<ServiceIncludedIcon, typeof IconSearch>;
 
 export function ServiceIncluded({ data }: { data: ServiceIncludedData }) {

@@ -1,0 +1,97 @@
+import type { DirectionPageData } from "./types";
+
+// Source: концепт/content/site-pages.md. Hardware repair only; prices are set after diagnostics.
+export const tvRepairData = {
+  slug: "remont-televizorov",
+  metadata: {
+    title: "Ремонт телевизоров в Борисове — Mandarin Сервис",
+    description: "Ремонт телевизоров в Борисове: замена подсветки, ремонт блока питания и платы, замена шлейфа и T-Con, ремонт разъёмов и динамиков. Согласование стоимости до ремонта. Ул. Чапаева, 34.",
+  },
+  breadcrumbs: [
+    { label: "Главная", href: "/" },
+    { label: "Ремонт телевизоров", href: "/remont-televizorov/" },
+  ],
+  hero: {
+    title: "Ремонт телевизоров",
+    accent: "в Борисове",
+    description: "Подсветка, блок питания, плата и звук. Находим причину и согласуем стоимость до начала работ.",
+    image: { src: "/hero/tv-repair-placeholder.svg", alt: "Телевизор и мандарин" },
+    backgrounds: {
+      desktop: "/backgrounds/hero-background-empty-v1.png",
+      tablet: "/backgrounds/hero-background-wide-draft.png",
+      mobile: "/backgrounds/hero-background-mobile-v1.png",
+    },
+    badge: "Диагностика перед ремонтом",
+    primaryAction: { label: "Узнать стоимость", href: "#services" },
+    secondaryAction: { label: "Написать мастеру", href: "https://wa.me/375291506888" },
+    benefits: [
+      { title: "Своя мастерская", description: "Ремонт на уровне плат и компонентов" },
+      { title: "Цена до ремонта", description: "Согласуем работы заранее" },
+      { title: "Честная оценка", description: "Скажем, если ремонт невыгоден" },
+    ],
+  },
+  services: {
+    title: "Услуги",
+    priceNotice: "Стоимость зависит от модели и неисправности и согласуется после диагностики. Замену разбитой матрицы не выполняем.",
+    pricesVerified: false,
+    items: [
+      { slug: "zamena-podsvetki", title: "Замена подсветки", description: "Замена светодиодных линеек — самая частая поломка. Признак: звук есть, а изображения нет.", price: { kind: "after-diagnosis" } },
+      { slug: "remont-bloka-pitaniya", title: "Ремонт блока питания", description: "Последствия скачков напряжения, вздутые конденсаторы. Ремонт или замена платы питания.", price: { kind: "after-diagnosis" } },
+      { slug: "remont-materinskoy-platy", title: "Ремонт материнской платы", description: "Зависания, прошивка, встроенный тюнер, нет реакции на пульт.", price: { kind: "after-diagnosis" } },
+      { slug: "zamena-shleyfa-i-t-con", title: "Замена шлейфа и T-Con", description: "Полосы, мерцание и искажения изображения без повреждений экрана.", price: { kind: "after-diagnosis" } },
+      { slug: "remont-razemov", title: "Ремонт разъёмов", description: "HDMI, USB и антенное гнездо: нет сигнала, телевизор не видит флешку или приставку.", price: { kind: "after-diagnosis" } },
+      { slug: "zamena-dinamikov", title: "Замена динамиков", description: "Нет звука, хрип или прерывистый звук.", price: { kind: "after-diagnosis" } },
+    ],
+  },
+  problems: {
+    title: "Что случилось с телевизором?",
+    items: [
+      { slug: "net-izobrazheniya-zvuk-est", title: "Нет изображения, звук есть", causes: "Чаще всего подсветка, реже блок питания или плата.", serviceSlugs: ["zamena-podsvetki", "remont-bloka-pitaniya"] },
+      { slug: "televizor-ne-vklyuchaetsya", title: "Не включается", causes: "Блок питания или материнская плата.", serviceSlugs: ["remont-bloka-pitaniya", "remont-materinskoy-platy"] },
+      { slug: "vklyuchaetsya-i-vyklyuchaetsya", title: "Включается и выключается", causes: "Блок питания, подсветка или плата.", serviceSlugs: ["remont-bloka-pitaniya", "remont-materinskoy-platy"] },
+      { slug: "polosy-na-ekrane", title: "Полосы на экране", causes: "Шлейф, T-Con, реже матрица.", serviceSlugs: ["zamena-shleyfa-i-t-con"] },
+      { slug: "televizor-zavisaet", title: "Зависает и перезагружается", causes: "Прошивка, память или материнская плата.", serviceSlugs: ["remont-materinskoy-platy"] },
+      { slug: "net-zvuka", title: "Нет звука", causes: "Динамики, плата или настройки.", serviceSlugs: ["zamena-dinamikov", "remont-materinskoy-platy"] },
+    ],
+  },
+  devices: {
+    title: "Какие телевизоры ремонтируем",
+    brands: ["Samsung", "LG", "Sony", "Philips", "Xiaomi"],
+    note: "Ремонтируем и другие марки. Возможность ремонта и наличие запчастей уточним по модели и диагонали.",
+  },
+  conditions: {
+    title: "Условия ремонта",
+    items: [
+      { title: "Диагностика", text: "Определяем причину неисправности. Условия и стоимость диагностики уточняем при обращении." },
+      { title: "Согласование", text: "Сообщаем стоимость и сроки до ремонта. Если ремонт невыгоден, скажем об этом." },
+      { title: "Сроки и гарантия", text: "Зависят от модели, вида работ и наличия деталей. Условия сообщаем перед ремонтом." },
+      { title: "Что не ремонтируем", text: "Не меняем разбитую матрицу и не настраиваем каналы." },
+    ],
+  },
+  process: {
+    title: "Как проходит ремонт",
+    items: [
+      { title: "Обращение", text: "Сообщите модель и диагональ телевизора и опишите проблему." },
+      { title: "Диагностика", text: "Проверяем питание, подсветку, платы и определяем причину." },
+      { title: "Согласование", text: "Обсуждаем необходимые работы, стоимость и сроки." },
+      { title: "Ремонт и выдача", text: "Выполняем работы и проверяем изображение и звук перед выдачей." },
+    ],
+  },
+  works: { title: "Работы нашей мастерской", items: [] },
+  reviews: { title: "Отзывы о ремонте телевизоров", items: [] },
+  faq: {
+    title: "Частые вопросы",
+    items: [
+      { question: "Меняете ли вы разбитый экран?", answer: "Нет. Замена матрицы стоит почти как новый телевизор, поэтому мы её не выполняем. Если на экране полосы или пятна без трещин, причина может быть в шлейфе или подсветке — их мы ремонтируем." },
+      { question: "Сколько стоит ремонт телевизора?", answer: "Стоимость зависит от модели и неисправности. Точную сумму называем после диагностики и согласуем до начала ремонта." },
+      { question: "Звук есть, а изображения нет — что это?", answer: "Чаще всего вышла из строя подсветка. Её замена обычно выгоднее покупки нового телевизора. Точную причину определим на диагностике." },
+      { question: "Настраиваете ли вы каналы?", answer: "Нет, настройка каналов не входит в ремонт. Если телевизор перестал ловить каналы из-за неисправности тюнера или антенного гнезда, это мы ремонтируем." },
+      { question: "Какая гарантия на ремонт?", answer: "Условия гарантии зависят от выполненных работ и установленных деталей. Уточним их при согласовании ремонта." },
+    ],
+  },
+  contact: {
+    title: "Не знаете, что сломалось?",
+    description: "Напишите модель телевизора и опишите проблему — подскажем следующий шаг и сориентируем по стоимости.",
+    action: { label: "Написать мастеру", href: "https://wa.me/375291506888" },
+  },
+} satisfies DirectionPageData;

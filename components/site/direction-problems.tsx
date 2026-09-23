@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
 import {
-  IconBattery, IconBolt, IconChevronRight, IconPhoto,
-  IconPower, IconRefresh, IconQuestionMark, IconDeviceSim,
+  IconBattery, IconBolt, IconChevronRight, IconHourglass, IconLayoutRows, IconPhoto, IconPlayerPause,
+  IconPower, IconRefresh, IconQuestionMark, IconDeviceSim, IconTemperaturePlus, IconVolume, IconVolumeOff,
 } from "@tabler/icons-react";
-import type { DirectionPageData } from "@/data/directions";
+import { getDirectionItemHref, type DirectionPageData } from "@/data/directions";
+import { getProblemPage } from "@/data/problems";
 
 const problemIcons: Record<string, typeof IconPower> = {
   "telefon-ne-vklyuchaetsya": IconPower,
@@ -12,6 +13,18 @@ const problemIcons: Record<string, typeof IconPower> = {
   "net-izobrazheniya": IconPhoto,
   "telefon-ne-vidit-sim-kartu": IconDeviceSim,
   "telefon-perezagruzhaetsya": IconRefresh,
+  "noutbuk-ne-vklyuchaetsya": IconPower,
+  "noutbuk-ne-zaryazhaetsya": IconBolt,
+  "noutbuk-greetsya": IconTemperaturePlus,
+  "noutbuk-shumit": IconVolume,
+  "noutbuk-tormozit": IconHourglass,
+  "noutbuk-vyklyuchaetsya": IconPower,
+  "net-izobrazheniya-zvuk-est": IconPhoto,
+  "televizor-ne-vklyuchaetsya": IconPower,
+  "vklyuchaetsya-i-vyklyuchaetsya": IconRefresh,
+  "polosy-na-ekrane": IconLayoutRows,
+  "televizor-zavisaet": IconPlayerPause,
+  "net-zvuka": IconVolumeOff,
 };
 
 export function PhoneProblemIllustration() {
@@ -29,7 +42,7 @@ export function PhoneProblemIllustration() {
 }
 
 export function DirectionProblems({ data, illustration }: {
-  data: Pick<DirectionPageData, "problems" | "contact">;
+  data: Pick<DirectionPageData, "slug" | "problems" | "contact">;
   illustration?: ReactNode;
 }) {
   return (
@@ -40,11 +53,13 @@ export function DirectionProblems({ data, illustration }: {
           <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {data.problems.items.map((problem) => {
               const Icon = problemIcons[problem.slug] ?? IconQuestionMark;
-              // Use the enquiry action until the individual problem routes exist.
-              const href = new URL(data.contact.action.href);
-              href.searchParams.set("text", `Здравствуйте! ${data.problems.title} ${problem.title}. Подскажите, пожалуйста, по ремонту.`);
+              const hasPage = Boolean(getProblemPage(data.slug, problem.slug));
+              // Until a problem page exists, use the enquiry action instead of a 404.
+              const enquiry = new URL(data.contact.action.href);
+              enquiry.searchParams.set("text", `Здравствуйте! ${data.problems.title} ${problem.title}. Подскажите, пожалуйста, по ремонту.`);
+              const href = hasPage ? getDirectionItemHref(data.slug, problem.slug) : enquiry.toString();
               return (
-                <a key={problem.slug} href={href.toString()} aria-label={`${problem.title}. Написать мастеру в WhatsApp`} className="group flex min-h-[68px] items-center gap-3 rounded-[6px] border border-[#e6e2de] px-4 py-3 text-sm text-[#171717] transition-colors hover:border-[#ff5000] hover:bg-[#ff5000]/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:text-[#fff7f0]">
+                <a key={problem.slug} href={href} aria-label={hasPage ? problem.title : `${problem.title}. Написать мастеру в WhatsApp`} className="group flex min-h-[68px] items-center gap-3 rounded-[6px] border border-[#e6e2de] px-4 py-3 text-sm text-[#171717] transition-colors hover:border-[#ff5000] hover:bg-[#ff5000]/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:text-[#fff7f0]">
                   <Icon aria-hidden="true" stroke={1.5} className="size-7 shrink-0 text-[#ff5000]" />
                   <span className="flex-1">{problem.title}</span>
                   <IconChevronRight aria-hidden="true" stroke={1.5} className="size-4 shrink-0 text-[#ff5000] transition-transform group-hover:translate-x-0.5" />

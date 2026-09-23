@@ -1,8 +1,10 @@
 import {
-  IconBatteryCharging, IconCamera, IconChevronRight, IconDeviceMobile,
-  IconDroplet, IconPlug, IconSettings, IconVolume, IconTool,
+  IconBatteryCharging, IconBolt, IconBulb, IconCamera, IconChevronRight, IconCpu, IconDeviceLaptop,
+  IconDeviceMobile, IconDeviceSdCard, IconDeviceSpeaker, IconDroplet, IconKeyboard, IconLayoutRows,
+  IconPlug, IconPlugConnected, IconSettings, IconStethoscope, IconTemperature, IconVolume, IconTool, IconWind,
 } from "@tabler/icons-react";
-import type { DirectionPageData, DirectionPrice } from "@/data/directions";
+import { getDirectionItemHref, type DirectionPageData, type DirectionPrice } from "@/data/directions";
+import { getServicePage } from "@/data/services";
 
 const serviceIcons: Record<string, typeof IconTool> = {
   "zamena-ekrana": IconDeviceMobile,
@@ -14,6 +16,20 @@ const serviceIcons: Record<string, typeof IconTool> = {
   "zamena-zadney-kryshki": IconDeviceMobile,
   "remont-kamery": IconCamera,
   "proshivka-i-razblokirovka": IconSettings,
+  diagnostika: IconStethoscope,
+  "chistka-i-zamena-termopasty": IconTemperature,
+  "zamena-matricy": IconDeviceLaptop,
+  "remont-klaviatury": IconKeyboard,
+  "remont-razema-pitaniya": IconPlug,
+  "remont-sistemy-ohlazhdeniya": IconWind,
+  "remont-materinskoy-platy": IconCpu,
+  "remont-posle-zalitiya": IconDroplet,
+  "modernizaciya-ssd-i-ram": IconDeviceSdCard,
+  "zamena-podsvetki": IconBulb,
+  "remont-bloka-pitaniya": IconBolt,
+  "zamena-shleyfa-i-t-con": IconLayoutRows,
+  "remont-razemov": IconPlugConnected,
+  "zamena-dinamikov": IconDeviceSpeaker,
 };
 
 function priceLabel(price: DirectionPrice) {
@@ -22,8 +38,8 @@ function priceLabel(price: DirectionPrice) {
   return price.kind === "by-model" ? "По модели" : "После диагностики";
 }
 
-export function DirectionServices({ data }: { data: Pick<DirectionPageData, "services" | "contact"> }) {
-  const { services, contact } = data;
+export function DirectionServices({ data }: { data: Pick<DirectionPageData, "slug" | "services" | "contact"> }) {
+  const { slug, services, contact } = data;
 
   return (
     <section id="services" aria-labelledby="direction-services-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:px-6 xl:px-12">
@@ -35,12 +51,14 @@ export function DirectionServices({ data }: { data: Pick<DirectionPageData, "ser
         {services.items.map((service) => {
           const Icon = serviceIcons[service.slug] ?? IconTool;
           const price = priceLabel(service.price);
-          // Service routes are not built yet; offer a real enquiry instead of a 404.
-          const href = new URL(contact.action.href);
-          href.searchParams.set("text", `Здравствуйте! Интересует услуга «${service.title}». Подскажите стоимость для моей модели.`);
+          const hasPage = Boolean(getServicePage(slug, service.slug));
+          // Until a service page exists, offer a real enquiry instead of a 404.
+          const enquiry = new URL(contact.action.href);
+          enquiry.searchParams.set("text", `Здравствуйте! Интересует услуга «${service.title}». Подскажите стоимость для моей модели.`);
+          const href = hasPage ? getDirectionItemHref(slug, service.slug) : enquiry.toString();
 
           return (
-            <a key={service.slug} href={href.toString()} aria-label={`${service.title}, ${price}. Уточнить в WhatsApp`} className="group flex min-h-[88px] items-center gap-5 rounded-[6px] border border-[#e6e2de] bg-[#fffefd] px-5 py-4 transition-colors hover:border-[#ff5000] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:bg-[#15110e]">
+            <a key={service.slug} href={href} aria-label={hasPage ? `${service.title}, ${price}` : `${service.title}, ${price}. Уточнить в WhatsApp`} className="group flex min-h-[88px] items-center gap-5 rounded-[6px] border border-[#e6e2de] bg-[#fffefd] px-5 py-4 transition-colors hover:border-[#ff5000] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:bg-[#15110e]">
               <Icon aria-hidden="true" stroke={1.5} className="size-9 shrink-0 text-[#ff5000]" />
               <div className="min-w-0 flex-1">
                 <h3 className="text-sm leading-5 font-semibold text-[#171717] dark:text-[#fff7f0]">{service.title}</h3>

@@ -1,7 +1,37 @@
 import type { DirectionPageData } from "@/data/directions";
 import type { ServicePricingData, ServiceQualityData, ServiceSymptomsData } from "@/data/services/types";
 
-export type ProblemCauseIcon = "display" | "connection" | "backlight" | "board";
+export type ProblemCauseIcon =
+  | "display"
+  | "connection"
+  | "backlight"
+  | "board"
+  | "battery"
+  | "connector"
+  | "charger"
+  | "software"
+  | "apps"
+  | "water"
+  | "heat"
+  | "sim"
+  | "antenna"
+  | "button"
+  | "matrix"
+  | "dust"
+  | "fan"
+  | "storage"
+  | "memory"
+  | "virus"
+  | "power-supply"
+  | "gpu"
+  | "monitor"
+  | "system"
+  | "led"
+  | "tcon"
+  | "speaker"
+  | "tuner"
+  | "capacitor"
+  | "settings";
 
 export type ProblemCausesData = {
   title: string;

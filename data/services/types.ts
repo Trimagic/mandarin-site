@@ -1,4 +1,5 @@
 import type { DirectionPageData } from "@/data/directions";
+import type { ProblemAdviceData } from "@/data/problems/types";
 
 export type ServiceSymptomIcon =
   | "device-damaged"
@@ -10,14 +11,50 @@ export type ServiceSymptomIcon =
   | "device"
   | "sound"
   | "flicker"
-  | "water";
+  | "water"
+  | "battery"
+  | "battery-swollen"
+  | "charging"
+  | "power"
+  | "reboot"
+  | "heat"
+  | "camera"
+  | "blur"
+  | "mic"
+  | "sound-off"
+  | "ear"
+  | "sim"
+  | "no-signal"
+  | "lock"
+  | "software"
+  | "slow"
+  | "laptop-off"
+  | "laptop-damaged"
+  | "keyboard"
+  | "fan"
+  | "noise"
+  | "storage"
+  | "usb"
+  | "touchpad"
+  | "pc-off"
+  | "pc"
+  | "bsod"
+  | "windows"
+  | "upgrade"
+  | "tv-off"
+  | "tv"
+  | "remote"
+  | "backlight-off"
+  | "antenna"
+  | "speaker-off"
+  | "hdmi";
 
 export type ServiceSymptomsData = {
   title: string;
   items: { id: string; title: string; icon: ServiceSymptomIcon }[];
 };
 
-export type ServiceIncludedIcon = "diagnostics" | "part" | "repair" | "check";
+export type ServiceIncludedIcon = "diagnostics" | "part" | "repair" | "check" | "cleaning" | "data" | "component" | "laptop" | "test" | "desktop" | "selection" | "tv" | "backlight";
 
 export type ServiceIncludedData = {
   title: string;
@@ -31,6 +68,7 @@ export type ServicePageData = Pick<DirectionPageData, "slug" | "metadata" | "bre
   pricing?: ServicePricingData;
   comparison?: ServiceComparisonData;
   process?: DirectionPageData["process"];
+  advice?: ProblemAdviceData;
   beforeAfter?: ServiceBeforeAfterData;
   quality?: ServiceQualityData;
   reviews?: DirectionPageData["reviews"];

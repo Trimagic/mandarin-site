@@ -1,4 +1,10 @@
-import { IconCpu, IconDeviceMobile, IconPlug, IconSun } from "@tabler/icons-react";
+import {
+  IconAntennaBarsOff, IconApps, IconBattery2, IconChargingPile, IconCpu, IconDeviceMobile,
+  IconDeviceSim, IconDroplet, IconPlug, IconPower, IconSettings, IconSun, IconTemperature,
+  IconBug, IconCpu2, IconDeviceFloppy, IconDeviceLaptop, IconPlugConnectedX, IconPropeller, IconWind,
+  IconBrandWindows, IconComponents, IconDeviceDesktop,
+  IconAntenna, IconBulb, IconCircuitCapacitor, IconDeviceSpeaker, IconLayoutRows, IconAdjustments,
+} from "@tabler/icons-react";
 import { useId } from "react";
 import type { ProblemCauseIcon, ProblemCausesData } from "@/data/problems/types";
 
@@ -7,6 +13,32 @@ const causeIcons = {
   connection: IconPlug,
   backlight: IconSun,
   board: IconCpu,
+  battery: IconBattery2,
+  connector: IconPlug,
+  charger: IconChargingPile,
+  software: IconSettings,
+  apps: IconApps,
+  water: IconDroplet,
+  heat: IconTemperature,
+  sim: IconDeviceSim,
+  antenna: IconAntennaBarsOff,
+  button: IconPower,
+  matrix: IconDeviceLaptop,
+  dust: IconWind,
+  fan: IconPropeller,
+  storage: IconDeviceFloppy,
+  memory: IconCpu2,
+  virus: IconBug,
+  "power-supply": IconPlugConnectedX,
+  gpu: IconComponents,
+  monitor: IconDeviceDesktop,
+  system: IconBrandWindows,
+  led: IconBulb,
+  tcon: IconLayoutRows,
+  speaker: IconDeviceSpeaker,
+  tuner: IconAntenna,
+  capacitor: IconCircuitCapacitor,
+  settings: IconAdjustments,
 } satisfies Record<ProblemCauseIcon, typeof IconCpu>;
 
 export function ProblemCauses({ data }: { data: ProblemCausesData }) {

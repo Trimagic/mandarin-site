@@ -4,8 +4,9 @@ import { IconBrandTelegram, IconBrandWhatsapp, IconChevronRight, IconPhone } fro
 const columns = [
   { title: "Услуги", links: [
     ["Ремонт телефонов", "/remont-telefonov/"],
-    ["Ремонт ноутбуков", "/#services"],
+    ["Ремонт ноутбуков", "/remont-noutbukov/"],
     ["Ремонт компьютеров", "/remont-kompyuterov/"],
+    ["Ремонт телевизоров", "/remont-televizorov/"],
     ["Установка Windows", "/#prices"],
     ["Все услуги и цены", "/#prices"],
   ] },

@@ -5,6 +5,7 @@ import { ServiceIncluded } from "@/components/site/service-included";
 import { ServicePricing } from "@/components/site/service-pricing";
 import { ServiceComparison } from "@/components/site/service-comparison";
 import { RepairProcess } from "@/components/site/repair-process";
+import { ProblemAdvice } from "@/components/site/problem-advice";
 import { ServiceBeforeAfter } from "@/components/site/service-before-after";
 import { ServiceQuality } from "@/components/site/service-quality";
 import { CustomerReviews } from "@/components/site/customer-reviews";
@@ -24,6 +25,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         {data.pricing && <ServicePricing data={data.pricing} />}
         {data.comparison && <ServiceComparison data={data.comparison} />}
         {data.process && data.process.items.length > 0 && <RepairProcess data={data.process} variant="compact" />}
+        {data.advice && <ProblemAdvice data={data.advice} />}
         {data.beforeAfter && <ServiceBeforeAfter data={data.beforeAfter} />}
         {data.quality && <ServiceQuality data={data.quality} />}
         {data.reviews && <CustomerReviews title={data.reviews.title} items={data.reviews.items.map((review) => ({ name: review.author, text: review.text, rating: review.rating }))} notice={data.reviews.items.length ? "" : "Места для отзывов — добавим реальные отзывы клиентов."} />}
