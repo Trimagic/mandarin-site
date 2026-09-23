@@ -7,7 +7,7 @@ const columns = [
     ["Ремонт ноутбуков", "/remont-noutbukov/"],
     ["Ремонт компьютеров", "/remont-kompyuterov/"],
     ["Ремонт телевизоров", "/remont-televizorov/"],
-    ["Установка Windows", "/#prices"],
+    ["Установка Windows", "/ustanovka-windows/"],
     ["Все услуги и цены", "/#prices"],
   ] },
   { title: "Информация", links: [

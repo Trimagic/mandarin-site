@@ -1,0 +1,23 @@
+// Business facts shared by metadata, JSON-LD and the sitemap.
+// The domain in the concept docs is a placeholder: set NEXT_PUBLIC_SITE_URL to the real one before launch.
+export const siteConfig = {
+  name: "Mandarin Сервис",
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mandarin-service.by").replace(/\/$/, ""),
+  locale: "ru_BY",
+  description: "Ремонт телефонов, ноутбуков, компьютеров и телевизоров в Борисове. Диагностика, согласование стоимости до ремонта, гарантия на работы.",
+  telephone: "+375291506888",
+  address: {
+    streetAddress: "ул. Чапаева, 34",
+    addressLocality: "Борисов",
+    addressRegion: "Минская область",
+    addressCountry: "BY",
+  },
+  landmark: "ТЦ «Мир Стиля», левый боковой вход",
+  areaServed: "Борисов",
+  logo: "/brand/mandarin-mark.png",
+  defaultImage: { src: "/brand/hero-devices-platform.png", width: 1441, height: 1091, alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке" },
+} as const;
+
+export function absoluteUrl(path = "/") {
+  return new URL(path, `${siteConfig.url}/`).toString();
+}

@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 type DirectionHeroProps = {
   data: Pick<DirectionPageData, "hero" | "breadcrumbs">;
   primaryHref?: string;
+  imageClassName?: string;
 };
 
 const benefitIcons = [IconTool, IconReceipt, IconShieldCheck];
@@ -31,6 +32,7 @@ const namedBenefitIcons = {
 export function DirectionHero({
   data: { hero, breadcrumbs },
   primaryHref,
+  imageClassName,
 }: DirectionHeroProps) {
   const { props: mobileBackground } = getImageProps({
     src: hero.backgrounds.mobile,
@@ -188,7 +190,7 @@ export function DirectionHero({
                     alt={hero.image.alt}
                     fill
                     sizes="(min-width: 1440px) 704px, (min-width: 1280px) 52vw, (min-width: 1024px) 872px, 94vw"
-                    className="object-contain"
+                    className={cn("object-contain", imageClassName)}
                     loading="eager"
                     fetchPriority="high"
                   />

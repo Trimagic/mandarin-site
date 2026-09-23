@@ -60,7 +60,7 @@ const symptomIcons = {
   hdmi: IconPlugConnected,
 } satisfies Record<ServiceSymptomIcon, typeof IconDeviceMobileOff>;
 
-export function ServiceSymptoms({ data }: { data: ServiceSymptomsData }) {
+export function ServiceSymptoms({ data, columns = 6, note }: { data: ServiceSymptomsData; columns?: 4 | 6; note?: string }) {
   const headingId = useId();
   if (data.items.length === 0) return null;
 
@@ -69,7 +69,7 @@ export function ServiceSymptoms({ data }: { data: ServiceSymptomsData }) {
       <h2 id={headingId} className="mb-4 text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
         {data.title}
       </h2>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
+      <ul className={columns === 4 ? "grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4" : "grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4"}>
         {data.items.map((item) => {
           const Icon = symptomIcons[item.icon];
           return (
@@ -80,6 +80,7 @@ export function ServiceSymptoms({ data }: { data: ServiceSymptomsData }) {
           );
         })}
       </ul>
+      {note && <p className="mt-4 text-sm leading-6 text-muted-foreground">{note}</p>}
     </section>
   );
 }

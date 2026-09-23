@@ -9,11 +9,20 @@ import { ServiceQuality } from "@/components/site/service-quality";
 import { FrequentlyAskedQuestions } from "@/components/site/frequently-asked-questions";
 import { ContactSection } from "@/components/site/contact-section";
 import { SiteFooter } from "@/components/site/site-footer";
+import { JsonLd } from "@/components/site/json-ld";
+import { getDirectionItemHref } from "@/data/directions";
 import type { ProblemPageData } from "@/data/problems";
+import { breadcrumbNode, faqNode, graph, webPageNode } from "@/lib/structured-data";
 
 export function ProblemPage({ data }: { data: ProblemPageData }) {
+  const path = getDirectionItemHref(data.directionSlug, data.slug);
   return (
-    <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip bg-[#fffdfb] dark:bg-[#0a0806]">
+    <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip">
+      <JsonLd data={graph([
+        webPageNode({ path, ...data.metadata }),
+        breadcrumbNode(path, data.breadcrumbs),
+        faqNode(path, data.faq),
+      ])} />
       <SiteHeader homeLinks />
       <main>
         <DirectionHero data={data} />

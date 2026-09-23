@@ -11,13 +11,21 @@ import { RepairWorks } from "@/components/site/repair-works";
 import { CustomerReviews } from "@/components/site/customer-reviews";
 import { FrequentlyAskedQuestions } from "@/components/site/frequently-asked-questions";
 import { ContactSection } from "@/components/site/contact-section";
+import { JsonLd } from "@/components/site/json-ld";
 import type { DirectionPageData } from "@/data/directions";
-
+import { breadcrumbNode, directionServiceNode, faqNode, graph, webPageNode } from "@/lib/structured-data";
 
 
 export function DirectionPage({ data, illustration, showReviewPlaceholders = false }: { data: DirectionPageData; illustration?: ReactNode; showReviewPlaceholders?: boolean }) {
+  const path = `/${data.slug}/`;
   return (
-    <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip bg-[#fffdfb] dark:bg-[#0a0806]">
+    <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip">
+      <JsonLd data={graph([
+        webPageNode({ path, ...data.metadata }),
+        breadcrumbNode(path, data.breadcrumbs),
+        directionServiceNode(data),
+        faqNode(path, data.faq),
+      ])} />
       <SiteHeader homeLinks />
       <main>
         <DirectionHero data={data} />

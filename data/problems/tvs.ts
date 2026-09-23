@@ -85,7 +85,7 @@ export const tvProblemPages: ProblemPageData[] = [
     slug: "net-izobrazheniya-zvuk-est",
     directionSlug,
     metadata: {
-      title: "Нет изображения на телевизоре, но звук есть — ремонт в Борисове | Mandarin Сервис",
+      title: "Нет изображения на телевизоре, звук есть — ремонт в Борисове | Mandarin Сервис",
       description: "Звук есть, а экран чёрный? Чаще всего это подсветка. Проверим подсветку, блок питания и плату телевизора.",
     },
     breadcrumbs: breadcrumbs("Нет изображения, звук есть", "net-izobrazheniya-zvuk-est"),

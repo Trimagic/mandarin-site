@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProblemPage } from "@/components/site/problem-page";
 import { ServicePage } from "@/components/site/service-page";
+import { getDirectionItemHref } from "@/data/directions";
 import { getProblemPage, problemPages } from "@/data/problems";
+import { pageMetadata } from "@/lib/seo";
 import { getServicePage, servicePages } from "@/data/services";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -20,7 +22,7 @@ export function createDirectionItemRoute(directionSlug: string) {
     async generateMetadata({ params }: Props): Promise<Metadata> {
       const data = getPage((await params).slug);
       if (!data) notFound();
-      return data.metadata;
+      return pageMetadata({ ...data.metadata, path: getDirectionItemHref(directionSlug, data.slug), image: data.hero.image });
     },
     async Page({ params }: Props) {
       const { slug } = await params;

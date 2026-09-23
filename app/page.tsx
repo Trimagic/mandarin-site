@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image, { getImageProps } from "next/image";
 import {
   IconArrowRight,
@@ -18,7 +19,18 @@ import { RepairProcess } from "@/components/site/repair-process";
 import { CustomerReviews } from "@/components/site/customer-reviews";
 import { ContactSection } from "@/components/site/contact-section";
 import { buttonVariants } from "@/components/ui/button";
+import { JsonLd } from "@/components/site/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { graph, webPageNode } from "@/lib/structured-data";
 import { cn } from "@/lib/utils";
+
+const homeSeo = {
+  title: "Ремонт телефонов, ноутбуков, ПК и телевизоров в Борисове — Mandarin Сервис",
+  description: "Ремонт телефонов, ноутбуков, компьютеров и телевизоров в Борисове: замена экранов и аккумуляторов, чистка, ремонт плат и подсветки. Цена до ремонта. Ул. Чапаева, 34.",
+  path: "/",
+};
+
+export const metadata: Metadata = pageMetadata(homeSeo);
 
 export default function HomePage() {
   const { props: mobileHero } = getImageProps({
@@ -37,6 +49,7 @@ export default function HomePage() {
   });
   return (
     <div id="top" className="min-w-[320px] overflow-x-clip transition-colors">
+      <JsonLd data={graph([webPageNode(homeSeo)])} />
       <SiteHeader />
       <main>
         <section className="relative overflow-x-clip">

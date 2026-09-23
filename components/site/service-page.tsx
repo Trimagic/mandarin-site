@@ -12,11 +12,21 @@ import { CustomerReviews } from "@/components/site/customer-reviews";
 import { FrequentlyAskedQuestions } from "@/components/site/frequently-asked-questions";
 import { ContactSection } from "@/components/site/contact-section";
 import { SiteFooter } from "@/components/site/site-footer";
+import { JsonLd } from "@/components/site/json-ld";
+import { getDirectionItemHref } from "@/data/directions";
 import type { ServicePageData } from "@/data/services";
+import { breadcrumbNode, faqNode, graph, serviceNode, webPageNode } from "@/lib/structured-data";
 
 export function ServicePage({ data }: { data: ServicePageData }) {
+  const path = getDirectionItemHref(data.directionSlug, data.slug);
   return (
-    <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip bg-[#fffdfb] dark:bg-[#0a0806]">
+    <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip">
+      <JsonLd data={graph([
+        webPageNode({ path, ...data.metadata }),
+        breadcrumbNode(path, data.breadcrumbs),
+        serviceNode({ directionSlug: data.directionSlug, slug: data.slug, name: `${data.hero.title} ${data.hero.accent}`, description: data.metadata.description }),
+        faqNode(path, data.faq),
+      ])} />
       <SiteHeader homeLinks />
       <main>
         <DirectionHero data={data} />
