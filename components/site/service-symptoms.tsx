@@ -83,13 +83,14 @@ function rowRuleClassName(index: number, perRow: number) {
   ].filter(Boolean).join(" ");
 }
 
-export function ServiceSymptoms({ data, columns = 6, note }: { data: ServiceSymptomsData; columns?: 4 | 6; note?: string }) {
+/** `overlapHero` pulls the block 30px up over the hero image on desktop; use it only right after the hero. */
+export function ServiceSymptoms({ data, columns = 6, note, overlapHero = false }: { data: ServiceSymptomsData; columns?: 4 | 6; note?: string; overlapHero?: boolean }) {
   const headingId = useId();
   if (data.items.length === 0) return null;
   const perRow = columns === 4 ? 4 : 3;
 
   return (
-    <section aria-labelledby={headingId} className="mx-auto w-full max-w-[1440px] px-5 pb-10 md:px-6 xl:px-12">
+    <section aria-labelledby={headingId} className={`mx-auto w-full max-w-[1440px] px-5 pb-10 md:px-6 xl:px-12 ${overlapHero ? "relative z-20 xl:-mt-[30px]" : ""}`}>
       <div className="relative isolate overflow-hidden rounded-lg border border-[#e6e2de] bg-[#fffefd] px-5 pt-5 md:px-7 md:pt-6 dark:border-[#46301f] dark:bg-[#15110e]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(255,80,0,0.13),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top_right,rgba(255,80,0,0.16),transparent_70%)]" />
         <div aria-hidden="true" className="pointer-events-none absolute -top-10 -right-16 -z-10 h-[380px] w-[660px] bg-[url('/backgrounds/service-circuit.svg')] bg-contain bg-right-top bg-no-repeat opacity-80 md:-top-16 md:-right-20 md:h-[500px] md:w-[940px] dark:opacity-70" />

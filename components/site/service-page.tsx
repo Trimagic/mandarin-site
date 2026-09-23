@@ -30,7 +30,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       <SiteHeader homeLinks />
       <main>
         <DirectionHero data={data} />
-        {data.symptoms && <ServiceSymptoms data={data.symptoms} />}
+        {data.symptoms && <ServiceSymptoms data={data.symptoms} overlapHero />}
         {data.included && <ServiceIncluded data={data.included} />}
         {data.pricing && <ServicePricing data={data.pricing} />}
         {data.comparison && <ServiceComparison data={data.comparison} />}

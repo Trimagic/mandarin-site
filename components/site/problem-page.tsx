@@ -26,7 +26,7 @@ export function ProblemPage({ data }: { data: ProblemPageData }) {
       <SiteHeader homeLinks />
       <main>
         <DirectionHero data={data} />
-        {data.symptoms && <ServiceSymptoms data={data.symptoms} />}
+        {data.symptoms && <ServiceSymptoms data={data.symptoms} overlapHero />}
         {data.causes && <ProblemCauses data={data.causes} />}
         {data.pricing && <ServicePricing data={data.pricing} />}
         {data.process && data.process.items.length > 0 && <RepairProcess data={data.process} variant="compact" />}

@@ -52,7 +52,7 @@ export function DirectionHero({
     <ul
       className={
         mobile
-          ? "relative z-20 -mt-30 divide-y divide-dotted divide-[#ded8d2] rounded-xl border border-[#ece5df] bg-[#fffefd] px-4 md:hidden dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e]"
+          ? "relative z-20 -mt-11 divide-y divide-dotted divide-[#ded8d2] rounded-xl border border-[#ece5df] bg-[#fffefd] px-4 md:hidden dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e]"
           : "mt-7 hidden justify-center divide-x divide-[#ded8d2] md:flex xl:justify-start dark:divide-[#49352d]"
       }
     >
@@ -60,14 +60,21 @@ export function DirectionHero({
         const Icon = benefit.icon
           ? namedBenefitIcons[benefit.icon]
           : benefitIcons[index % benefitIcons.length];
+        // Mobile rows match the home page trust panel: one line, icon in the text colour.
+        if (mobile)
+          return (
+            <li
+              key={benefit.title}
+              className="flex items-center gap-2.5 py-3 text-[13px] font-semibold text-[#443a35] dark:text-[#ddd0c8]"
+            >
+              <Icon aria-hidden="true" stroke={1.5} className="size-6 shrink-0" />
+              <span>{benefit.title}</span>
+            </li>
+          );
         return (
           <li
             key={benefit.title}
-            className={
-              mobile
-                ? "flex items-center gap-3 py-3"
-                : "flex min-w-0 items-start gap-2 px-4 text-left first:pl-0 last:pr-0"
-            }
+            className="flex min-w-0 items-start gap-2 px-4 text-left first:pl-0 last:pr-0"
           >
             <Icon
               aria-hidden="true"
@@ -77,12 +84,7 @@ export function DirectionHero({
             <div>
               <p className="text-xs leading-5 font-semibold">{benefit.title}</p>
               {benefit.description && (
-                <p
-                  className={cn(
-                    "mt-1 text-[11px] leading-[1.5] text-muted-foreground",
-                    !mobile && "max-w-[140px]",
-                  )}
-                >
+                <p className="mt-1 max-w-[140px] text-[11px] leading-[1.5] text-muted-foreground">
                   {benefit.description}
                 </p>
               )}
@@ -161,7 +163,7 @@ export function DirectionHero({
             {benefits()}
           </div>
 
-          <div className="relative -mt-14 md:contents">
+          <div className="relative -mt-[41px] md:contents">
             <div className="relative isolate mx-auto aspect-square w-full md:aspect-[1.5] md:max-w-[928px] xl:aspect-auto xl:h-[480px] xl:ml-[-10px] xl:max-w-none xl:w-[calc(100%+58px)]">
               <div className="pointer-events-none absolute inset-x-0 -top-5 bottom-0 translate-y-[30px] md:inset-0 md:translate-y-0">
                 <picture className="absolute -inset-x-5 -inset-y-[20%] md:inset-0">
@@ -196,14 +198,13 @@ export function DirectionHero({
                   />
                 </div>
                 {hero.badge && (
-                  <div className="absolute top-[8%] right-[3%] z-20 flex max-w-[190px] items-center gap-3 rounded-lg border border-[#ece5df] bg-[#fffefd] px-4 py-3 text-[#171717] dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
-                    <IconStethoscope
-                      aria-hidden="true"
-                      stroke={1.5}
-                      className="size-7 shrink-0 text-[#65a832]"
-                    />
-                    <span className="text-xs leading-5 font-bold">
+                  // Same style as the home page badge: label first, stethoscope in a green ring.
+                  <div className="absolute top-[8%] right-[3%] z-20 flex max-w-[210px] items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] py-2.5 pr-2.5 pl-4 text-[#171717] md:gap-4 md:py-3 md:pr-3 md:pl-5 dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
+                    <span className="text-xs leading-5 font-bold md:text-sm">
                       {hero.badge}
+                    </span>
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[#7bb64b]/60 text-[#65a832] md:size-12 dark:border-[#83af3f]/50 dark:text-[#8ab943]">
+                      <IconStethoscope aria-hidden="true" stroke={1.5} className="size-6 md:size-7" />
                     </span>
                   </div>
                 )}
