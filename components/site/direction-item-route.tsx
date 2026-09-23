@@ -22,7 +22,7 @@ export function createDirectionItemRoute(directionSlug: string) {
     async generateMetadata({ params }: Props): Promise<Metadata> {
       const data = getPage((await params).slug);
       if (!data) notFound();
-      return pageMetadata({ ...data.metadata, path: getDirectionItemHref(directionSlug, data.slug), image: data.hero.image });
+      return pageMetadata({ ...data.metadata, path: getDirectionItemHref(directionSlug, data.slug) });
     },
     async Page({ params }: Props) {
       const { slug } = await params;

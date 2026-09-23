@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { JsonLd } from "@/components/site/json-ld";
 import { siteConfig } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import { businessNode, graph, websiteNode } from "@/lib/structured-data";
 import "./globals.css";
 
@@ -13,6 +14,7 @@ const manrope = Manrope({
 
 // Page-level metadata (title, canonical, Open Graph) comes from lib/seo.ts; these are site-wide defaults.
 export const metadata: Metadata = {
+  ...pageMetadata({ title: siteConfig.name, description: siteConfig.description, path: "/" }),
   metadataBase: new URL(siteConfig.url),
   title: { default: siteConfig.name, template: `%s — ${siteConfig.name}` },
   description: siteConfig.description,

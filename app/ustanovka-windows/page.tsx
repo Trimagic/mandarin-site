@@ -19,7 +19,6 @@ const path = `/${data.slug}/`;
 export const metadata: Metadata = pageMetadata({
   ...data.metadata,
   path,
-  image: data.hero.image,
 });
 
 export default function WindowsInstallationPage() {

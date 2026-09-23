@@ -14,9 +14,9 @@ export function ServicePricing({ data }: { data: ServicePricingData }) {
       <div className={cn("grid gap-5 lg:gap-8", data.callout && "lg:grid-cols-[1.05fr_1fr]")}>
         <div className="min-w-0">
           <h2 id={headingId} className="mb-4 text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">{data.title}</h2>
-          <ul className="divide-y divide-[#e6e2de] overflow-hidden rounded-[6px] border border-[#e6e2de] bg-[#fffefd] dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e]">
+          <ul className="grid grid-cols-[minmax(0,1fr)_auto] divide-y divide-[#e6e2de] overflow-hidden rounded-[6px] border border-[#e6e2de] bg-[#fffefd] sm:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_auto] dark:divide-[#46301f] dark:border-[#46301f] dark:bg-[#15110e]">
             {data.items.map((item) => (
-              <li key={item.id} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:px-5">
+              <li key={item.id} className="col-span-full grid grid-cols-subgrid items-center gap-x-4 gap-y-1 px-4 py-3 sm:px-5">
                 <span className="text-sm leading-5 text-[#171717] dark:text-[#fff7f0]">{item.title}</span>
                 <span className="col-start-1 text-xs leading-5 font-bold text-[#171717] sm:col-start-auto dark:text-[#fff7f0]">{item.price}</span>
                 {item.action && <a href={item.action.href} aria-label={`${item.action.label}: ${item.title}`} className="col-start-2 row-start-1 row-end-3 inline-flex min-h-11 items-center gap-1 rounded-sm text-xs font-medium text-[#ff5000] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff5000] sm:col-start-auto sm:row-auto">

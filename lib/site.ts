@@ -15,7 +15,7 @@ export const siteConfig = {
   landmark: "ТЦ «Мир Стиля», левый боковой вход",
   areaServed: "Борисов",
   logo: "/brand/mandarin-mark.png",
-  defaultImage: { src: "/brand/hero-devices-platform.png", width: 1441, height: 1091, alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке" },
+  defaultImage: { src: "/brand/social-cover.jpg", width: 1200, height: 630, alt: "Mandarin Сервис — ноутбук, телефон и мандарин на оранжевом фоне" },
 } as const;
 
 export function absoluteUrl(path = "/") {

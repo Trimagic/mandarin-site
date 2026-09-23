@@ -37,6 +37,7 @@ export default function HomePage() {
     alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
     width: 921,
     height: 1708,
+    quality: 90,
     sizes: "100vw",
   });
   const { props: tabletHero } = getImageProps({
@@ -44,6 +45,7 @@ export default function HomePage() {
     alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
     width: 1536,
     height: 1024,
+    quality: 90,
     sizes: "(min-width: 1024px) 928px, calc(100vw - 48px)",
   });
   return (
@@ -121,7 +123,7 @@ export default function HomePage() {
                   />
                 </span>
               </div>
-              <picture className="absolute top-[calc(-28vw_-_40px)] left-[-20px] z-0 block w-[calc(100%+40px)] shrink-0 md:relative md:top-auto md:left-auto md:z-10 md:w-full xl:w-[760px] xl:shrink-0">
+              <picture className="absolute top-[calc(-28vw_-_40px)] left-[-20px] z-0 block w-[calc(100%+40px)] shrink-0 md:relative md:top-auto md:left-auto md:z-10 md:w-full xl:w-[800px] xl:shrink-0">
                 <source
                   media="(max-width: 767px)"
                   srcSet={mobileHero.srcSet}
@@ -137,11 +139,12 @@ export default function HomePage() {
                   height={1024}
                 />
                 <Image
-                  src="/brand/hero-devices-platform.png"
+                  src="/brand/hero-devices-platform-hq.webp"
                   alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
-                  width={1441}
-                  height={1091}
-                  sizes="(min-width: 1280px) 760px, calc(100vw - 48px)"
+                  width={1480}
+                  height={1062}
+                  quality={90}
+                  sizes="(min-width: 1280px) 800px, calc(100vw - 48px)"
                   className="h-auto w-full object-contain"
                   loading="eager"
                   fetchPriority="high"
