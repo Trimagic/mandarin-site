@@ -16,7 +16,6 @@ import { DeviceProblems } from "@/components/site/device-problems";
 import { PopularServices } from "@/components/site/popular-services";
 import { WhyMandarin } from "@/components/site/why-mandarin";
 import { RepairProcess } from "@/components/site/repair-process";
-import { CustomerReviews } from "@/components/site/customer-reviews";
 import { ContactSection } from "@/components/site/contact-section";
 import { buttonVariants } from "@/components/ui/button";
 import { JsonLd } from "@/components/site/json-ld";
@@ -161,7 +160,6 @@ export default function HomePage() {
         <PopularServices />
         <WhyMandarin />
         <RepairProcess />
-        <CustomerReviews />
         <ContactSection />
       </main>
       <SiteFooter />

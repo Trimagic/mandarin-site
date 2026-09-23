@@ -7,5 +7,5 @@ import { phoneRepairData } from "@/data/directions";
 export const metadata: Metadata = pageMetadata({ ...phoneRepairData.metadata, path: `/${phoneRepairData.slug}/`, image: phoneRepairData.hero.image });
 
 export default function PhoneRepairPage() {
-  return <DirectionPage data={phoneRepairData} illustration={<PhoneProblemIllustration />} showReviewPlaceholders />;
+  return <DirectionPage data={phoneRepairData} illustration={<PhoneProblemIllustration />} />;
 }

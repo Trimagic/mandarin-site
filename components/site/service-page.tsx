@@ -38,7 +38,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         {data.advice && <ProblemAdvice data={data.advice} />}
         {data.beforeAfter && <ServiceBeforeAfter data={data.beforeAfter} />}
         {data.quality && <ServiceQuality data={data.quality} />}
-        {data.reviews && <CustomerReviews title={data.reviews.title} items={data.reviews.items.map((review) => ({ name: review.author, text: review.text, rating: review.rating }))} notice={data.reviews.items.length ? "" : "Места для отзывов — добавим реальные отзывы клиентов."} />}
+        {data.reviews && data.reviews.items.length > 0 && <CustomerReviews title={data.reviews.title} items={data.reviews.items.map((review) => ({ name: review.author, text: review.text, rating: review.rating }))} />}
         {data.faq && <FrequentlyAskedQuestions data={data.faq} />}
         {data.contact && <ContactSection data={data.contact} />}
       </main>

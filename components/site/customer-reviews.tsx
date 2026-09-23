@@ -1,30 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { IconChevronRight, IconStarFilled } from "@tabler/icons-react";
+import { IconStarFilled } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-
-// Demonstration copy from the design; replace with verified reviews before publishing.
-const defaultReviews = [
-  {
-    name: "Алексей",
-    date: "12 мар 2024",
-    dateTime: "2024-03-12",
-    text: "Заменили экран на Xiaomi быстро и качественно. Цена как сказали по телефону, так и осталась. Рекомендую!",
-  },
-  {
-    name: "Ирина",
-    date: "28 апреля 2024",
-    dateTime: "2024-04-28",
-    text: "Ноутбук сильно грелся. Сделали чистку, заменили термопасту — теперь тихо работает и не нагревается.",
-  },
-  {
-    name: "Дмитрий",
-    date: "3 мая 2024",
-    dateTime: "2024-05-03",
-    text: "Установили SSD и Windows. Всё летает! Отличный сервис и приятные ребята.",
-  },
-];
 
 export type CustomerReview = {
   name: string;
@@ -34,36 +12,22 @@ export type CustomerReview = {
   rating?: number;
 };
 
-export function CustomerReviews({ title = "Отзывы клиентов", items = defaultReviews, notice = "Примеры отзывов из макета." }: {
+/** Shows only real, verifiable reviews; with none the block is not rendered at all. */
+export function CustomerReviews({ title = "Отзывы клиентов", items, notice }: {
   title?: string;
-  items?: CustomerReview[];
+  items: CustomerReview[];
   notice?: string;
 }) {
-  const reviews: CustomerReview[] = items.length ? items : Array.from({ length: 3 }, (_, index) => ({
-    name: `Отзыв ${index + 1}`,
-    text: "Место для реального отзыва. Здесь будет текст клиента о ремонте телефона и сервисе.",
-    date: undefined,
-    dateTime: undefined,
-  }));
+  const reviews = items;
   const [page, setPage] = useState(0);
   const [mobilePage, setMobilePage] = useState(0);
+  if (reviews.length === 0) return null;
   return (
     <section id="reviews" aria-labelledby="reviews-heading" className="mx-auto w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:px-6 xl:px-12">
       <div className="xl:rounded-xl xl:border xl:border-[#ece5df] xl:bg-[#fffefd] xl:p-6 xl:dark:border-[#46301f] xl:dark:bg-[#15110e]">
-        <div className="mb-5 flex items-center justify-between gap-6">
-          <h2 id="reviews-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
-            {title}
-          </h2>
-          <button
-            type="button"
-            disabled
-            title="Страница отзывов появится позже"
-            className="hidden items-center gap-3 text-sm font-semibold text-[#f04a00] disabled:cursor-default xl:flex dark:text-[#ff6800]"
-          >
-            Смотреть все отзывы
-            <IconChevronRight aria-hidden="true" className="size-4" />
-          </button>
-        </div>
+        <h2 id="reviews-heading" className="mb-5 text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
+          {title}
+        </h2>
         <div id="review-cards" className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
           {reviews.map((review, index) => (
             <figure key={review.name} className={cn("min-w-0 rounded-[6px] border border-[#e9e6e2] bg-[#fffefd] p-5 dark:border-[#3b2d22] dark:bg-[#15110e]", index !== mobilePage && "max-md:hidden", (index < page || index > page + 1) && "md:max-xl:hidden")}>
@@ -71,7 +35,7 @@ export function CustomerReviews({ title = "Отзывы клиентов", items
                 <span className="text-sm font-semibold text-[#171717] dark:text-[#fff7f0]">{review.name}</span>
                 {review.date && <time dateTime={review.dateTime} className="text-xs text-[#898589] dark:text-[#a79b8f]">{review.date}</time>}
               </figcaption>
-              <div role="img" aria-label={items.length ? `Оценка: ${review.rating ?? 5} из 5` : "Пример оформления рейтинга"} className="mt-2 flex gap-0.5 text-[#ff4b00] dark:text-[#ff6800]">
+              <div role="img" aria-label={`Оценка: ${review.rating ?? 5} из 5`} className="mt-2 flex gap-0.5 text-[#ff4b00] dark:text-[#ff6800]">
                 {Array.from({ length: Math.max(0, Math.min(5, Math.round(review.rating ?? 5))) }, (_, index) => <IconStarFilled key={index} aria-hidden="true" className="size-4" />)}
               </div>
               <blockquote className="mt-3 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
@@ -102,10 +66,9 @@ export function CustomerReviews({ title = "Отзывы клиентов", items
             </button>
           ))}
         </div>
-        <button type="button" disabled title="Страница отзывов появится позже" className="mx-auto mb-4 flex min-h-11 items-center gap-2 text-sm font-semibold text-[#f04a00] md:hidden dark:text-[#ff6800]">Смотреть все отзывы<IconChevronRight aria-hidden="true" className="size-4" /></button>
         <p aria-live="polite" className="sr-only hidden md:block xl:hidden">Показаны отзывы {page + 1} и {page + 2} из {reviews.length}.</p>
         <p aria-live="polite" className="sr-only md:hidden">Отзыв {mobilePage + 1} из {reviews.length}: {reviews[mobilePage].name}.</p>
-        <p className="mt-1 text-center text-xs text-[#898589] xl:mt-3 xl:text-left dark:text-[#a79b8f]">{notice}</p>
+        {notice && <p className="mt-1 text-center text-xs text-[#898589] xl:mt-3 xl:text-left dark:text-[#a79b8f]">{notice}</p>}
       </div>
     </section>
   );

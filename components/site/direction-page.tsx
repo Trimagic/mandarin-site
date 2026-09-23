@@ -16,7 +16,7 @@ import type { DirectionPageData } from "@/data/directions";
 import { breadcrumbNode, directionServiceNode, faqNode, graph, webPageNode } from "@/lib/structured-data";
 
 
-export function DirectionPage({ data, illustration, showReviewPlaceholders = false }: { data: DirectionPageData; illustration?: ReactNode; showReviewPlaceholders?: boolean }) {
+export function DirectionPage({ data, illustration }: { data: DirectionPageData; illustration?: ReactNode }) {
   const path = `/${data.slug}/`;
   return (
     <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip">
@@ -35,7 +35,7 @@ export function DirectionPage({ data, illustration, showReviewPlaceholders = fal
         <DirectionConditions data={data} />
         <RepairProcess data={data.process} variant="compact" />
         <RepairWorks data={data.works} />
-        {(data.reviews.items.length > 0 || showReviewPlaceholders) && <CustomerReviews title={data.reviews.title} items={data.reviews.items.map((review) => ({ name: review.author, text: review.text, rating: review.rating }))} notice={data.reviews.items.length ? "" : "Места для отзывов — добавим реальные отзывы клиентов."} />}
+        {data.reviews.items.length > 0 && <CustomerReviews title={data.reviews.title} items={data.reviews.items.map((review) => ({ name: review.author, text: review.text, rating: review.rating }))} />}
         <FrequentlyAskedQuestions data={data.faq} />
         <ContactSection data={data.contact} />
       </main>

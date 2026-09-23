@@ -13,7 +13,6 @@ const columns = [
   { title: "Информация", links: [
     ["Как проходит ремонт", "/#process"],
     ["Гарантия", "/#warranty"],
-    ["Отзывы", "/#reviews"],
   ] },
   { title: "Компания", links: [
     ["О нас", "/#warranty"],

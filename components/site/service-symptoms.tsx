@@ -93,8 +93,8 @@ export function ServiceSymptoms({ data, columns = 6, note, overlapHero = false }
     <section aria-labelledby={headingId} className={`mx-auto w-full max-w-[1440px] px-5 pb-10 md:px-6 xl:px-12 ${overlapHero ? "relative z-20 xl:-mt-[30px]" : ""}`}>
       <div className="relative isolate overflow-hidden rounded-lg border border-[#e6e2de] bg-[#fffefd] px-5 pt-5 md:px-7 md:pt-6 dark:border-[#46301f] dark:bg-[#15110e]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(255,80,0,0.13),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top_right,rgba(255,80,0,0.16),transparent_70%)]" />
-        <div aria-hidden="true" className="pointer-events-none absolute -top-10 -right-16 -z-10 h-[380px] w-[660px] bg-[url('/backgrounds/service-circuit.svg')] bg-contain bg-right-top bg-no-repeat opacity-80 md:-top-16 md:-right-20 md:h-[500px] md:w-[940px] dark:opacity-70" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-24 -z-10 h-[340px] w-[510px] bg-[url('/backgrounds/service-circuit-left.svg')] bg-contain bg-left-bottom bg-no-repeat opacity-45 md:-bottom-24 md:-left-20 md:h-[460px] md:w-[690px] md:opacity-60 dark:opacity-40 md:dark:opacity-55" />
+        <div aria-hidden="true" className="pointer-events-none absolute -top-10 -right-16 -z-10 h-[380px] w-[660px] bg-[url('/backgrounds/service-circuit.svg')] bg-contain bg-right-top bg-no-repeat opacity-40 md:-top-16 md:-right-20 md:h-[500px] md:w-[940px] dark:opacity-35" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-24 -z-10 h-[340px] w-[510px] bg-[url('/backgrounds/service-circuit-left.svg')] bg-contain bg-left-bottom bg-no-repeat opacity-25 md:-bottom-24 md:-left-20 md:h-[460px] md:w-[690px] md:opacity-30 dark:opacity-20 md:dark:opacity-25" />
         <h2 id={headingId} className="max-w-[900px] text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
           {data.title}
         </h2>
