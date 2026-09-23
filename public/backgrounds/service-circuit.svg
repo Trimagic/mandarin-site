@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" fill="none">
+  <defs>
+    <linearGradient id="fade" x1="80" y1="300" x2="540" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <mask id="edge"><path fill="url(#fade)" d="M0 0h600v320H0z"/></mask>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#ff5000" opacity=".3"/>
+    </pattern>
+  </defs>
+  <g mask="url(#edge)">
+    <path fill="url(#dots)" d="M0 0h600v320H0z"/>
+    <g stroke="#ff5000" stroke-width="1.2" opacity=".5">
+      <circle cx="564" cy="-20" r="118"/>
+      <circle cx="564" cy="-20" r="154"/>
+      <circle cx="564" cy="-20" r="190"/>
+      <path d="M600 204H474l-36 36H326l-32 32h-74M600 252H506l-32 32H368M374 0v58l-38 38h-72l-32 32h-68"/>
+      <circle cx="220" cy="272" r="4"/>
+      <circle cx="368" cy="284" r="4"/>
+      <circle cx="164" cy="128" r="4"/>
+    </g>
+  </g>
+</svg>

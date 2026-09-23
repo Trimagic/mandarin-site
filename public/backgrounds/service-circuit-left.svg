@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="fade" x1="0" y1="350" x2="580" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="edge"><path fill="url(#fade)" d="M0 0h600v400H0z"/></mask>
+    <pattern id="crosses" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M16 20h8m-4-4v8" stroke="#ff5000" stroke-width="1" opacity=".35"/>
+    </pattern>
+  </defs>
+  <g mask="url(#edge)">
+    <path fill="url(#crosses)" d="M0 0h600v400H0z"/>
+    <g stroke="#ff5000" stroke-width="1.4" opacity=".65">
+      <circle cx="-35" cy="405" r="130"/><circle cx="-35" cy="405" r="170"/><circle cx="-35" cy="405" r="210"/>
+      <path d="M0 72h116l42 42h110l40 40h84M0 132h74l42 42h96l42 42h72M0 246h106l42-42h38M72 400v-54l42-42h138l48-48h118"/>
+      <circle cx="392" cy="154" r="5"/><circle cx="326" cy="216" r="5"/><circle cx="186" cy="204" r="5"/><circle cx="418" cy="256" r="5"/>
+    </g>
+  </g>
+</svg>
