@@ -96,6 +96,30 @@
   }
   ::selection { background: color-mix(in srgb, var(--primary) 25%, transparent); }
   button, a { -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --scrollbar-track: #fffaf6;
+    --scrollbar-thumb: #e2d2c6;
+    --scrollbar-thumb-hover: #ff5000;
+  }
+  .dark {
+    --scrollbar-track: #120d0b;
+    --scrollbar-thumb: #45322a;
+    --scrollbar-thumb-hover: #ff7a18;
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border: 2px solid var(--scrollbar-track);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+  ::-webkit-scrollbar-corner { background: var(--scrollbar-track); }
+  /* Firefox has no ::-webkit-scrollbar; Chromium would ignore those rules if scrollbar-color were set for it too. */
+  @supports not selector(::-webkit-scrollbar) {
+    * { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }
+  }
 }
 
 @layer utilities {

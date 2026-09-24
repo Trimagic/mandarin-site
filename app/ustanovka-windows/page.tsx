@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DirectionHero } from "@/components/site/direction-hero";
+import { windowsRequestConfig } from "@/lib/request";
 import { JsonLd } from "@/components/site/json-ld";
 import { SiteHeader } from "@/components/site/site-header";
 import { WindowsInstallationPackage } from "@/components/site/windows-installation-package";
@@ -38,7 +39,7 @@ export default function WindowsInstallationPage() {
       ])} />
       <SiteHeader homeLinks />
       <main>
-        <DirectionHero data={data} imageClassName="max-md:-translate-y-14 max-md:scale-75" />
+        <DirectionHero data={data} request={windowsRequestConfig(data.metadata.title)} />
         <WindowsInstallationPackage />
         <WindowsAdditionalServices />
         <ServiceSymptoms data={sections.tasks} columns={4} note="Если система не запускается, сначала проверим причину и обсудим сохранение данных." />

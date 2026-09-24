@@ -14,12 +14,12 @@ function breadcrumbs(label: string, slug: string) {
   return [...computerRepairData.breadcrumbs, { label, href: href(slug) }];
 }
 
-function hero(title: string, accent: string, description: string, problem: string): ProblemPageData["hero"] {
+function hero(title: string, accent: string, description: string, problem: string, image?: ProblemPageData["hero"]["image"]): ProblemPageData["hero"] {
   return {
     title,
     accent,
     description,
-    image: computerRepairData.hero.image,
+    image: image ?? computerRepairData.hero.image,
     backgrounds: computerRepairData.hero.backgrounds,
     primaryAction: { label: "Узнать стоимость", href: enquiry(`Здравствуйте! ${problem}. Хочу уточнить стоимость диагностики и ремонта. Конфигурация: `) },
     secondaryAction: computerRepairData.hero.secondaryAction,
@@ -82,7 +82,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Компьютер не включается и не реагирует на кнопку? Проверим кабель, блок питания, кнопку и материнскую плату.",
     },
     breadcrumbs: breadcrumbs("Не включается", "kompyuter-ne-vklyuchaetsya"),
-    hero: hero("Компьютер", "не включается", "Проверим кабель, блок питания, кнопку и материнскую плату. Согласуем стоимость до ремонта.", "Компьютер не включается"),
+    hero: hero("Компьютер", "не включается", "Проверим кабель, блок питания, кнопку и материнскую плату. Согласуем стоимость до ремонта.", "Компьютер не включается", { src: "/hero/pc-wont-turn-on-v1.png", alt: "Системный блок без индикаторов и монитор с чёрным экраном" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -138,7 +138,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Компьютер работает, а монитор чёрный? Проверим кабель, монитор, память, видеокарту и плату.",
     },
     breadcrumbs: breadcrumbs("Нет изображения", "net-izobrazheniya"),
-    hero: hero("Компьютер включается,", "но нет изображения", "Проверим кабель, монитор, оперативную память, видеокарту и плату. Согласуем стоимость до ремонта.", "Компьютер включается, но нет изображения"),
+    hero: hero("Компьютер включается,", "но нет изображения", "Проверим кабель, монитор, оперативную память, видеокарту и плату. Согласуем стоимость до ремонта.", "Компьютер включается, но нет изображения", { src: "/hero/pc-no-image-v1.png", alt: "Работающий системный блок с горящим индикатором и монитор с чёрным экраном" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -195,7 +195,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Компьютер тормозит и долго загружается? Установим SSD и память, почистим от пыли, найдём причину.",
     },
     breadcrumbs: breadcrumbs("Медленно работает", "kompyuter-tormozit"),
-    hero: hero("Компьютер", "медленно работает", "Определим причину: накопитель, память, перегрев или программы. Подскажем, как ускорить.", "Компьютер медленно работает"),
+    hero: hero("Компьютер", "медленно работает", "Определим причину: накопитель, память, перегрев или программы. Подскажем, как ускорить.", "Компьютер медленно работает", { src: "/hero/pc-slow-v1.png", alt: "Монитор со значком песочных часов и системный блок" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -256,7 +256,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Компьютер перезагружается или выключается сам? Проверим блок питания, температуры, память и драйверы.",
     },
     breadcrumbs: breadcrumbs("Перезагружается", "kompyuter-perezagruzhaetsya"),
-    hero: hero("Компьютер сам", "перезагружается", "Проверим блок питания, температуры, память и драйверы. Согласуем стоимость до ремонта.", "Компьютер сам перезагружается"),
+    hero: hero("Компьютер сам", "перезагружается", "Проверим блок питания, температуры, память и драйверы. Согласуем стоимость до ремонта.", "Компьютер сам перезагружается", { src: "/hero/pc-restarts-v1.png", alt: "Монитор со значком перезагрузки и системный блок" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -313,7 +313,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Компьютер показывает синий экран смерти (BSOD)? Проверим драйверы, память, накопитель и температуры.",
     },
     breadcrumbs: breadcrumbs("Синий экран", "siniy-ekran"),
-    hero: hero("Синий экран", "Windows", "Определим, что вызывает синий экран: драйверы, память, накопитель или перегрев.", "Синий экран Windows"),
+    hero: hero("Синий экран", "Windows", "Определим, что вызывает синий экран: драйверы, память, накопитель или перегрев.", "Синий экран Windows", { src: "/hero/pc-blue-screen-v1.png", alt: "Монитор с синим экраном ошибки Windows и системный блок" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -370,7 +370,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Компьютер громко гудит или трещит? Почистим от пыли, заменим термопасту и вентиляторы. Чистка от 35 BYN.",
     },
     breadcrumbs: breadcrumbs("Сильно шумит", "shumit-kompyuter"),
-    hero: hero("Компьютер", "сильно шумит", "Определим источник шума: пыль, вентиляторы, кулер видеокарты или блок питания.", "Компьютер сильно шумит"),
+    hero: hero("Компьютер", "сильно шумит", "Определим источник шума: пыль, вентиляторы, кулер видеокарты или блок питания.", "Компьютер сильно шумит", { src: "/hero/pc-noisy-v1.png", alt: "Запылённый вентилятор процессорного кулера в открытом системном блоке" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -428,7 +428,7 @@ export const computerProblemPages: ProblemPageData[] = [
       description: "Windows не загружается, циклически перезагружается или висит на логотипе? Проверим накопитель и систему. Для ноутбуков причины те же.",
     },
     breadcrumbs: breadcrumbs("Не загружается Windows", "ne-zagruzhaetsya-windows"),
-    hero: hero("Не загружается", "Windows", "Проверим, в чём причина: накопитель, обновление, загрузчик или система. Для ноутбуков всё так же.", "Не загружается Windows"),
+    hero: hero("Не загружается", "Windows", "Проверим, в чём причина: накопитель, обновление, загрузчик или система. Для ноутбуков всё так же.", "Не загружается Windows", { src: "/hero/pc-windows-not-loading-v1.png", alt: "Монитор с чёрным экраном и курсором, Windows не загружается" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [

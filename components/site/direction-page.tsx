@@ -13,6 +13,7 @@ import { FrequentlyAskedQuestions } from "@/components/site/frequently-asked-que
 import { ContactSection } from "@/components/site/contact-section";
 import { JsonLd } from "@/components/site/json-ld";
 import type { DirectionPageData } from "@/data/directions";
+import { directionRequestConfig } from "@/lib/request";
 import { breadcrumbNode, directionServiceNode, faqNode, graph, webPageNode } from "@/lib/structured-data";
 
 
@@ -28,7 +29,7 @@ export function DirectionPage({ data, illustration }: { data: DirectionPageData;
       ])} />
       <SiteHeader homeLinks />
       <main>
-        <DirectionHero data={data} />
+        <DirectionHero data={data} request={directionRequestConfig(data.slug, { context: data.metadata.title })} />
         <DirectionServices data={data} />
         <DirectionProblems data={data} illustration={illustration} />
         <DirectionDevices data={data} />

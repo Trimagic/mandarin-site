@@ -13,11 +13,14 @@ import {
 } from "@tabler/icons-react";
 import type { DirectionPageData } from "@/data/directions";
 import { buttonVariants } from "@/components/ui/button";
+import { RequestButton } from "@/components/site/request-button";
+import type { RequestFormConfig } from "@/lib/request-types";
 import { cn } from "@/lib/utils";
 
 type DirectionHeroProps = {
   data: Pick<DirectionPageData, "hero" | "breadcrumbs">;
   primaryHref?: string;
+  request?: RequestFormConfig;
   imageClassName?: string;
 };
 
@@ -32,6 +35,7 @@ const namedBenefitIcons = {
 export function DirectionHero({
   data: { hero, breadcrumbs },
   primaryHref,
+  request,
   imageClassName,
 }: DirectionHeroProps) {
   const { props: mobileBackground } = getImageProps({
@@ -48,6 +52,10 @@ export function DirectionHero({
     height: 1024,
     sizes: "(min-width: 1024px) 928px, calc(100vw - 48px)",
   });
+  const primaryClass = cn(
+                buttonVariants({ variant: "brand", size: "xl" }),
+                "h-12 w-full md:w-auto md:h-14 xl:h-12 rounded-md bg-[#ff5000] px-7 xl:px-6 text-sm text-white shadow-none hover:bg-[#e74700]",
+              );
   const benefits = (mobile = false) => (
     <ul
       className={
@@ -56,6 +64,12 @@ export function DirectionHero({
           : "mt-7 hidden justify-center divide-x divide-[#ded8d2] md:flex xl:justify-start dark:divide-[#49352d]"
       }
     >
+      {mobile && hero.badge && (
+        <li className="flex items-center gap-2.5 py-3 text-[13px] font-semibold text-[#443a35] dark:text-[#ddd0c8]">
+          <IconStethoscope aria-hidden="true" stroke={1.5} className="size-6 shrink-0 text-[#65a832] dark:text-[#8ab943]" />
+          <span>{hero.badge.replace(/\s*\n\s*/g, " ")}</span>
+        </li>
+      )}
       {hero.benefits.map((benefit, index) => {
         const Icon = benefit.icon
           ? namedBenefitIcons[benefit.icon]
@@ -135,16 +149,17 @@ export function DirectionHero({
               {hero.description}
             </p>
             <div className="mt-5 flex flex-col items-start gap-2 md:flex-row md:items-center md:justify-center md:gap-3 xl:justify-start">
-              <a
-                href={primaryHref ?? hero.primaryAction.href}
-                className={cn(
-                  buttonVariants({ variant: "brand", size: "xl" }),
-                  "h-12 w-full md:w-auto md:h-14 xl:h-12 rounded-md bg-[#ff5000] px-7 xl:px-6 text-sm text-white shadow-none hover:bg-[#e74700]",
-                )}
-              >
-                {hero.primaryAction.label}
-                <IconArrowRight aria-hidden="true" className="ml-3 size-5" />
-              </a>
+              {request ? (
+                <RequestButton config={request} className={primaryClass}>
+                  {hero.primaryAction.label}
+                  <IconArrowRight aria-hidden="true" className="ml-3 size-5" />
+                </RequestButton>
+              ) : (
+                <a href={primaryHref ?? hero.primaryAction.href} className={primaryClass}>
+                  {hero.primaryAction.label}
+                  <IconArrowRight aria-hidden="true" className="ml-3 size-5" />
+                </a>
+              )}
               <a
                 href={hero.secondaryAction.href}
                 className={cn(
@@ -199,7 +214,7 @@ export function DirectionHero({
                 </div>
                 {hero.badge && (
                   // Same style as the home page badge: label first, stethoscope in a green ring.
-                  <div className="absolute top-[8%] right-[3%] z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 text-[#171717] xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
+                  <div className="absolute top-[8%] right-[3%] z-20 hidden items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 text-[#171717] xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0] md:flex">
                     <span className="text-sm leading-5 font-bold whitespace-pre-line">
                       {hero.badge}
                     </span>

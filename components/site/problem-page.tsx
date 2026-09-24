@@ -12,6 +12,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { JsonLd } from "@/components/site/json-ld";
 import { getDirectionItemHref } from "@/data/directions";
 import type { ProblemPageData } from "@/data/problems";
+import { directionRequestConfig, problemTitle } from "@/lib/request";
 import { breadcrumbNode, faqNode, graph, webPageNode } from "@/lib/structured-data";
 
 export function ProblemPage({ data }: { data: ProblemPageData }) {
@@ -25,7 +26,10 @@ export function ProblemPage({ data }: { data: ProblemPageData }) {
       ])} />
       <SiteHeader homeLinks />
       <main>
-        <DirectionHero data={data} />
+        <DirectionHero
+          data={data}
+          request={directionRequestConfig(data.directionSlug, { context: data.metadata.title, problem: problemTitle(data.directionSlug, data.slug) })}
+        />
         {data.symptoms && <ServiceSymptoms data={data.symptoms} overlapHero />}
         {data.causes && <ProblemCauses data={data.causes} />}
         {data.pricing && <ServicePricing data={data.pricing} />}

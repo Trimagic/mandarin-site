@@ -18,12 +18,12 @@ function breadcrumbs(label: string, slug: string) {
   return [...tvRepairData.breadcrumbs, { label, href: href(slug) }];
 }
 
-function hero(title: string, accent: string, description: string, subject: string): ServicePageData["hero"] {
+function hero(title: string, accent: string, description: string, subject: string, image?: ServicePageData["hero"]["image"]): ServicePageData["hero"] {
   return {
     title,
     accent,
     description,
-    image: tvRepairData.hero.image,
+    image: image ?? tvRepairData.hero.image,
     backgrounds: tvRepairData.hero.backgrounds,
     primaryAction: { label: "Узнать стоимость", href: modelEnquiry(subject) },
     secondaryAction: tvRepairData.hero.secondaryAction,
@@ -82,7 +82,7 @@ export const tvServicePages: ServicePageData[] = [
       description: "Звук есть, а изображения нет? Заменим светодиодную подсветку телевизора в Борисове. Стоимость по модели после диагностики.",
     },
     breadcrumbs: breadcrumbs("Замена подсветки", "zamena-podsvetki"),
-    hero: hero("Замена подсветки", "телевизора", "Звук есть, а изображения нет — чаще всего вышла из строя светодиодная подсветка. Заменим линейки и вернём картинку.", "замена подсветки телевизора"),
+    hero: hero("Замена подсветки", "телевизора", "Звук есть, а изображения нет — чаще всего вышла из строя светодиодная подсветка. Заменим линейки и вернём картинку.", "замена подсветки телевизора", { src: "/hero/tv-backlight-replacement-v1.png", alt: "Матрица телевизора со снятой крышкой, светодиодные ленты подсветки и новая лента" }),
     symptoms: {
       title: "Когда нужна замена подсветки",
       items: [
@@ -143,7 +143,7 @@ export const tvServicePages: ServicePageData[] = [
       description: "Телевизор не включается после скачка напряжения? Ремонт или замена платы питания телевизора в Борисове.",
     },
     breadcrumbs: breadcrumbs("Ремонт блока питания", "remont-bloka-pitaniya"),
-    hero: hero("Ремонт блока питания", "телевизора", "Скачки напряжения и вздутые конденсаторы — частые причины. Отремонтируем или заменим плату питания.", "ремонт блока питания телевизора"),
+    hero: hero("Ремонт блока питания", "телевизора", "Скачки напряжения и вздутые конденсаторы — частые причины. Отремонтируем или заменим плату питания.", "ремонт блока питания телевизора", { src: "/hero/tv-power-supply-v1.png", alt: "Блок питания телевизора со вздутым конденсатором и новый конденсатор" }),
     symptoms: {
       title: "Когда нужен ремонт блока питания",
       items: [
@@ -204,7 +204,7 @@ export const tvServicePages: ServicePageData[] = [
       description: "Телевизор зависает, не реагирует на пульт или не ловит каналы? Ремонт и прошивка материнской платы телевизора в Борисове.",
     },
     breadcrumbs: breadcrumbs("Ремонт материнской платы", "remont-materinskoy-platy"),
-    hero: hero("Ремонт материнской", "платы телевизора", "Зависания, сбои прошивки, встроенный тюнер, нет реакции на пульт — отремонтируем или прошьём плату.", "ремонт материнской платы телевизора"),
+    hero: hero("Ремонт материнской", "платы телевизора", "Зависания, сбои прошивки, встроенный тюнер, нет реакции на пульт — отремонтируем или прошьём плату.", "ремонт материнской платы телевизора", { src: "/hero/tv-mainboard-repair-v1.png", alt: "Материнская плата телевизора с разъёмами HDMI и жало паяльника" }),
     symptoms: {
       title: "Когда нужен ремонт платы",
       items: [
@@ -266,7 +266,7 @@ export const tvServicePages: ServicePageData[] = [
       description: "Полосы, мерцание или искажения на экране без трещин? Замена шлейфа и платы T-Con телевизора в Борисове.",
     },
     breadcrumbs: breadcrumbs("Замена шлейфа и T-Con", "zamena-shleyfa-i-t-con"),
-    hero: hero("Замена шлейфа", "и T-Con телевизора", "Полосы, мерцание и искажения без трещин на экране часто вызывает шлейф или плата T-Con. Их мы ремонтируем.", "замена шлейфа или T-Con"),
+    hero: hero("Замена шлейфа", "и T-Con телевизора", "Полосы, мерцание и искажения без трещин на экране часто вызывает шлейф или плата T-Con. Их мы ремонтируем.", "замена шлейфа или T-Con", { src: "/hero/tv-tcon-replacement-v1.png", alt: "Плата T-Con телевизора со шлейфами и новая плата для замены" }),
     symptoms: {
       title: "Когда нужна замена",
       items: [
@@ -329,7 +329,7 @@ export const tvServicePages: ServicePageData[] = [
       description: "Не видит HDMI, флешку или приставку? Ремонт разъёмов HDMI, USB и антенного гнезда телевизора в Борисове.",
     },
     breadcrumbs: breadcrumbs("Ремонт разъёмов", "remont-razemov"),
-    hero: hero("Ремонт разъёмов", "телевизора", "Нет сигнала, телевизор не видит флешку или приставку — отремонтируем HDMI, USB и антенное гнездо.", "ремонт разъёмов телевизора"),
+    hero: hero("Ремонт разъёмов", "телевизора", "Нет сигнала, телевизор не видит флешку или приставку — отремонтируем HDMI, USB и антенное гнездо.", "ремонт разъёмов телевизора", { src: "/hero/tv-ports-repair-v1.png", alt: "Задняя панель телевизора с повреждённым разъёмом HDMI и новый разъём" }),
     symptoms: {
       title: "Когда нужен ремонт",
       items: [
@@ -391,7 +391,7 @@ export const tvServicePages: ServicePageData[] = [
       description: "Нет звука, хрип или прерывистый звук? Замена динамиков телевизора в Борисове. Стоимость по модели.",
     },
     breadcrumbs: breadcrumbs("Замена динамиков", "zamena-dinamikov"),
-    hero: hero("Замена динамиков", "телевизора", "Нет звука, хрипит или звук пропадает — проверим динамики и усилитель и заменим неисправное.", "замена динамиков телевизора"),
+    hero: hero("Замена динамиков", "телевизора", "Нет звука, хрипит или звук пропадает — проверим динамики и усилитель и заменим неисправное.", "замена динамиков телевизора", { src: "/hero/tv-speakers-replacement-v1.png", alt: "Встроенные динамики телевизора и новый динамик для замены" }),
     symptoms: {
       title: "Когда нужна замена",
       items: [

@@ -18,6 +18,8 @@ import { WhyMandarin } from "@/components/site/why-mandarin";
 import { RepairProcess } from "@/components/site/repair-process";
 import { ContactSection } from "@/components/site/contact-section";
 import { buttonVariants } from "@/components/ui/button";
+import { RequestButton } from "@/components/site/request-button";
+import { homeRequestConfig } from "@/lib/request";
 import { JsonLd } from "@/components/site/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { graph, webPageNode } from "@/lib/structured-data";
@@ -76,8 +78,8 @@ export default function HomePage() {
               </p>
 
               <div className="mt-5 flex flex-col items-start gap-1 md:mt-6 md:flex-row md:items-center md:justify-center md:gap-4 xl:mt-8 xl:justify-start">
-                <a
-                  href="tel:+375291506888"
+                <RequestButton
+                  config={homeRequestConfig()}
                   className={cn(
                     buttonVariants({ variant: "brand", size: "xl" }),
                     "h-12 w-full bg-[#eb4900] px-6 text-sm text-white shadow-none hover:bg-[#d64000] md:h-14 md:w-auto dark:bg-[#f45500] dark:hover:bg-[#ff6508] has-data-[icon=inline-end]:pr-5",
@@ -85,7 +87,7 @@ export default function HomePage() {
                 >
                   Узнать стоимость
                   <IconArrowRight data-icon="inline-end" />
-                </a>
+                </RequestButton>
                 <a
                   href="https://wa.me/375291506888"
                   className={cn(
@@ -139,7 +141,7 @@ export default function HomePage() {
                   height={1024}
                 />
                 <Image
-                  src="/brand/hero-devices-platform-2x.webp"
+                  src="/brand/hero-devices-platform-2x-v2.webp"
                   alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
                   width={2960}
                   height={2124}
