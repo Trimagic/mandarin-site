@@ -1,7 +1,7 @@
 import {
-  IconBatteryCharging, IconBolt, IconBulb, IconCamera, IconChevronRight, IconCpu, IconDeviceLaptop,
+  IconArrowBigUpLines, IconBatteryCharging, IconBolt, IconBulb, IconCamera, IconChevronRight, IconCpu, IconCpu2, IconDeviceDesktop, IconDeviceLaptop,
   IconDeviceMobile, IconDeviceSdCard, IconDeviceSpeaker, IconDroplet, IconKeyboard, IconLayoutRows,
-  IconPlug, IconPlugConnected, IconSettings, IconStethoscope, IconTemperature, IconVolume, IconTool, IconWind,
+  IconPlug, IconPlugConnected, IconReplace, IconSettings, IconStethoscope, IconTemperature, IconVolume, IconTool, IconWind,
 } from "@tabler/icons-react";
 import { getDirectionItemHref, type DirectionPageData, type DirectionPrice } from "@/data/directions";
 import { getServicePage } from "@/data/services";
@@ -30,6 +30,12 @@ const serviceIcons: Record<string, typeof IconTool> = {
   "zamena-shleyfa-i-t-con": IconLayoutRows,
   "remont-razemov": IconPlugConnected,
   "zamena-dinamikov": IconDeviceSpeaker,
+  "diagnostika-pk": IconStethoscope,
+  "sborka-pk": IconDeviceDesktop,
+  "zamena-komplektuyushchih": IconReplace,
+  "remont-videokarty": IconCpu2,
+  "chistka-i-obsluzhivanie": IconWind,
+  "modernizaciya-pk": IconArrowBigUpLines,
 };
 
 function priceLabel(price: DirectionPrice) {

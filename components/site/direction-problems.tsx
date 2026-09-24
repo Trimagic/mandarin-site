@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import {
-  IconBattery, IconBolt, IconChevronRight, IconHourglass, IconLayoutRows, IconPhoto, IconPlayerPause,
+  IconBattery, IconBolt, IconBrandWindows, IconChevronRight, IconHourglass, IconLayoutRows, IconMoodSad, IconPhoto, IconPlayerPause, IconPropeller,
   IconPower, IconRefresh, IconQuestionMark, IconDeviceSim, IconTemperaturePlus, IconVolume, IconVolumeOff,
 } from "@tabler/icons-react";
 import { getDirectionItemHref, type DirectionPageData } from "@/data/directions";
@@ -25,6 +25,12 @@ const problemIcons: Record<string, typeof IconPower> = {
   "polosy-na-ekrane": IconLayoutRows,
   "televizor-zavisaet": IconPlayerPause,
   "net-zvuka": IconVolumeOff,
+  "kompyuter-ne-vklyuchaetsya": IconPower,
+  "kompyuter-tormozit": IconHourglass,
+  "kompyuter-perezagruzhaetsya": IconRefresh,
+  "siniy-ekran": IconMoodSad,
+  "shumit-kompyuter": IconPropeller,
+  "ne-zagruzhaetsya-windows": IconBrandWindows,
 };
 
 export function PhoneProblemIllustration() {
