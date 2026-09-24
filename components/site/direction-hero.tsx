@@ -179,7 +179,7 @@ export function DirectionHero({
           </div>
 
           <div className="relative -mt-[41px] md:contents">
-            <div className="relative isolate mx-auto aspect-square w-full md:aspect-[1.5] md:max-w-[928px] xl:aspect-auto xl:h-[480px] xl:ml-[-10px] xl:max-w-none xl:w-[calc(100%+58px)]">
+            <div className="relative isolate mx-auto aspect-square w-full md:aspect-[1.5] md:max-xl:-mt-[5%] md:max-xl:-mb-[8%] md:max-w-[928px] xl:aspect-auto xl:h-[480px] xl:ml-[-10px] xl:max-w-none xl:w-[calc(100%+58px)]">
               <div className="pointer-events-none absolute inset-x-0 -top-5 bottom-0 translate-y-[30px] md:inset-0 md:translate-y-0">
                 <picture className="absolute -inset-x-5 -inset-y-[20%] md:inset-0">
                   <source
