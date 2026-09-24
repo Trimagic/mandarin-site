@@ -21,7 +21,7 @@ export const laptopRepairData = {
       tablet: "/backgrounds/hero-background-wide-draft.png",
       mobile: "/backgrounds/hero-background-mobile-v1.png",
     },
-    badge: "Диагностика перед ремонтом",
+    badge: "Диагностика при\nремонте — бесплатно",
     primaryAction: { label: "Узнать стоимость", href: "#services" },
     secondaryAction: { label: "Написать мастеру", href: "https://wa.me/375291506888" },
     benefits: [

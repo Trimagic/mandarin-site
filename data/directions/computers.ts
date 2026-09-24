@@ -9,7 +9,7 @@ export const computerRepairData: DirectionPageData = {
     description: "От диагностики до сборки ПК под ваши задачи. Согласуем стоимость и комплектующие до начала работ.",
     image: { src: "/hero/computer-repair-cutout-v1.png", alt: "Системный блок, монитор, клавиатура и мандарин" },
     backgrounds: { desktop: "/backgrounds/hero-background-empty-v1.png", tablet: "/backgrounds/hero-background-wide-draft.png", mobile: "/backgrounds/hero-background-mobile-v1.png" },
-    badge: "Диагностика перед ремонтом",
+    badge: "Диагностика при\nремонте — бесплатно",
     primaryAction: { label: "Узнать стоимость", href: "#services" },
     secondaryAction: { label: "Написать мастеру", href: "https://wa.me/375291506888" },
     benefits: [{ title: "Своя мастерская", description: "Оборудование для диагностики" }, { title: "Цена до ремонта", description: "Согласуем работы заранее" }, { title: "Под ваши задачи", description: "Подбор совместимых деталей" }],

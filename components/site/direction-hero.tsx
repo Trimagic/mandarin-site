@@ -199,12 +199,12 @@ export function DirectionHero({
                 </div>
                 {hero.badge && (
                   // Same style as the home page badge: label first, stethoscope in a green ring.
-                  <div className="absolute top-[8%] right-[3%] z-20 flex max-w-[210px] items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] py-2.5 pr-2.5 pl-4 text-[#171717] md:gap-4 md:py-3 md:pr-3 md:pl-5 dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
-                    <span className="text-xs leading-5 font-bold md:text-sm">
+                  <div className="absolute top-[8%] right-[3%] z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 text-[#171717] xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810] dark:text-[#fff7f0]">
+                    <span className="text-sm leading-5 font-bold whitespace-pre-line">
                       {hero.badge}
                     </span>
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[#7bb64b]/60 text-[#65a832] md:size-12 dark:border-[#83af3f]/50 dark:text-[#8ab943]">
-                      <IconStethoscope aria-hidden="true" stroke={1.5} className="size-6 md:size-7" />
+                    <span className="grid size-12 shrink-0 place-items-center rounded-full border border-[#7bb64b]/60 text-[#65a832] dark:border-[#83af3f]/50 dark:text-[#8ab943]">
+                      <IconStethoscope aria-hidden="true" stroke={1.5} className="size-7" />
                     </span>
                   </div>
                 )}

@@ -139,11 +139,11 @@ export default function HomePage() {
                   height={1024}
                 />
                 <Image
-                  src="/brand/hero-devices-platform-hq.webp"
+                  src="/brand/hero-devices-platform-2x.webp"
                   alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
-                  width={1480}
-                  height={1062}
-                  quality={90}
+                  width={2960}
+                  height={2124}
+                  quality={100}
                   sizes="(min-width: 1280px) 800px, calc(100vw - 48px)"
                   className="h-auto w-full object-contain"
                   loading="eager"

@@ -14,12 +14,12 @@ function breadcrumbs(label: string, slug: string) {
   return [...phoneRepairData.breadcrumbs, { label, href: href(slug) }];
 }
 
-function hero(title: string, accent: string, description: string, problem: string): ProblemPageData["hero"] {
+function hero(title: string, accent: string, description: string, problem: string, image?: ProblemPageData["hero"]["image"]): ProblemPageData["hero"] {
   return {
     title,
     accent,
     description,
-    image: phoneRepairData.hero.image,
+    image: image ?? phoneRepairData.hero.image,
     backgrounds: phoneRepairData.hero.backgrounds,
     primaryAction: { label: "Узнать стоимость", href: enquiry(`Здравствуйте! ${problem}. Хочу уточнить стоимость диагностики и ремонта. Моя модель: `) },
     secondaryAction: phoneRepairData.hero.secondaryAction,
@@ -184,7 +184,7 @@ export const phoneProblemPages: ProblemPageData[] = [
       description: "Телефон не включается и не реагирует на зарядку? Проверим аккумулятор, разъём, дисплей, прошивку и плату. Стоимость согласуем до ремонта.",
     },
     breadcrumbs: breadcrumbs("Не включается", "telefon-ne-vklyuchaetsya"),
-    hero: hero("Телефон", "не включается", "Найдём причину: аккумулятор, разъём, дисплей, прошивка или плата. Согласуем стоимость до ремонта.", "Телефон не включается"),
+    hero: hero("Телефон", "не включается", "Найдём причину: аккумулятор, разъём, дисплей, прошивка или плата. Согласуем стоимость до ремонта.", "Телефон не включается", { src: "/hero/phone-wont-turn-on-v1.png", alt: "Телефон с полностью чёрным выключенным экраном" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -252,7 +252,7 @@ export const phoneProblemPages: ProblemPageData[] = [
       description: "Телефон не заряжается или заряжается только под углом? Проверим кабель, разъём, аккумулятор и контроллер питания. Стоимость согласуем до ремонта.",
     },
     breadcrumbs: breadcrumbs("Не заряжается", "telefon-ne-zaryazhaetsya"),
-    hero: hero("Телефон", "не заряжается", "Проверим кабель, разъём, аккумулятор и контроллер питания. Часто достаточно чистки разъёма.", "Телефон не заряжается"),
+    hero: hero("Телефон", "не заряжается", "Проверим кабель, разъём, аккумулятор и контроллер питания. Часто достаточно чистки разъёма.", "Телефон не заряжается", { src: "/hero/phone-not-charging-v1.png", alt: "Телефон на зарядке со значком пустой батареи на экране" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -319,7 +319,7 @@ export const phoneProblemPages: ProblemPageData[] = [
       description: "Телефон быстро садится и греется? Проверим аккумулятор, фоновые процессы и плату. Замена аккумулятора от 40 BYN.",
     },
     breadcrumbs: breadcrumbs("Быстро разряжается", "bystro-razryazhaetsya"),
-    hero: hero("Телефон быстро", "разряжается и греется", "Проверим аккумулятор, потребление тока и плату. Определим, нужна ли замена батареи или хватит настройки.", "Телефон быстро разряжается"),
+    hero: hero("Телефон быстро", "разряжается и греется", "Проверим аккумулятор, потребление тока и плату. Определим, нужна ли замена батареи или хватит настройки.", "Телефон быстро разряжается", { src: "/hero/phone-battery-drain-v1.png", alt: "Телефон со значком почти разряженной батареи на экране" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -386,7 +386,7 @@ export const phoneProblemPages: ProblemPageData[] = [
       description: "Телефон не видит SIM-карту или пропала сеть? Проверим SIM-лоток, контакты, модемную часть и прошивку. Стоимость согласуем до ремонта.",
     },
     breadcrumbs: breadcrumbs("Не видит SIM-карту", "telefon-ne-vidit-sim-kartu"),
-    hero: hero("Телефон не видит", "SIM-карту или сеть", "Проверим SIM-лоток, контакты, модемную часть и прошивку. Для точного ответа нужна диагностика.", "Телефон не видит SIM-карту"),
+    hero: hero("Телефон не видит", "SIM-карту или сеть", "Проверим SIM-лоток, контакты, модемную часть и прошивку. Для точного ответа нужна диагностика.", "Телефон не видит SIM-карту", { src: "/hero/phone-no-sim-v1.png", alt: "Выдвинутый SIM-лоток телефона с SIM-картой и скрепкой для извлечения" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
@@ -453,7 +453,7 @@ export const phoneProblemPages: ProblemPageData[] = [
       description: "Телефон сам перезагружается или зависает? Проверим аккумулятор, память, кнопку питания, прошивку и плату. Стоимость согласуем до ремонта.",
     },
     breadcrumbs: breadcrumbs("Перезагружается", "telefon-perezagruzhaetsya"),
-    hero: hero("Телефон зависает", "и перезагружается", "Определим причину: аккумулятор, память, обновление, кнопка питания или плата. Согласуем стоимость до ремонта.", "Телефон сам перезагружается"),
+    hero: hero("Телефон зависает", "и перезагружается", "Определим причину: аккумулятор, память, обновление, кнопка питания или плата. Согласуем стоимость до ремонта.", "Телефон сам перезагружается", { src: "/hero/phone-restarts-v1.png", alt: "Телефон со значком перезагрузки на экране" }),
     symptoms: {
       title: "Как проявляется неисправность",
       items: [
