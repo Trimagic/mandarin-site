@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Tabs } from "@base-ui/react/tabs";
-import { IconChevronRight } from "@tabler/icons-react";
+import { IconChevronRight, IconDeviceDesktop, IconDeviceLaptop, IconDeviceMobile, IconDeviceTv, IconPlus } from "@tabler/icons-react";
 
 export type DeviceProblemsTab = {
   id: string;
@@ -11,7 +11,29 @@ export type DeviceProblemsTab = {
   problems: { title: string; href: string; external: boolean }[];
 };
 
-const itemClassName = "flex min-h-14 min-w-0 items-center justify-between gap-2 rounded-lg border px-3 py-3 text-sm transition-colors hover:border-[#ff6800] hover:bg-[#ff6800]/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6800] xl:gap-3 xl:px-4";
+const deviceIcons: Record<string, typeof IconDeviceMobile> = {
+  phone: IconDeviceMobile,
+  laptop: IconDeviceLaptop,
+  desktop: IconDeviceDesktop,
+  tv: IconDeviceTv,
+};
+
+const itemClassName =
+  "group relative flex h-full min-h-14 min-w-0 items-center gap-3 overflow-hidden rounded-xl border px-4 py-3 text-sm transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6800]";
+
+const problemClassName = `${itemClassName} border-[#e9e6e2] bg-[#fffefd] text-[#2c2622] after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[#ff5000] after:transition-transform after:duration-300 hover:border-[#ff5000]/50 hover:bg-[#fff6ef] hover:after:scale-x-100 motion-reduce:after:transition-none dark:border-[#3b2d22] dark:bg-[#15110e] dark:text-[#e3d9ce] dark:hover:border-[#ff7a18]/50 dark:hover:bg-[#1d140e] dark:after:bg-[#ff7a18]`;
+
+function ProblemContent({ title }: { title: string }) {
+  return (
+    <>
+      <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-[#ff5000]/35 transition-colors duration-300 group-hover:bg-[#ff5000] dark:bg-[#ff7a18]/40 dark:group-hover:bg-[#ff7a18]" />
+      <span className="min-w-0 flex-1 font-medium">{title}</span>
+      <span aria-hidden="true" className="grid size-7 shrink-0 place-items-center rounded-full border border-dashed border-[#ff5000]/40 text-[#ff5000] transition-[background-color,border-color,color,transform] duration-300 group-hover:translate-x-0.5 group-hover:border-solid group-hover:border-[#ff5000] group-hover:bg-[#ff5000] group-hover:text-white motion-reduce:transform-none dark:border-[#ff7a18]/40 dark:text-[#ff8a32] dark:group-hover:bg-[#ff7a18] dark:group-hover:text-[#1c1009]">
+        <IconChevronRight className="size-4" />
+      </span>
+    </>
+  );
+}
 
 export function DeviceProblemsTabs({ devices }: { devices: DeviceProblemsTab[] }) {
   return (
@@ -21,39 +43,49 @@ export function DeviceProblemsTabs({ devices }: { devices: DeviceProblemsTab[] }
           <h2 id="problems-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
             Что случилось с техникой?
           </h2>
-          <Tabs.List aria-label="Тип техники" className="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-b border-[#e9e6e2] md:gap-x-6 xl:gap-x-8 dark:border-[#46301f]">
-            {devices.map((device) => (
-              <Tabs.Tab
-                key={device.id}
-                value={device.id}
-                className="-mb-px cursor-pointer border-b-2 border-transparent px-0 pb-3 text-sm font-medium text-[#54545d] outline-offset-4 transition-colors hover:text-[#f04a00] focus-visible:outline-2 focus-visible:outline-[#ff6800] aria-selected:border-[#ff4b00] aria-selected:text-[#f04a00] dark:text-[#d1c7bd] dark:hover:text-[#ff6800] dark:aria-selected:border-[#ff6800] dark:aria-selected:text-[#ff6800]"
-              >
-                {device.label}
-              </Tabs.Tab>
-            ))}
+          <Tabs.List aria-label="Тип техники" className="mt-5 grid grid-cols-2 gap-2 sm:inline-flex sm:flex-wrap sm:rounded-full sm:border sm:border-dashed sm:border-[#eadbd1] sm:p-1 dark:sm:border-[#46301f]">
+            {devices.map((device) => {
+              const Icon = deviceIcons[device.id] ?? IconDeviceMobile;
+              return (
+                <Tabs.Tab
+                  key={device.id}
+                  value={device.id}
+                  className="inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full border border-[#e9e6e2] px-4 text-sm font-semibold text-[#54545d] outline-offset-2 transition-colors hover:text-[#e74700] focus-visible:outline-2 focus-visible:outline-[#ff6800] aria-selected:border-[#ff5000]/40 aria-selected:bg-[#ff5000]/10 aria-selected:text-[#e74700] sm:h-10 sm:border-transparent dark:border-[#3b2d22] dark:text-[#d1c7bd] dark:hover:text-[#ff8a32] dark:aria-selected:border-[#ff7a18]/40 dark:aria-selected:bg-[#ff7a18]/15 dark:aria-selected:text-[#ff8a32] sm:dark:border-transparent"
+                >
+                  <Icon aria-hidden="true" stroke={1.5} className="size-5" />
+                  {device.label}
+                </Tabs.Tab>
+              );
+            })}
           </Tabs.List>
           {devices.map((device) => (
-            <Tabs.Panel key={device.id} value={device.id} className="pt-6 outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#ff6800]">
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 xl:grid-cols-3 xl:gap-4">
-                {device.problems.map((problem) => {
-                  const content = <>
-                    {problem.title}
-                    <IconChevronRight aria-hidden="true" className="size-4 shrink-0 text-[#ff4b00] dark:text-[#ff6800]" />
-                  </>;
-                  const className = `${itemClassName} border-[#e9e6e2] text-[#414149] dark:border-[#3b2d22] dark:text-[#e3d9ce]`;
-                  return problem.external
-                    ? <a key={problem.title} href={problem.href} aria-label={`${device.label}: ${problem.title}. Написать мастеру в WhatsApp`} className={className}>{content}</a>
-                    : <Link key={problem.title} href={problem.href} className={className}>{content}</Link>;
-                })}
-                <Link
-                  href={device.otherHref}
-                  aria-label={`${device.label}: другая поломка. Все услуги и неисправности`}
-                  className={`${itemClassName} border-dashed border-[#ffb58a] font-semibold text-[#f04a00] dark:border-[#78502d] dark:text-[#ff6800]`}
-                >
-                  Другая поломка
-                  <IconChevronRight aria-hidden="true" className="size-4 shrink-0" />
-                </Link>
-              </div>
+            <Tabs.Panel key={device.id} value={device.id} className="pt-5 outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#ff6800]">
+              <ul className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 xl:grid-cols-3">
+                {device.problems.map((problem) => (
+                  <li key={problem.title}>
+                    {problem.external ? (
+                      <a href={problem.href} aria-label={`${device.label}: ${problem.title}. Написать мастеру в WhatsApp`} className={problemClassName}>
+                        <ProblemContent title={problem.title} />
+                      </a>
+                    ) : (
+                      <Link href={problem.href} className={problemClassName}>
+                        <ProblemContent title={problem.title} />
+                      </Link>
+                    )}
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    href={device.otherHref}
+                    aria-label={`${device.label}: другая поломка. Все услуги и неисправности`}
+                    className={`${itemClassName} border-dashed border-[#ff5000]/45 font-semibold text-[#e74700] hover:border-[#ff5000] hover:bg-[#ff5000]/5 dark:border-[#ff7a18]/45 dark:text-[#ff8a32] dark:hover:border-[#ff7a18]`}
+                  >
+                    <IconPlus aria-hidden="true" stroke={1.75} className="size-4 shrink-0" />
+                    <span className="min-w-0 flex-1">Другая поломка</span>
+                    <IconChevronRight aria-hidden="true" className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </Link>
+                </li>
+              </ul>
               <DeviceIllustration device={device.id} />
             </Tabs.Panel>
           ))}
