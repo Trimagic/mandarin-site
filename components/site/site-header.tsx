@@ -7,6 +7,8 @@ import { IconBrandWindows, IconDeviceDesktop, IconDeviceLaptop, IconDeviceMobile
 
 import { buttonVariants } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { RequestTrigger } from "@/components/site/request-provider";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 function Brand() {
@@ -95,9 +97,20 @@ export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 pl-6 md:gap-5 xl:gap-4 2xl:gap-5">
-          <a href="tel:+375291506888" aria-label="Позвонить: +375 29 150-68-88" className="grid size-11 place-items-center rounded-full border border-[#eadbd1] text-sm font-extrabold tracking-[-0.02em] text-[#211a17] md:block md:size-auto md:rounded-none md:border-0 dark:border-[#49352d] dark:text-[#fff7f0]">
-            <IconPhone aria-hidden="true" className="size-5 md:hidden" />
-            <span className="hidden md:inline">+375 29 150-68-88</span>
+          <a
+            href="tel:+375291506888"
+            aria-label={`Позвонить: +375 29 150-68-88, ${siteConfig.openingHours.label}`}
+            className="group flex items-center gap-3 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
+            <span aria-hidden="true" className="grid size-11 shrink-0 place-items-center rounded-full border border-[#ff5000]/30 bg-[#ff5000]/8 text-[#ff5000] transition-colors group-hover:border-[#ff5000] group-hover:bg-[#ff5000] group-hover:text-white md:size-10 xl:hidden 2xl:grid dark:border-[#ff7a18]/40 dark:bg-[#ff7a18]/12 dark:text-[#ff8a32] dark:group-hover:bg-[#ff7a18] dark:group-hover:text-[#1c1009]">
+              <IconPhone stroke={1.75} className="size-5" />
+            </span>
+            <span aria-hidden="true" className="hidden leading-tight md:block">
+              <span className="block text-[15px] font-extrabold tracking-[-0.02em] whitespace-nowrap text-[#211a17] transition-colors group-hover:text-[#e74700] dark:text-[#fff7f0] dark:group-hover:text-[#ff8a32]">
+                +375 29 150-68-88
+              </span>
+              <span className="mt-0.5 block text-[11px] font-medium whitespace-nowrap text-[#8a7d76] dark:text-[#a79b8f]">{siteConfig.openingHours.label}</span>
+            </span>
           </a>
           <button
             type="button"
@@ -109,15 +122,15 @@ export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
             <IconMoon className="size-4 dark:hidden" />
             <IconSun className="hidden size-4 dark:block" />
           </button>
-          <a
-            href="tel:+375291506888"
+          <RequestTrigger
+            fallbackHref="tel:+375291506888"
             className={cn(
               buttonVariants({ variant: "brand-outline", size: "xl" }),
               "hidden h-11 px-5 xl:inline-flex dark:border-[#ff7a18]/55 dark:bg-transparent dark:text-[#fff7f0] dark:hover:bg-[#ff7a18]/12 dark:hover:text-[#ff9a3d]",
             )}
           >
             Записаться
-          </a>
+          </RequestTrigger>
           <Drawer
             swipeDirection="down"
             showSwipeHandle
