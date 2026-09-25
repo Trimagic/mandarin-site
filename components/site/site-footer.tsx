@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IconBrandTelegram, IconBrandWhatsapp, IconChevronRight, IconPhone } from "@tabler/icons-react";
+import { siteConfig } from "@/lib/site";
 
 const columns = [
   { title: "Услуги", links: [
@@ -8,7 +9,7 @@ const columns = [
     ["Ремонт компьютеров", "/remont-kompyuterov/"],
     ["Ремонт телевизоров", "/remont-televizorov/"],
     ["Установка Windows", "/ustanovka-windows/"],
-    ["Все услуги и цены", "/#prices"],
+    ["Все услуги и цены", "/#services"],
   ] },
   { title: "Информация", links: [
     ["Как проходит ремонт", "/#process"],
@@ -66,6 +67,7 @@ export function SiteFooter() {
         </div>
         <div className="flex min-w-0 flex-wrap items-center justify-between gap-3 md:block md:text-right">
           <a href="tel:+375291506888" className="whitespace-nowrap text-sm font-extrabold tracking-[-0.025em] text-[#171717] hover:text-[#f04a00] xl:text-lg dark:text-[#e2d3c2] dark:hover:text-[#ff6800]">+375 29 150-68-88</a>
+          <p className="text-xs leading-5 text-[#79757a] max-md:order-last max-md:basis-full md:mt-1 dark:text-[#a79b8f]">{siteConfig.openingHours.label}<span aria-hidden="true" className="mx-2 md:hidden">·</span><span className="md:block">{siteConfig.openingHours.note}</span></p>
           <div className="flex justify-end gap-2 md:mt-4 xl:gap-3">
             <a href="https://t.me/+375291506888" aria-label="Написать в Telegram" className="grid size-8 place-items-center rounded-full bg-[#08a9e6] text-white transition-opacity hover:opacity-80"><IconBrandTelegram aria-hidden="true" className="size-5" /></a>
             <a href="https://wa.me/375291506888" aria-label="Написать в WhatsApp" className="grid size-8 place-items-center rounded-full bg-[#16bc39] text-white transition-opacity hover:opacity-80"><IconBrandWhatsapp aria-hidden="true" className="size-5" /></a>

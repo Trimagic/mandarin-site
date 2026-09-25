@@ -18,3 +18,13 @@ export type RequestState =
   | { status: "success" }
   | { status: "error"; message: string; fieldErrors?: RequestFieldErrors }
   | { status: "fallback"; message: string };
+
+/** Messenger enquiry links open the request form; other links (pages, anchors) stay links. */
+export function isEnquiryHref(href: string) {
+  return href.startsWith("https://wa.me/");
+}
+
+/** "Write to the master" leads to the form now, so the label says what happens. */
+export function requestLabel(label: string) {
+  return label === "Написать мастеру" ? "Оставить заявку" : label;
+}

@@ -2,9 +2,14 @@ import {
   IconBrandTelegram,
   IconBrandWhatsapp,
   IconChevronRight,
+  IconClock,
   IconMapPin,
   IconPhone,
 } from "@tabler/icons-react";
+
+import { RequestTrigger } from "@/components/site/request-provider";
+import { siteConfig } from "@/lib/site";
+import { isEnquiryHref, requestLabel } from "@/lib/request-types";
 
 const address = "Борисов, улица Чапаева, 34";
 const mapQuery = encodeURIComponent(`${address}, Беларусь`);
@@ -33,10 +38,10 @@ export function ContactSection({ data = defaultData, id = "contacts" }: { data?:
           <p className="mt-3 max-w-80 text-sm leading-6 text-[#393939] dark:text-[#d1c7bd]">
             {data.description}
           </p>
-          <a href={data.action.href} className="mt-4 inline-flex h-12 w-full items-center justify-center gap-5 rounded-[6px] bg-[#eb4900] px-5 text-sm font-semibold text-white hover:bg-[#d64000] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] md:w-auto dark:bg-[#f45500] dark:hover:bg-[#ff6508]">
-            {data.action.label}
+          <RequestTrigger fallbackHref={data.action.href} className="mt-4 inline-flex h-12 w-full items-center justify-center gap-5 rounded-[6px] bg-[#eb4900] px-5 text-sm font-semibold text-white hover:bg-[#d64000] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] md:w-auto dark:bg-[#f45500] dark:hover:bg-[#ff6508]">
+            {isEnquiryHref(data.action.href) ? requestLabel(data.action.label) : data.action.label}
             <IconChevronRight aria-hidden="true" className="size-4" />
-          </a>
+          </RequestTrigger>
         </div>
         <div className="flex min-w-0 flex-col justify-center py-1">
           <address className="space-y-5 text-sm not-italic">
@@ -53,7 +58,13 @@ export function ContactSection({ data = defaultData, id = "contacts" }: { data?:
               <IconPhone aria-hidden="true" stroke={1.5} className="mt-0.5 size-6 shrink-0 text-[#54545d] dark:text-[#c5b8b1]" />
               <div>
                 <a href="tel:+375291506888" className="font-semibold text-[#242833] hover:underline dark:text-[#fff7f0]">+375 29 150-68-88</a>
-                <p className="mt-1 text-xs leading-5 text-[#79757a] dark:text-[#b6a99b]">Время визита уточните по телефону</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <IconClock aria-hidden="true" stroke={1.5} className="mt-0.5 size-6 shrink-0 text-[#54545d] dark:text-[#c5b8b1]" />
+              <div>
+                <p className="font-semibold text-[#242833] dark:text-[#fff7f0]">{siteConfig.openingHours.label}</p>
+                <p className="mt-1 text-xs leading-5 text-[#79757a] dark:text-[#b6a99b]">{siteConfig.openingHours.note}</p>
               </div>
             </div>
           </address>

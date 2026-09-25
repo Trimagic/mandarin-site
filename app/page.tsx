@@ -18,7 +18,7 @@ import { WhyMandarin } from "@/components/site/why-mandarin";
 import { RepairProcess } from "@/components/site/repair-process";
 import { ContactSection } from "@/components/site/contact-section";
 import { buttonVariants } from "@/components/ui/button";
-import { RequestButton } from "@/components/site/request-button";
+import { ContactTrigger, RequestProvider, RequestTrigger } from "@/components/site/request-provider";
 import { homeRequestConfig } from "@/lib/request";
 import { JsonLd } from "@/components/site/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -51,6 +51,7 @@ export default function HomePage() {
     sizes: "(min-width: 1024px) 928px, calc(100vw - 48px)",
   });
   return (
+    <RequestProvider config={homeRequestConfig()}>
     <div id="top" className="min-w-[320px] overflow-x-clip transition-colors">
       <JsonLd data={graph([webPageNode(homeSeo)])} />
       <SiteHeader />
@@ -78,8 +79,8 @@ export default function HomePage() {
               </p>
 
               <div className="mt-5 flex flex-col items-start gap-1 md:mt-6 md:flex-row md:items-center md:justify-center md:gap-4 xl:mt-8 xl:justify-start">
-                <RequestButton
-                  config={homeRequestConfig()}
+                <RequestTrigger
+                  fallbackHref="tel:+375291506888"
                   className={cn(
                     buttonVariants({ variant: "brand", size: "xl" }),
                     "h-12 w-full bg-[#eb4900] px-6 text-sm text-white shadow-none hover:bg-[#d64000] md:h-14 md:w-auto dark:bg-[#f45500] dark:hover:bg-[#ff6508] has-data-[icon=inline-end]:pr-5",
@@ -87,8 +88,8 @@ export default function HomePage() {
                 >
                   Узнать стоимость
                   <IconArrowRight data-icon="inline-end" />
-                </RequestButton>
-                <a
+                </RequestTrigger>
+                <ContactTrigger
                   href="https://wa.me/375291506888"
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "xl" }),
@@ -97,7 +98,7 @@ export default function HomePage() {
                 >
                   Написать мастеру
                   <IconChevronRight data-icon="inline-end" />
-                </a>
+                </ContactTrigger>
               </div>
 
               <div className="mt-7 hidden items-center justify-center divide-x divide-[#ff6a00]/35 md:flex xl:mt-12 xl:justify-start dark:divide-[#ff7a18]/45 [&>div]:px-5 [&>div:first-child]:pl-0 [&>div:last-child]:pr-0">
@@ -169,6 +170,7 @@ export default function HomePage() {
       </main>
       <SiteFooter />
     </div>
+    </RequestProvider>
   );
 }
 

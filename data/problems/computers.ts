@@ -221,6 +221,7 @@ export const computerProblemPages: ProblemPageData[] = [
       items: [
         { id: "upgrade", title: "Модернизация: SSD и память", price: "Договорная", action: { label: "Подробнее", href: href("modernizaciya-pk") } },
         { id: "cleaning", title: "Чистка и замена термопасты", price: "от 35 BYN", action: { label: "Подробнее", href: href("chistka-i-obsluzhivanie") } },
+        { id: "windows", title: "Установка Windows", price: "По составу комплекта", action: { label: "Подробнее", href: "/ustanovka-windows/" } },
         diagnosticsPrice,
       ],
       callout: {
@@ -339,6 +340,8 @@ export const computerProblemPages: ProblemPageData[] = [
       items: [
         diagnosticsPrice,
         { id: "parts", title: "Замена памяти или накопителя", price: "от 35 BYN", action: { label: "Подробнее", href: href("zamena-komplektuyushchih") } },
+        { id: "gpu", title: "Ремонт видеокарты", price: "от 40 BYN", action: { label: "Подробнее", href: href("remont-videokarty") } },
+        { id: "windows", title: "Установка Windows", price: "По составу комплекта", action: { label: "Подробнее", href: "/ustanovka-windows/" } },
         { id: "cleaning", title: "Чистка и замена термопасты", price: "от 35 BYN", action: { label: "Подробнее", href: href("chistka-i-obsluzhivanie") } },
       ],
       callout: callout("Синий экран Windows"),
@@ -454,7 +457,7 @@ export const computerProblemPages: ProblemPageData[] = [
       items: [
         diagnosticsPrice,
         { id: "storage", title: "Замена накопителя", price: "от 35 BYN", action: { label: "Подробнее", href: href("zamena-komplektuyushchih") } },
-        { id: "software", title: "Восстановление или установка Windows", price: "Компьютерная помощь", action: { label: "Уточнить", href: enquiry("Здравствуйте! Не загружается Windows. Интересует восстановление или установка системы. Конфигурация: ") } },
+        { id: "software", title: "Восстановление или установка Windows", price: "По составу комплекта", action: { label: "Подробнее", href: "/ustanovka-windows/" } },
       ],
       callout: callout("Не загружается Windows"),
     },

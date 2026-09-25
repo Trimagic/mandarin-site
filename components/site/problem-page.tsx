@@ -9,7 +9,11 @@ import { ServiceQuality } from "@/components/site/service-quality";
 import { FrequentlyAskedQuestions } from "@/components/site/frequently-asked-questions";
 import { ContactSection } from "@/components/site/contact-section";
 import { SiteFooter } from "@/components/site/site-footer";
+import { RequestProvider } from "@/components/site/request-provider";
 import { JsonLd } from "@/components/site/json-ld";
+import { CustomerReviews } from "@/components/site/customer-reviews";
+import { RepairStories } from "@/components/site/repair-cases";
+import { storiesForProblem, storyReviews } from "@/data/cases";
 import { getDirectionItemHref } from "@/data/directions";
 import type { ProblemPageData } from "@/data/problems";
 import { directionRequestConfig, problemTitle } from "@/lib/request";
@@ -17,7 +21,11 @@ import { breadcrumbNode, faqNode, graph, webPageNode } from "@/lib/structured-da
 
 export function ProblemPage({ data }: { data: ProblemPageData }) {
   const path = getDirectionItemHref(data.directionSlug, data.slug);
+  const linkedHrefs = (data.pricing?.items ?? []).flatMap((item) => (item.action ? [item.action.href] : []));
+  const stories = storiesForProblem(data.directionSlug, data.slug, linkedHrefs);
+  const reviews = storyReviews(stories);
   return (
+    <RequestProvider config={directionRequestConfig(data.directionSlug, { context: data.metadata.title, problem: problemTitle(data.directionSlug, data.slug) })}>
     <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip">
       <JsonLd data={graph([
         webPageNode({ path, ...data.metadata }),
@@ -26,20 +34,20 @@ export function ProblemPage({ data }: { data: ProblemPageData }) {
       ])} />
       <SiteHeader homeLinks />
       <main>
-        <DirectionHero
-          data={data}
-          request={directionRequestConfig(data.directionSlug, { context: data.metadata.title, problem: problemTitle(data.directionSlug, data.slug) })}
-        />
+        <DirectionHero data={data} />
         {data.symptoms && <ServiceSymptoms data={data.symptoms} overlapHero />}
         {data.causes && <ProblemCauses data={data.causes} />}
         {data.pricing && <ServicePricing data={data.pricing} />}
         {data.process && data.process.items.length > 0 && <RepairProcess data={data.process} variant="compact" />}
         {data.advice && <ProblemAdvice data={data.advice} />}
         {data.quality && <ServiceQuality data={data.quality} />}
+        <RepairStories stories={stories} />
+        {reviews.length > 0 && <CustomerReviews items={reviews} />}
         {data.faq && <FrequentlyAskedQuestions data={data.faq} />}
         {data.contact && <ContactSection data={data.contact} />}
       </main>
       <SiteFooter />
     </div>
+    </RequestProvider>
   );
 }

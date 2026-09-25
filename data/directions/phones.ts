@@ -49,12 +49,12 @@ export const phoneRepairData = {
   problems: {
     title: "Что случилось с телефоном?",
     items: [
-      { slug: "telefon-ne-vklyuchaetsya", title: "Не включается", causes: "Батарея, разъём, дисплей, прошивка, плата или последствия воды.", serviceSlugs: ["zamena-akkumulyatora", "zamena-razema-zaryadki", "zamena-ekrana", "proshivka-i-razblokirovka", "remont-posle-vody"] },
-      { slug: "telefon-ne-zaryazhaetsya", title: "Не заряжается", causes: "Кабель, адаптер, загрязнение разъёма, батарея или контроллер питания.", serviceSlugs: ["zamena-razema-zaryadki", "zamena-akkumulyatora", "remont-posle-vody"] },
-      { slug: "bystro-razryazhaetsya", title: "Быстро разряжается", causes: "Износ батареи, фоновые процессы или утечка на плате.", serviceSlugs: ["zamena-akkumulyatora", "proshivka-i-razblokirovka"] },
-      { slug: "net-izobrazheniya", title: "Нет изображения", causes: "Дисплей, шлейф или плата.", serviceSlugs: ["zamena-ekrana", "remont-posle-vody"] },
-      { slug: "telefon-ne-vidit-sim-kartu", title: "Не видит SIM-карту", causes: "SIM-карта, лоток, модемная часть или прошивка. Для определения причины нужна диагностика.", serviceSlugs: ["proshivka-i-razblokirovka"] },
-      { slug: "telefon-perezagruzhaetsya", title: "Перезагружается", causes: "Батарея, память, обновление, кнопка питания или плата.", serviceSlugs: ["zamena-akkumulyatora", "proshivka-i-razblokirovka"] },
+      { slug: "telefon-ne-vklyuchaetsya", title: "Не включается", causes: "Батарея, разъём, дисплей, прошивка, плата или последствия воды." },
+      { slug: "telefon-ne-zaryazhaetsya", title: "Не заряжается", causes: "Кабель, адаптер, загрязнение разъёма, батарея или контроллер питания." },
+      { slug: "bystro-razryazhaetsya", title: "Быстро разряжается", causes: "Износ батареи, фоновые процессы или утечка на плате." },
+      { slug: "net-izobrazheniya", title: "Нет изображения", causes: "Дисплей, шлейф или плата." },
+      { slug: "telefon-ne-vidit-sim-kartu", title: "Не видит SIM-карту", causes: "SIM-карта, лоток, модемная часть или прошивка. Для определения причины нужна диагностика." },
+      { slug: "telefon-perezagruzhaetsya", title: "Перезагружается", causes: "Батарея, память, обновление, кнопка питания или плата." },
     ],
   },
   devices: {

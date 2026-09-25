@@ -11,13 +11,13 @@ const directions: { title: string; description: string; href: string; art: Direc
   { title: "Установка Windows", description: "Установка системы, драйверов и нужных программ", href: "/ustanovka-windows/", art: "windows", color: "text-[#168dc3] dark:text-[#67c4ec]" },
 ];
 
-export function HomeDirections() {
+export function HomeDirections({ className }: { className?: string }) {
   return (
-    <section id="services" aria-labelledby="services-heading" className="relative z-20 mx-auto -mt-10 w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:-mt-[104px] md:px-6 xl:-mt-16 xl:px-12">
+    <section id="services" aria-labelledby="services-heading" className={cn("relative z-20 mx-auto -mt-10 w-full max-w-[1440px] scroll-mt-24 px-5 pb-10 md:-mt-[104px] md:px-6 xl:-mt-16 xl:px-12", className)}>
       <h2 id="services-heading" className="sr-only">Основные направления ремонта</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
         {directions.map((direction, index) => (
-          <Link key={direction.href} href={direction.href} className={cn("group relative flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[#ece2d9] bg-[#fffefd] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#ff8545]/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff5000] motion-reduce:transform-none md:p-6 dark:border-[#46301f] dark:bg-[#15110e]", index < 3 ? "md:col-span-2" : "md:col-span-3")}>
+          <Link key={direction.href} href={direction.href} className={cn("group relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-[#ece2d9] bg-[#fffefd] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#ff8545]/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff5000] motion-reduce:transform-none md:p-6 dark:border-[#46301f] dark:bg-[#15110e]", index < 3 ? "md:col-span-2" : "md:col-span-3")}>
             <div className="mb-4 flex items-start justify-between gap-3">
               <div className={direction.color}><DirectionCardArt kind={direction.art} /></div>
               <span className="grid size-9 place-items-center rounded-full border border-[#eee3d8] text-[#a3988f] transition-colors group-hover:border-[#ff5000] group-hover:bg-[#ff5000] group-hover:text-white dark:border-[#49352d]"><IconArrowUpRight aria-hidden="true" className="size-5" /></span>

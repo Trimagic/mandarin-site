@@ -14,6 +14,13 @@ export const siteConfig = {
   },
   landmark: "ТЦ «Мир Стиля», левый боковой вход",
   areaServed: "Борисов",
+  openingHours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "10:00",
+    closes: "19:00",
+    label: "Пн–Пт 10:00–19:00",
+    note: "Сб, Вс — выходной",
+  },
   logo: "/brand/mandarin-mark.png",
   defaultImage: { src: "/brand/social-cover.jpg", width: 1200, height: 630, alt: "Mandarin Сервис — ноутбук, телефон и мандарин на оранжевом фоне" },
 } as const;

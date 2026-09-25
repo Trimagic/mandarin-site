@@ -46,12 +46,12 @@ export const tvRepairData = {
   problems: {
     title: "Что случилось с телевизором?",
     items: [
-      { slug: "net-izobrazheniya-zvuk-est", title: "Нет изображения, звук есть", causes: "Чаще всего подсветка, реже блок питания или плата.", serviceSlugs: ["zamena-podsvetki", "remont-bloka-pitaniya"] },
-      { slug: "televizor-ne-vklyuchaetsya", title: "Не включается", causes: "Блок питания или материнская плата.", serviceSlugs: ["remont-bloka-pitaniya", "remont-materinskoy-platy"] },
-      { slug: "vklyuchaetsya-i-vyklyuchaetsya", title: "Включается и выключается", causes: "Блок питания, подсветка или плата.", serviceSlugs: ["remont-bloka-pitaniya", "remont-materinskoy-platy"] },
-      { slug: "polosy-na-ekrane", title: "Полосы на экране", causes: "Шлейф, T-Con, реже матрица.", serviceSlugs: ["zamena-shleyfa-i-t-con"] },
-      { slug: "televizor-zavisaet", title: "Зависает и перезагружается", causes: "Прошивка, память или материнская плата.", serviceSlugs: ["remont-materinskoy-platy"] },
-      { slug: "net-zvuka", title: "Нет звука", causes: "Динамики, плата или настройки.", serviceSlugs: ["zamena-dinamikov", "remont-materinskoy-platy"] },
+      { slug: "net-izobrazheniya-zvuk-est", title: "Нет изображения, звук есть", causes: "Чаще всего подсветка, реже блок питания или плата." },
+      { slug: "televizor-ne-vklyuchaetsya", title: "Не включается", causes: "Блок питания или материнская плата." },
+      { slug: "vklyuchaetsya-i-vyklyuchaetsya", title: "Включается и выключается", causes: "Блок питания, подсветка или плата." },
+      { slug: "polosy-na-ekrane", title: "Полосы на экране", causes: "Шлейф, T-Con, реже матрица." },
+      { slug: "televizor-zavisaet", title: "Зависает и перезагружается", causes: "Прошивка, память или материнская плата." },
+      { slug: "net-zvuka", title: "Нет звука", causes: "Динамики, плата или настройки." },
     ],
   },
   devices: {

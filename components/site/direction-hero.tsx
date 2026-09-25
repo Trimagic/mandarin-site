@@ -13,14 +13,12 @@ import {
 } from "@tabler/icons-react";
 import type { DirectionPageData } from "@/data/directions";
 import { buttonVariants } from "@/components/ui/button";
-import { RequestButton } from "@/components/site/request-button";
-import type { RequestFormConfig } from "@/lib/request-types";
+import { ContactTrigger, RequestTrigger } from "@/components/site/request-provider";
 import { cn } from "@/lib/utils";
 
 type DirectionHeroProps = {
   data: Pick<DirectionPageData, "hero" | "breadcrumbs">;
   primaryHref?: string;
-  request?: RequestFormConfig;
   imageClassName?: string;
 };
 
@@ -35,7 +33,6 @@ const namedBenefitIcons = {
 export function DirectionHero({
   data: { hero, breadcrumbs },
   primaryHref,
-  request,
   imageClassName,
 }: DirectionHeroProps) {
   const { props: mobileBackground } = getImageProps({
@@ -149,18 +146,11 @@ export function DirectionHero({
               {hero.description}
             </p>
             <div className="mt-5 flex flex-col items-start gap-2 md:flex-row md:items-center md:justify-center md:gap-3 xl:justify-start">
-              {request ? (
-                <RequestButton config={request} className={primaryClass}>
-                  {hero.primaryAction.label}
-                  <IconArrowRight aria-hidden="true" className="ml-3 size-5" />
-                </RequestButton>
-              ) : (
-                <a href={primaryHref ?? hero.primaryAction.href} className={primaryClass}>
-                  {hero.primaryAction.label}
-                  <IconArrowRight aria-hidden="true" className="ml-3 size-5" />
-                </a>
-              )}
-              <a
+              <RequestTrigger fallbackHref={primaryHref ?? hero.primaryAction.href} className={primaryClass}>
+                {hero.primaryAction.label}
+                <IconArrowRight aria-hidden="true" className="ml-3 size-5" />
+              </RequestTrigger>
+              <ContactTrigger
                 href={hero.secondaryAction.href}
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "xl" }),
@@ -173,7 +163,7 @@ export function DirectionHero({
                   className="size-5 text-[#ff5000]"
                 />
                 {hero.secondaryAction.label}
-              </a>
+              </ContactTrigger>
             </div>
             {benefits()}
           </div>

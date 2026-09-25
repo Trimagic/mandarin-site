@@ -90,7 +90,8 @@
 
 @layer base {
   * { @apply border-border outline-ring/50; }
-  html { @apply font-sans; }
+  /* Keep the scrollbar's space reserved so opening a modal (which locks scroll) doesn't shift the layout. */
+  html { @apply font-sans; scrollbar-gutter: stable; }
   body {
     @apply bg-background text-foreground;
   }

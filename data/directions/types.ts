@@ -34,7 +34,7 @@ export type DirectionPageData = {
   };
   problems: {
     title: string;
-    items: { slug: string; title: string; causes: string; serviceSlugs: string[] }[];
+    items: { slug: string; title: string; causes: string }[];
   };
   devices: { title: string; brands: string[]; note: string };
   conditions: { title: string; items: { title: string; text: string }[] };

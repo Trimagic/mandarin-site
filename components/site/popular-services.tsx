@@ -35,7 +35,7 @@ export function PopularServices() {
         <h2 id="popular-services-heading" className="text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
           Популярные услуги
         </h2>
-        <a href="https://wa.me/375291506888" className="flex items-center gap-3 rounded-sm text-sm font-semibold text-[#f04a00] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] dark:text-[#ff6800]">
+        <a href="#services" className="flex items-center gap-3 rounded-sm text-sm font-semibold text-[#f04a00] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] dark:text-[#ff6800]">
           Все услуги и цены
           <IconChevronRight aria-hidden="true" className="size-4" />
         </a>

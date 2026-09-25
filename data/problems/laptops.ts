@@ -339,6 +339,7 @@ export const laptopProblemPages: ProblemPageData[] = [
       items: [
         { id: "ssd", title: "Установка SSD и памяти", price: "от 35 BYN", action: { label: "Подробнее", href: href("modernizaciya-ssd-i-ram") } },
         { id: "cleaning", title: "Чистка и замена термопасты", price: "от 35 BYN", action: { label: "Подробнее", href: href("chistka-i-zamena-termopasty") } },
+        { id: "windows", title: "Установка Windows", price: "По составу комплекта", action: { label: "Подробнее", href: "/ustanovka-windows/" } },
         diagnosticsPrice,
       ],
       callout: {

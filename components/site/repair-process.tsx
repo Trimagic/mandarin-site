@@ -61,7 +61,14 @@ export function RepairProcess({ data = defaultData, variant = "default", id = "p
       <ol className="mt-5 grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-4 xl:mt-7 xl:grid-cols-4 xl:gap-8">
         {data.items.map(({ title, text }, index) => { const Icon = steps[index % steps.length].icon; return (
           <li key={title} className={cn("relative flex items-start gap-4", !compact && "xl:block")}>
-            {index < data.items.length - 1 && <span aria-hidden="true" className="absolute top-11 bottom-[-16px] left-[17px] border-l border-dotted border-[#ff9b72] md:hidden dark:border-[#75401d]" />}
+            {index < data.items.length - 1 && (
+              <span aria-hidden="true" className="absolute top-11 bottom-[-18px] left-[18px] flex -translate-x-1/2 flex-col items-center text-[#ff9b72] md:hidden dark:text-[#75401d]">
+                <span className="w-px flex-1 border-l border-dotted border-current" />
+                <svg viewBox="0 0 10 6" fill="none" className="-mt-px h-1.5 w-2.5 shrink-0">
+                  <path d="m1 1 4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            )}
             <div className="flex shrink-0 items-center gap-4 xl:gap-5">
               <span aria-hidden="true" className="grid size-9 shrink-0 place-items-center rounded-full bg-[#f04a00] text-lg font-bold text-white dark:bg-[#ff6107]">
                 {index + 1}

@@ -92,6 +92,7 @@ export const phoneProblemPages: ProblemPageData[] = [
       items: [
         { id: "diagnostics", title: "Диагностика", price: "Бесплатно", action: { label: "Подробнее", href: enquiry("Здравствуйте! На телефоне нет изображения. Интересует диагностика. Моя модель: ") } },
         { id: "display", title: "Замена дисплея", price: "от 120 BYN", action: { label: "Подробнее", href: href("zamena-ekrana") } },
+        { id: "water", title: "Ремонт после воды", price: "от 45 BYN", action: { label: "Подробнее", href: href("remont-posle-vody") } },
         { id: "cable", title: "Ремонт шлейфа", price: "от 70 BYN", action: { label: "Подробнее", href: enquiry("Здравствуйте! На телефоне нет изображения. Интересует ремонт шлейфа. Моя модель: ") } },
         { id: "board", title: "Ремонт платы", price: "от 90 BYN", action: { label: "Подробнее", href: enquiry("Здравствуйте! На телефоне нет изображения. Интересует ремонт платы. Моя модель: ") } },
       ],
@@ -211,6 +212,7 @@ export const phoneProblemPages: ProblemPageData[] = [
         diagnosticsPrice("Телефон не включается"),
         { id: "battery", title: "Замена аккумулятора", price: "от 40 BYN", action: { label: "Подробнее", href: href("zamena-akkumulyatora") } },
         { id: "connector", title: "Замена разъёма зарядки", price: "от 45 BYN", action: { label: "Подробнее", href: href("zamena-razema-zaryadki") } },
+        { id: "display", title: "Замена экрана", price: "от 120 BYN", action: { label: "Подробнее", href: href("zamena-ekrana") } },
         { id: "firmware", title: "Прошивка", price: "от 40 BYN", action: { label: "Подробнее", href: href("proshivka-i-razblokirovka") } },
         { id: "water", title: "Ремонт после воды", price: "от 45 BYN", action: { label: "Подробнее", href: href("remont-posle-vody") } },
       ],

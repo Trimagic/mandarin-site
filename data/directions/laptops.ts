@@ -49,13 +49,13 @@ export const laptopRepairData = {
   problems: {
     title: "Что случилось с ноутбуком?",
     items: [
-      { slug: "noutbuk-ne-vklyuchaetsya", title: "Не включается", causes: "Блок питания, разъём, аккумулятор, BIOS или плата.", serviceSlugs: ["diagnostika", "remont-razema-pitaniya", "remont-materinskoy-platy"] },
-      { slug: "noutbuk-ne-zaryazhaetsya", title: "Не заряжается", causes: "Адаптер, гнездо, батарея или контроллер заряда.", serviceSlugs: ["remont-razema-pitaniya", "remont-materinskoy-platy"] },
-      { slug: "noutbuk-greetsya", title: "Сильно греется", causes: "Пыль, высохшая термопаста, кулер или тепловая трубка.", serviceSlugs: ["chistka-i-zamena-termopasty", "remont-sistemy-ohlazhdeniya"] },
-      { slug: "noutbuk-shumit", title: "Шумит", causes: "Забитый радиатор, износ кулера или фоновая нагрузка. Программные причины решает компьютерная помощь.", serviceSlugs: ["chistka-i-zamena-termopasty", "remont-sistemy-ohlazhdeniya"] },
-      { slug: "noutbuk-tormozit", title: "Медленно работает", causes: "Старый HDD, мало памяти, перегрев или вирусы. Программные причины решает компьютерная помощь.", serviceSlugs: ["modernizaciya-ssd-i-ram", "chistka-i-zamena-termopasty"] },
-      { slug: "noutbuk-vyklyuchaetsya", title: "Сам выключается", causes: "Перегрев, питание, батарея или плата.", serviceSlugs: ["chistka-i-zamena-termopasty", "remont-sistemy-ohlazhdeniya", "remont-materinskoy-platy"] },
-      { slug: "net-izobrazheniya", title: "Нет изображения", causes: "Матрица, шлейф, подсветка или видеочип.", serviceSlugs: ["zamena-matricy", "remont-materinskoy-platy", "diagnostika"] },
+      { slug: "noutbuk-ne-vklyuchaetsya", title: "Не включается", causes: "Блок питания, разъём, аккумулятор, BIOS или плата." },
+      { slug: "noutbuk-ne-zaryazhaetsya", title: "Не заряжается", causes: "Адаптер, гнездо, батарея или контроллер заряда." },
+      { slug: "noutbuk-greetsya", title: "Сильно греется", causes: "Пыль, высохшая термопаста, кулер или тепловая трубка." },
+      { slug: "noutbuk-shumit", title: "Шумит", causes: "Забитый радиатор, износ кулера или фоновая нагрузка. Программные причины решает компьютерная помощь." },
+      { slug: "noutbuk-tormozit", title: "Медленно работает", causes: "Старый HDD, мало памяти, перегрев или вирусы. Программные причины решает компьютерная помощь." },
+      { slug: "noutbuk-vyklyuchaetsya", title: "Сам выключается", causes: "Перегрев, питание, батарея или плата." },
+      { slug: "net-izobrazheniya", title: "Нет изображения", causes: "Матрица, шлейф, подсветка или видеочип." },
     ],
   },
   devices: {

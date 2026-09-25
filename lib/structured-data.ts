@@ -20,7 +20,13 @@ export function businessNode(): Node {
     address: { "@type": "PostalAddress", ...siteConfig.address },
     areaServed: { "@type": "City", name: siteConfig.areaServed },
     contactPoint: { "@type": "ContactPoint", telephone: siteConfig.telephone, contactType: "customer service", availableLanguage: ["ru", "be"] },
-    // Opening hours, coordinates and sameAs profiles are omitted until the workshop confirms them.
+    openingHoursSpecification: [{
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: siteConfig.openingHours.days.map((day) => `https://schema.org/${day}`),
+      opens: siteConfig.openingHours.opens,
+      closes: siteConfig.openingHours.closes,
+    }],
+    // Coordinates and sameAs profiles are omitted until the workshop confirms them.
   };
 }
 

@@ -9,9 +9,13 @@ import { ProblemAdvice } from "@/components/site/problem-advice";
 import { ServiceBeforeAfter } from "@/components/site/service-before-after";
 import { ServiceQuality } from "@/components/site/service-quality";
 import { CustomerReviews } from "@/components/site/customer-reviews";
+import { RelatedProblems } from "@/components/site/related-problems";
 import { FrequentlyAskedQuestions } from "@/components/site/frequently-asked-questions";
 import { ContactSection } from "@/components/site/contact-section";
 import { SiteFooter } from "@/components/site/site-footer";
+import { RequestProvider } from "@/components/site/request-provider";
+import { RepairStories } from "@/components/site/repair-cases";
+import { storiesForService, storyReviews } from "@/data/cases";
 import { JsonLd } from "@/components/site/json-ld";
 import { getDirectionItemHref } from "@/data/directions";
 import type { ServicePageData } from "@/data/services";
@@ -20,7 +24,10 @@ import { breadcrumbNode, faqNode, graph, serviceNode, webPageNode } from "@/lib/
 
 export function ServicePage({ data }: { data: ServicePageData }) {
   const path = getDirectionItemHref(data.directionSlug, data.slug);
+  const stories = storiesForService(data.directionSlug, data.slug);
+  const reviews = [...(data.reviews?.items ?? []).map((review) => ({ name: review.author, text: review.text, rating: review.rating })), ...storyReviews(stories)];
   return (
+    <RequestProvider config={directionRequestConfig(data.directionSlug, { context: data.metadata.title, problem: data.hero.title, extraProblems: [data.hero.title] })}>
     <div id="top" className="min-h-screen min-w-[320px] overflow-x-clip">
       <JsonLd data={graph([
         webPageNode({ path, ...data.metadata }),
@@ -30,10 +37,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       ])} />
       <SiteHeader homeLinks />
       <main>
-        <DirectionHero
-          data={data}
-          request={directionRequestConfig(data.directionSlug, { context: data.metadata.title, problem: data.hero.title, extraProblems: [data.hero.title] })}
-        />
+        <DirectionHero data={data} />
         {data.symptoms && <ServiceSymptoms data={data.symptoms} overlapHero />}
         {data.included && <ServiceIncluded data={data.included} />}
         {data.pricing && <ServicePricing data={data.pricing} />}
@@ -42,11 +46,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         {data.advice && <ProblemAdvice data={data.advice} />}
         {data.beforeAfter && <ServiceBeforeAfter data={data.beforeAfter} />}
         {data.quality && <ServiceQuality data={data.quality} />}
-        {data.reviews && data.reviews.items.length > 0 && <CustomerReviews title={data.reviews.title} items={data.reviews.items.map((review) => ({ name: review.author, text: review.text, rating: review.rating }))} />}
+        <RepairStories stories={stories} />
+        {reviews.length > 0 && <CustomerReviews title={data.reviews?.title ?? "Отзывы клиентов"} items={reviews} />}
+        <RelatedProblems serviceHref={path} />
         {data.faq && <FrequentlyAskedQuestions data={data.faq} />}
         {data.contact && <ContactSection data={data.contact} />}
       </main>
       <SiteFooter />
     </div>
+    </RequestProvider>
   );
 }
