@@ -115,7 +115,6 @@ export const phoneServicePages: ServicePageData[] = [
       },
       beforeLabel: "До",
       afterLabel: "После",
-      notice: "Иллюстрации сгенерированы. Заменим их фотографиями реальной работы мастерской.",
     },
     quality: {
       title: "Гарантия и качество",

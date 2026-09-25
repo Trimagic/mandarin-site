@@ -1,8 +1,16 @@
+// Absolute URLs (canonical, Open Graph images, sitemap) must point at the deployed domain, or social
+// crawlers fetch the preview image from a site that does not exist. Set NEXT_PUBLIC_SITE_URL in production;
+// on Vercel the production domain is used as a fallback. The last value is only a placeholder.
+function resolveSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "https://mandarin-service.by";
+}
+
 // Business facts shared by metadata, JSON-LD and the sitemap.
-// The domain in the concept docs is a placeholder: set NEXT_PUBLIC_SITE_URL to the real one before launch.
 export const siteConfig = {
   name: "Mandarin Сервис",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mandarin-service.by").replace(/\/$/, ""),
+  url: resolveSiteUrl().replace(/\/$/, ""),
   locale: "ru_BY",
   description: "Ремонт телефонов, ноутбуков, компьютеров и телевизоров в Борисове. Диагностика, согласование стоимости до ремонта, гарантия на работы.",
   telephone: "+375291506888",

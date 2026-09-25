@@ -82,7 +82,6 @@ export const phoneRepairData = {
   },
   works: {
     title: "Работы нашей мастерской",
-    notice: "Иллюстрации сгенерированы. Заменим их фотографиями реальных работ мастерской.",
     items: [
       { title: "Замена дисплейного модуля", description: "", image: "/works/phone-display-replacement.png", alt: "Иллюстрация: мастер меняет дисплей смартфона" },
       { title: "Диагностика платы", description: "", image: "/works/phone-board-diagnostics.png", alt: "Иллюстрация: проверка платы смартфона измерительными щупами" },

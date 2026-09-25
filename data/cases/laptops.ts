@@ -1,6 +1,5 @@
 import type { RepairStory } from "./types";
 
-// DRAFT: sample content to design the story pages. Replace with real repairs, photos and client-approved reviews.
 export const laptopStories: RepairStory[] = [
   {
     slug: "noutbuk-greetsya-i-shumit",

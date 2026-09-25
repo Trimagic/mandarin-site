@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...directionPages.map((page) => ({ url: absoluteUrl(`/${page.slug}/`), lastModified, changeFrequency: "weekly" as const, priority: 0.9 })),
     ...servicePages.map((page) => ({ url: absoluteUrl(getDirectionItemHref(page.directionSlug, page.slug)), lastModified, changeFrequency: "monthly" as const, priority: 0.8 })),
     ...problemPages.map((page) => ({ url: absoluteUrl(getDirectionItemHref(page.directionSlug, page.slug)), lastModified, changeFrequency: "monthly" as const, priority: 0.7 })),
-    // Drafts are already filtered out of repairStories in production builds.
+    // repairStories already drops drafts when HIDE_DRAFTS=1.
     ...(repairStories.length > 0 ? [{ url: absoluteUrl("/raboty/"), lastModified, changeFrequency: "weekly" as const, priority: 0.6 }] : []),
     ...repairStories.map((story) => ({ url: absoluteUrl(repairStoryHref(story.slug)), lastModified, changeFrequency: "yearly" as const, priority: 0.5 })),
   ];

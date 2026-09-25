@@ -22,7 +22,7 @@ export type RepairCase = {
 /** A workshop story: one kind of fault explained through several similar repairs. */
 export type RepairStory = {
   slug: string;
-  /** Drafts are rendered in development only and never reach a production build. */
+  /** Sample content awaiting real data; shown unless HIDE_DRAFTS=1. */
   draft?: boolean;
   directionSlug: string;
   serviceSlugs: string[];

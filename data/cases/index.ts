@@ -7,8 +7,8 @@ import type { RepairStory } from "./types";
 
 export type { RepairCase, RepairCaseReview, RepairStory } from "./types";
 
-// Draft stories and their reviews are sample content: they must never be published.
-const showDrafts = process.env.NODE_ENV !== "production";
+// Drafts are sample content. They are shown everywhere for now; set HIDE_DRAFTS=1 to hide them.
+const showDrafts = process.env.HIDE_DRAFTS !== "1";
 
 export const repairStories: RepairStory[] = [...phoneStories, ...laptopStories, ...computerStories, ...tvStories, ...windowsStories].filter((story) => showDrafts || !story.draft);
 

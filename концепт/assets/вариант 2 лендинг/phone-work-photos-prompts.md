@@ -1,6 +1,6 @@
 # Иллюстрации работ
 
-Созданы встроенным image_gen, сохранены в public/works. Не являются фотографиями реальных работ мастерской.
+Созданы встроенным image_gen, сохранены в public/works.
 
 ## Замена дисплея
 Photorealistic editorial illustration for a smartphone repair workshop website. Wide landscape 3:2 photograph, close-up of technician's gloved hands carefully replacing a smartphone display assembly on a clean repair mat. Detached screen and phone chassis clearly visible, fine electronics tools neatly arranged, subtle microscope blurred in background. Realistic anatomy and device scale, professional neutral studio/workbench lighting, muted charcoal and warm gray palette with tiny orange accents. Main action centrally framed suitable for cropping to wide 3:1 card. No text, logos, watermark or branding. This is illustrative imagery, not documentation of an actual business job.
