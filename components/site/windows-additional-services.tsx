@@ -7,6 +7,7 @@ import {
   IconGauge,
   IconShieldCheck,
 } from "@tabler/icons-react";
+import { ContactTrigger } from "@/components/site/request-provider";
 import { windowsAdditionalServices as data } from "@/data/windows-installation";
 import { siteConfig } from "@/lib/site";
 
@@ -33,21 +34,22 @@ export function WindowsAdditionalServices() {
           const message = `Здравствуйте! Интересует услуга «${item.title}». Подскажите состав работ и стоимость.`;
           return (
             <li key={item.id}>
-              <a
-                href={`https://wa.me/${siteConfig.telephone.replace("+", "")}?text=${encodeURIComponent(message)}`}
-                aria-label={`Обсудить услугу «${item.title}» в WhatsApp`}
-                className="group flex h-full items-start gap-4 rounded-lg border border-[#e6e2de] bg-[#fffefd] p-5 transition-colors hover:border-[#ff5000]/60 hover:bg-[#fff7f0] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:bg-[#15110e] dark:hover:border-[#ff5000]/60 dark:hover:bg-[#211810]"
-              >
+              <div className="group relative flex h-full items-start gap-4 rounded-lg border border-[#e6e2de] bg-[#fffefd] p-5 transition-colors hover:border-[#ff5000]/60 hover:bg-[#fff7f0] has-focus-visible:outline-2 has-focus-visible:outline-offset-4 has-focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:bg-[#15110e] dark:hover:border-[#ff5000]/60 dark:hover:bg-[#211810]">
                 <Icon aria-hidden="true" stroke={1.5} className="size-9 shrink-0 text-[#ff5000]" />
                 <div className="flex min-w-0 flex-1 flex-col self-stretch">
                   <h3 className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">{item.title}</h3>
                   <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{item.description}</p>
-                  <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-[#d94f00] dark:text-[#ff8a32]">
+                  {/* The button stretches over the whole card, so the card stays a heading-and-text block. */}
+                  <ContactTrigger
+                    href={`https://wa.me/${siteConfig.telephone.replace("+", "")}?text=${encodeURIComponent(message)}`}
+                    aria-label={`Обсудить услугу «${item.title}»`}
+                    className="mt-auto inline-flex items-center gap-1 self-start pt-3 text-sm font-semibold text-[#d94f00] outline-none after:absolute after:inset-0 after:rounded-lg dark:text-[#ff8a32]"
+                  >
                     Обсудить услугу
                     <IconChevronRight aria-hidden="true" stroke={1.5} className="size-4 transition-transform group-hover:translate-x-1" />
-                  </span>
+                  </ContactTrigger>
                 </div>
-              </a>
+              </div>
             </li>
           );
         })}

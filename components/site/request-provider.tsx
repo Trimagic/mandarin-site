@@ -178,11 +178,11 @@ export function RequestTrigger({ fallbackHref, className, children, "aria-label"
 }
 
 /** Opens the messenger and call chooser; a WhatsApp href keeps its prefilled text. */
-export function ContactTrigger({ href, className, children }: { href: string; className?: string; children: ReactNode }) {
+export function ContactTrigger({ href, className, children, "aria-label": ariaLabel }: { href: string; className?: string; children: ReactNode; "aria-label"?: string }) {
   const context = useContext(RequestContext);
-  if (!context) return <a href={href} className={className}>{children}</a>;
+  if (!context) return <a href={href} aria-label={ariaLabel} className={className}>{children}</a>;
   return (
-    <button type="button" aria-haspopup="dialog" onClick={(event) => context.openContact(event.currentTarget, href)} className={cn("cursor-pointer", className)}>
+    <button type="button" aria-haspopup="dialog" aria-label={ariaLabel} onClick={(event) => context.openContact(event.currentTarget, href)} className={cn("cursor-pointer", className)}>
       {children}
     </button>
   );
