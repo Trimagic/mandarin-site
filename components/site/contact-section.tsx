@@ -23,7 +23,7 @@ export type ContactSectionData = {
 
 const defaultData: ContactSectionData = {
   title: "Не знаете, что именно сломалось?",
-  description: "Опишите проблему — подскажем решение и ориентируем по стоимости.",
+  description: "Опишите проблему — подскажем решение и сориентируем по стоимости.",
   action: { label: "Написать мастеру", href: "https://wa.me/375291506888" },
 };
 
