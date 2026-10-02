@@ -1,4 +1,5 @@
 import { directionPages } from "@/data/directions";
+import { extraDevicePages, type ExtraDevicePageData } from "@/data/extra-device-services";
 
 import type { RequestDevice, RequestFormConfig } from "@/lib/request-types";
 
@@ -9,11 +10,15 @@ const deviceLabels: Record<string, string> = {
   "remont-televizorov": "Телевизор",
 };
 
-const devices: RequestDevice[] = directionPages.map((page) => ({
+const devices: RequestDevice[] = [...directionPages.map((page) => ({
   id: page.slug,
   label: deviceLabels[page.slug] ?? page.hero.title,
   problems: page.problems.items.map((item) => item.title),
-}));
+})), ...extraDevicePages.map((page) => ({ id: page.slug, label: page.deviceLabel, problems: page.symptoms.items.map((item) => item.title) }))];
+
+export function extraDeviceRequestConfig(page: ExtraDevicePageData): RequestFormConfig {
+  return { devices: [{ id: page.slug, label: page.deviceLabel, problems: page.symptoms.items.map((item) => item.title) }], deviceId: page.slug, context: page.metadata.title };
+}
 
 export function homeRequestConfig(): RequestFormConfig {
   return { devices, context: "Главная страница" };

@@ -1,0 +1,5 @@
+# TV hero — dark orange screen, no fruit
+
+Tool: built-in imagegen. Edit target: tv-repair-cutout-v2.png.
+
+Use case: precise-object-edit. Edit the attached transparent TV product cutout. Replace ALL blue/cyan screen colors with a subdued dark burnt-orange and deep amber gradient. Preserve the beautiful flowing curved wave design of the screen, but recolor the luminous thin wave edges warm orange/amber, not white, not blue. Screen background should be distinctly darker than a bright orange website backdrop, warm sophisticated dark copper-orange, with restrained orange wave highlights. Remove the mandarin fruit, its stem and green leaf completely from lower right; reconstruct the revealed TV foot naturally and leave empty transparent space where fruit was. Keep exact TV framing, perspective, dimensions, black bezel, two feet, and the remote at bottom left unchanged. Photorealistic sharp product cutout, full objects visible, same landscape 4:3 canvas and margins. Transparent alpha outside TV and remote. No floor, no background, no checkerboard, no fruit, no leaves, no text, no logo, no blue anywhere.

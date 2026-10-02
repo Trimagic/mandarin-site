@@ -1,7 +1,8 @@
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { IconArrowRight, IconChevronRight, IconClock, IconMessageCircle, IconReceipt, IconStethoscope, IconTool } from "@tabler/icons-react";
+import { IconArrowRight, IconChevronRight, IconClock, IconMessageCircle, IconReceipt, IconTool } from "@tabler/icons-react";
 
 import { ContactSection } from "@/components/site/contact-section";
 import { CustomerReviews } from "@/components/site/customer-reviews";
@@ -126,7 +127,7 @@ export default async function RepairStoryPage({ params }: Props) {
                         <ol className="mt-6 max-w-[720px]">
                           {[
                             { label: "С чем обратились", text: item.complaint, icon: IconMessageCircle, tone: "text-[#8a7d76] dark:text-[#b6a99b]" },
-                            { label: "Что нашли", text: item.diagnosis, icon: IconStethoscope, tone: "text-[#65a832] dark:text-[#8ab943]" },
+                            { label: "Что нашли", text: item.diagnosis, icon: DiagnosticsIcon, tone: "text-[#65a832] dark:text-[#8ab943]" },
                             { label: "Что сделали", text: item.work, icon: IconTool, tone: "text-[#ff5000] dark:text-[#ff7a18]" },
                           ].map(({ label, text, icon: Icon, tone }, step, steps) => (
                             <li key={label} className="relative flex gap-4 pb-6 last:pb-0">

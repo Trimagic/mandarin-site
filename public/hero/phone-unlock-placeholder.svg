@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" fill="none">
+<!-- Placeholder: replace with a real photo (phone with lock screen). -->
+<rect x="554" y="120" width="340" height="690" rx="48" fill="#1d1f22"/>
+<rect x="574" y="140" width="300" height="650" rx="32" fill="#fff4ea"/>
+<rect x="684" y="158" width="80" height="14" rx="7" fill="#1d1f22"/>
+<rect x="676" y="370" width="96" height="84" rx="16" stroke="#ff5000" stroke-width="12"/>
+<path d="M694 370v-26a30 30 0 0 1 60 0v26" stroke="#ff5000" stroke-width="12" fill="none"/>
+<circle cx="724" cy="412" r="10" fill="#ff5000"/>
+<g fill="#ffb98f"><circle cx="664" cy="540" r="12"/><circle cx="724" cy="540" r="12"/><circle cx="784" cy="540" r="12"/><circle cx="664" cy="600" r="12"/><circle cx="724" cy="600" r="12"/><circle cx="784" cy="600" r="12"/><circle cx="664" cy="660" r="12"/><circle cx="724" cy="660" r="12"/><circle cx="784" cy="660" r="12"/></g>
+<path d="M664 540 724 600 784 600 784 660" stroke="#ff5000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="404" y="850" width="640" height="70" rx="35" fill="#fffefd" stroke="#ff5000" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="724" y="895" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#e74700">Фото скоро появится</text>
+</svg>

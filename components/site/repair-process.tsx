@@ -1,7 +1,7 @@
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
 import {
   IconFileCheck,
   IconMessageCircle,
-  IconStethoscope,
   IconTools,
 } from "@tabler/icons-react";
 
@@ -16,7 +16,7 @@ const steps = [
   {
     title: "Диагностика",
     description: "Находим причину и озвучиваем цену",
-    icon: IconStethoscope,
+    icon: DiagnosticsIcon,
   },
   {
     title: "Согласование",

@@ -34,20 +34,28 @@ export function WindowsAdditionalServices() {
           const message = `Здравствуйте! Интересует услуга «${item.title}». Подскажите состав работ и стоимость.`;
           return (
             <li key={item.id}>
-              <div className="group relative flex h-full items-start gap-4 rounded-lg border border-[#e6e2de] bg-[#fffefd] p-5 transition-colors hover:border-[#ff5000]/60 hover:bg-[#fff7f0] has-focus-visible:outline-2 has-focus-visible:outline-offset-4 has-focus-visible:outline-[#ff5000] dark:border-[#46301f] dark:bg-[#15110e] dark:hover:border-[#ff5000]/60 dark:hover:bg-[#211810]">
-                <Icon aria-hidden="true" stroke={1.5} className="size-9 shrink-0 text-[#ff5000]" />
-                <div className="flex min-w-0 flex-1 flex-col self-stretch">
-                  <h3 className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">{item.title}</h3>
-                  <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{item.description}</p>
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-[#e6e2de] bg-[#fffefd] transition-colors duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[#ff5000] after:transition-transform after:duration-300 hover:border-[#ff5000]/50 hover:bg-[#fff6ef] hover:after:scale-x-100 has-focus-visible:outline-2 has-focus-visible:outline-offset-4 has-focus-visible:outline-[#ff5000] motion-reduce:after:transition-none dark:border-[#46301f] dark:bg-[#15110e] dark:hover:border-[#ff7a18]/50 dark:hover:bg-[#1d140e] dark:after:bg-[#ff7a18]">
+                <div className="flex flex-1 items-start gap-4 p-5">
+                  <span aria-hidden="true" className="grid size-11 shrink-0 place-items-center rounded-full border border-dashed border-[#ff5000]/45 text-[#ff5000] transition-[background-color,border-color,color,transform] duration-300 group-hover:rotate-6 group-hover:border-solid group-hover:border-[#ff5000] group-hover:bg-[#ff5000] group-hover:text-white motion-reduce:transform-none dark:border-[#ff7a18]/45 dark:text-[#ff8a32] dark:group-hover:bg-[#ff7a18] dark:group-hover:text-[#1c1009]">
+                    <Icon stroke={1.5} className="size-5" />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-[15px] leading-5 font-semibold text-[#171717] dark:text-[#fff7f0]">{item.title}</h3>
+                    <p className="mt-1.5 text-sm leading-6 text-[#6f625c] dark:text-[#b6a99b]">{item.description}</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between border-t border-dashed border-[#eadbd1] px-5 py-3 transition-colors duration-300 group-hover:border-[#ff5000]/40 dark:border-[#3b2d22] dark:group-hover:border-[#ff7a18]/40">
                   {/* The button stretches over the whole card, so the card stays a heading-and-text block. */}
                   <ContactTrigger
                     href={`https://wa.me/${siteConfig.telephone.replace("+", "")}?text=${encodeURIComponent(message)}`}
                     aria-label={`Обсудить услугу «${item.title}»`}
-                    className="mt-auto inline-flex items-center gap-1 self-start pt-3 text-sm font-semibold text-[#d94f00] outline-none after:absolute after:inset-0 after:rounded-lg dark:text-[#ff8a32]"
+                    className="text-sm font-semibold text-[#d94f00] outline-none after:absolute after:inset-0 after:rounded-xl dark:text-[#ff8a32]"
                   >
                     Обсудить услугу
-                    <IconChevronRight aria-hidden="true" stroke={1.5} className="size-4 transition-transform group-hover:translate-x-1" />
                   </ContactTrigger>
+                  <span aria-hidden="true" className="grid size-7 shrink-0 place-items-center rounded-full border border-dashed border-[#ff5000]/40 text-[#ff5000] transition-[background-color,border-color,color,transform] duration-300 group-hover:translate-x-0.5 group-hover:border-solid group-hover:border-[#ff5000] group-hover:bg-[#ff5000] group-hover:text-white motion-reduce:transform-none dark:border-[#ff7a18]/40 dark:text-[#ff8a32] dark:group-hover:bg-[#ff7a18] dark:group-hover:text-[#1c1009]">
+                    <IconChevronRight stroke={1.75} className="size-4" />
+                  </span>
                 </div>
               </div>
             </li>

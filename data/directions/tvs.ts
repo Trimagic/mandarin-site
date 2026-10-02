@@ -15,7 +15,7 @@ export const tvRepairData = {
     title: "Ремонт телевизоров",
     accent: "в Борисове",
     description: "Подсветка, блок питания, плата и звук. Находим причину и согласуем стоимость до начала работ.",
-    image: { src: "/hero/tv-repair-cutout-v1.png", alt: "Телевизор с оранжевым экраном, пульт и мандарин с листиком" },
+    image: { src: "/hero/tv-repair-cutout-v3.png", alt: "Телевизор с оранжевой светящейся волной на тёмном экране и пульт" },
     backgrounds: {
       desktop: "/backgrounds/hero-background-empty-v1.png",
       tablet: "/backgrounds/hero-background-wide-draft.png",

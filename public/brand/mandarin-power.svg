@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320" fill="none">
+  <title>Мандарин с символом питания</title>
+  <defs>
+    <linearGradient id="fruit" x1="48" y1="105" x2="205" y2="296" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7109"/>
+      <stop offset="1" stop-color="#FF5408"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="142" y1="79" x2="216" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48A92B"/>
+      <stop offset="1" stop-color="#299421"/>
+    </linearGradient>
+  </defs>
+  <path d="M124 79C127 34 166 13 229 14C220 54 198 87 154 79C160 62 177 48 190 40C162 48 140 64 130 80Z" fill="url(#leaf)"/>
+  <circle cx="128" cy="198" r="113" fill="url(#fruit)"/>
+  <path d="M96 155A59 59 0 1 0 160 155" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M128 121V191" stroke="white" stroke-width="18" stroke-linecap="round"/>
+</svg>

@@ -54,7 +54,7 @@ export type ServiceSymptomsData = {
   items: { id: string; title: string; icon: ServiceSymptomIcon }[];
 };
 
-export type ServiceIncludedIcon = "diagnostics" | "part" | "repair" | "check" | "cleaning" | "data" | "component" | "laptop" | "test" | "desktop" | "selection" | "tv" | "backlight";
+export type ServiceIncludedIcon = "diagnostics" | "battery" | "ports" | "buttons" | "part" | "repair" | "check" | "cleaning" | "data" | "component" | "laptop" | "test" | "desktop" | "selection" | "tv" | "backlight";
 
 export type ServiceIncludedData = {
   title: string;
@@ -63,6 +63,8 @@ export type ServiceIncludedData = {
 
 export type ServicePageData = Pick<DirectionPageData, "slug" | "metadata" | "breadcrumbs" | "hero"> & {
   directionSlug: string;
+  /** Own URL for a page outside the direction catalogue, e.g. /remont-apple/. Defaults to /<direction>/<slug>/. */
+  path?: string;
   symptoms?: ServiceSymptomsData;
   included?: ServiceIncludedData;
   pricing?: ServicePricingData;

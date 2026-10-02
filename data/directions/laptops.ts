@@ -15,7 +15,7 @@ export const laptopRepairData = {
     title: "Ремонт ноутбуков",
     accent: "в Борисове",
     description: "От чистки системы охлаждения до ремонта материнской платы. Согласуем стоимость до начала работ.",
-    image: { src: "/hero/laptop-repair-cutout-v1.png", alt: "Открытый ноутбук с оранжевым экраном и мандарин с листиком" },
+    image: { src: "/hero/laptop-repair-cutout-v3.png", alt: "Открытый ноутбук с оранжевой светящейся волной на тёмном экране" },
     backgrounds: {
       desktop: "/backgrounds/hero-background-empty-v1.png",
       tablet: "/backgrounds/hero-background-wide-draft.png",
@@ -40,8 +40,10 @@ export const laptopRepairData = {
       { slug: "zamena-matricy", title: "Замена матрицы", description: "Подбор экрана по диагонали, разрешению и разъёму. Замена при трещинах, полосах и пятнах.", price: { kind: "from", amount: 180, currency: "BYN" } },
       { slug: "remont-klaviatury", title: "Ремонт клавиатуры", description: "Ремонт клавиш, замена модуля клавиатуры или топкейса, проверка тачпада.", price: { kind: "from", amount: 65, currency: "BYN" } },
       { slug: "remont-razema-pitaniya", title: "Ремонт разъёма питания", description: "Проверка зарядного устройства, кабеля и гнезда, ремонт цепей зарядки.", price: { kind: "from", amount: 45, currency: "BYN" } },
+      { slug: "zamena-akkumulyatora", title: "Замена аккумулятора", description: "Подбор батареи по модели, замена вздутого или изношенного аккумулятора, проверка зарядки.", price: { kind: "by-model" } },
       { slug: "remont-sistemy-ohlazhdeniya", title: "Ремонт системы охлаждения", description: "Замена кулера, ремонт креплений, проверка тепловых трубок и радиатора.", price: { kind: "from", amount: 42, currency: "BYN" } },
       { slug: "remont-materinskoy-platy", title: "Ремонт материнской платы", description: "Цепи питания, прошивка BIOS, пайка компонентов и BGA. Объём работ определяем после диагностики.", price: { kind: "from", amount: 45, currency: "BYN", note: "BGA-пайка — от 135 BYN." } },
+      { slug: "remont-korpusa-i-petel", title: "Ремонт корпуса и петель", description: "Сломанные петли, трещины корпуса и крепления крышки: восстанавливаем или меняем детали.", price: { kind: "by-model" } },
       { slug: "remont-posle-zalitiya", title: "Ремонт после залития", description: "Разборка, чистка коррозии и восстановление повреждённых компонентов. Результат зависит от повреждений.", price: { kind: "from", amount: 45, currency: "BYN", note: "Цена за чистку; необходимый ремонт оценивается отдельно." } },
       { slug: "modernizaciya-ssd-i-ram", title: "Установка SSD и памяти", description: "Подбор совместимых SSD и оперативной памяти, перенос системы и проверка скорости.", price: { kind: "from", amount: 35, currency: "BYN" } },
     ],
@@ -56,6 +58,7 @@ export const laptopRepairData = {
       { slug: "noutbuk-tormozit", title: "Медленно работает", causes: "Старый HDD, мало памяти, перегрев или вирусы. Программные причины решает компьютерная помощь." },
       { slug: "noutbuk-vyklyuchaetsya", title: "Сам выключается", causes: "Перегрев, питание, батарея или плата." },
       { slug: "net-izobrazheniya", title: "Нет изображения", causes: "Матрица, шлейф, подсветка или видеочип." },
+      { slug: "slomalis-petli", title: "Сломались петли", causes: "Крышка болтается или не закрывается, трещины корпуса возле петель." },
     ],
   },
   devices: {
@@ -70,6 +73,7 @@ export const laptopRepairData = {
       { title: "Согласование", text: "Обсуждаем работы, запчасти и стоимость до начала ремонта." },
       { title: "Сроки и гарантия", text: "Зависят от модели, вида работ и наличия деталей. Условия сообщаем перед ремонтом." },
       { title: "Ваши данные", text: "Заранее обсуждаем сохранение файлов. Если ноутбук работает, рекомендуем сделать резервную копию." },
+      { title: "Забор и доставка", text: "Заберём ноутбук и привезём обратно по Борисову бесплатно, в Залинейный район — 5 BYN." },
     ],
   },
   process: {

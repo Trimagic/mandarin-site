@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320" fill="none">
+  <title>Мандарин с ноутбуком и телефоном</title>
+  <defs>
+    <linearGradient id="fruit" x1="53" y1="112" x2="205" y2="293" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFBB24"/>
+      <stop offset=".48" stop-color="#FF800B"/>
+      <stop offset="1" stop-color="#F34424"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="130" y1="80" x2="222" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25863A"/>
+      <stop offset="1" stop-color="#79BC32"/>
+    </linearGradient>
+  </defs>
+  <path d="M128 80C130 36 165 13 229 14C219 61 188 87 148 79C159 60 174 47 190 39C162 48 140 64 128 80Z" fill="url(#leaf)"/>
+  <circle cx="128" cy="198" r="113" fill="url(#fruit)"/>
+  <g stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="77" y="147" width="120" height="79" rx="8" fill="white" fill-opacity=".08"/>
+    <path d="M73 226H201L210 238C211 240 209 242 206 242H72C69 242 67 240 68 238Z" fill="white"/>
+    <path d="M127 229H151" stroke="#FF8C16" stroke-width="3"/>
+    <path d="M92 168H110M92 177H101" stroke-width="3" opacity=".55"/>
+  </g>
+  <rect x="41" y="172" width="56" height="87" rx="12" fill="url(#fruit)"/>
+  <rect x="47" y="176" width="45" height="78" rx="8" fill="white"/>
+  <rect x="51" y="180" width="37" height="70" rx="5" fill="url(#fruit)"/>
+  <path d="M61 180H78V184C78 186 76 187 74 187H65C63 187 61 186 61 184Z" fill="white"/>
+  <path d="M64 243H75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M57 198V210" stroke="white" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

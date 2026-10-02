@@ -1,16 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope } from "next/font/google";
 import { JsonLd } from "@/components/site/json-ld";
 import { siteConfig } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { businessNode, graph, websiteNode } from "@/lib/structured-data";
 import "./globals.css";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["cyrillic", "latin"],
-  display: "swap",
-});
 
 // Page-level metadata (title, canonical, Open Graph) comes from lib/seo.ts; these are site-wide defaults.
 export const metadata: Metadata = {
@@ -38,7 +31,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ru" className={`${manrope.variable} h-full scroll-smooth`} suppressHydrationWarning>
+    <html lang="ru" className="h-full scroll-smooth" suppressHydrationWarning>
+      <head>
+        <link rel="preload" href="/fonts/manrope/d3fe2f289711ac3f-s.p.2g9li78_0_it5.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/manrope/a343f882a40d2cc9-s.p.3259ncl47-hqj.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body className="flex min-h-full flex-col antialiased">
         <JsonLd data={graph([businessNode(), websiteNode()])} />
         {children}

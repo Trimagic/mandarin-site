@@ -1,0 +1,5 @@
+# Rounded right platform contour
+
+Tool: built-in imagegen. Asset: hero-desktop-rounded-right-v6.png. Previous version retained: hero-desktop-calm-background-v5.png.
+
+Use case: precise-object-edit. Fix ONLY the right outside edge of the orange platform in this website hero. Currently its lower right side is clipped flush to the canvas and looks abruptly sliced downward. Reconstruct a complete smooth gently curved right boundary and a generous rounded bottom-right corner, with a slim transparent margin of 16-24 pixels at the widest right edge so the entire contour is visible. Continue existing orange gradient and subtle sweeping bands naturally into this reconstructed edge. Keep canvas1484x1060, all laptop/phone/fruit geometry, placement, scale, text 'Mandarin Сервис', screen colors, leaf and contact shadows exactly as they are. Preserve left edge and upper edge silhouette, composition, lighting and proportions. Do not add crosses. Outside shape genuine fully transparent alpha, clean antialiased edge without colored fragments or glow. Main request: repair truncated right silhouette so it flows smoothly into lower rounded corner. No changes to foreground objects.

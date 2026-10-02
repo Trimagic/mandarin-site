@@ -1,9 +1,14 @@
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
+import { IconBatteryCharging, IconPlug, IconPower } from "@tabler/icons-react";
 import { IconBulb, IconCloudUpload, IconCpu, IconDeviceDesktop, IconDeviceTv, IconDeviceLaptop, IconDeviceMobile, IconDeviceMobileCheck, IconGauge, IconListCheck, IconSearch, IconSparkles, IconTools } from "@tabler/icons-react";
 import { useId } from "react";
 import type { ServiceIncludedData, ServiceIncludedIcon } from "@/data/services/types";
 
 const includedIcons = {
-  diagnostics: IconSearch,
+  diagnostics: DiagnosticsIcon,
+  battery: IconBatteryCharging,
+  ports: IconPlug,
+  buttons: IconPower,
   part: IconDeviceMobile,
   repair: IconTools,
   check: IconDeviceMobileCheck,
@@ -18,7 +23,7 @@ const includedIcons = {
   backlight: IconBulb,
 } satisfies Record<ServiceIncludedIcon, typeof IconSearch>;
 
-export function ServiceIncluded({ data }: { data: ServiceIncludedData }) {
+export function ServiceIncluded({ data, columns = 4 }: { data: ServiceIncludedData; columns?: 3 | 4 }) {
   const headingId = useId();
   if (data.items.length === 0) return null;
 
@@ -27,7 +32,7 @@ export function ServiceIncluded({ data }: { data: ServiceIncludedData }) {
       <h2 id={headingId} className="mb-4 text-2xl leading-tight font-extrabold tracking-[-0.035em] text-[#171717] xl:text-[28px] dark:text-[#fff7f0]">
         {data.title}
       </h2>
-      <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+      <ol className={`grid grid-cols-1 gap-3 sm:grid-cols-2 lg:gap-4 ${columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
         {data.items.map((item, index) => {
           const Icon = includedIcons[item.icon];
           return (

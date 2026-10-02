@@ -194,7 +194,7 @@ export function RequestForm({ config, onDone }: { config: RequestFormConfig; onD
             aria-invalid={Boolean(errors.consent) || undefined}
             className="mt-0.5 size-4 shrink-0 accent-[#ff5000]"
           />
-          Согласен на обработку персональных данных для связи по заявке
+          <span>Согласен на <a href="/soglasie-na-obrabotku-dannyh/" target="_blank" rel="noopener noreferrer" className="rounded-sm text-[#e74700] underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:text-[#ff8a32]">обработку персональных данных<span className="sr-only"> (откроется в новой вкладке)</span></a> для связи по заявке</span>
         </label>
         <FieldError id={`${id}-consent-error`} message={errors.consent} />
       </div>

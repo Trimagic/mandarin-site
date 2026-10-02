@@ -1,0 +1,5 @@
+# Dark orange screens matching the TV hero
+
+Generated using built-in imagegen. Edit targets: phone-repair-cutout-v2.png, laptop-repair-cutout-v2.png, computer-repair-cutout-v2.png. Style reference: tv-repair-cutout-v3.png.
+
+Use case: precise-object-edit. Image 1 is the EDIT TARGET, a transparent electronics cutout. Image 2 is ONLY the screen wallpaper color/style reference. Replace ONLY the lit screen wallpaper in Image 1 with the same dark burnt-orange/copper background and smooth luminous orange/amber ribbon waves as on the television screen in Image 2. Deep warm brown-orange shadows fill most of the screen; graceful bright orange wave curves run across it. The screen must visibly contrast with a bright orange website backdrop, while remaining orange, not blue. For a phone adapt wallpaper elegantly to its vertical screen. Keep every device, chassis, keyboard, cameras, orientation, exact size and positioning and original landscape framing of Image 1 unchanged. No TV added. Keep genuine transparent alpha outside products. Fully opaque screen. No fruit, no leaf, no logos, no text, no UI, no floor, no backdrop. Sharp high-resolution photorealistic finish.

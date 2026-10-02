@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { IconBrandTelegram, IconBrandWhatsapp, IconChevronRight, IconPhone } from "@tabler/icons-react";
 import { siteConfig } from "@/lib/site";
+import { CurrentYear } from "@/components/site/current-year";
 
 const columns = [
   { title: "Услуги", links: [
@@ -8,7 +10,11 @@ const columns = [
     ["Ремонт ноутбуков", "/remont-noutbukov/"],
     ["Ремонт компьютеров", "/remont-kompyuterov/"],
     ["Ремонт телевизоров", "/remont-televizorov/"],
+    ["Ремонт техники Apple", "/remont-apple/"],
     ["Установка Windows", "/ustanovka-windows/"],
+    ["Ремонт планшетов", "/remont-planshetov/"],
+    ["Ремонт колонок", "/remont-kolonok/"],
+    ["Обслуживание приставок", "/obsluzhivanie-pristavok/"],
     ["Все услуги и цены", "/#services"],
   ] },
   { title: "Информация", links: [
@@ -16,9 +22,10 @@ const columns = [
     ["Гарантия", "/#warranty"],
   ] },
   { title: "Компания", links: [
-    ["О нас", "/#warranty"],
+    ["О нас", "/o-nas/"],
     ["Контакты", "/#contacts"],
     ["Адрес и режим работы", "/#contacts"],
+    ["Персональные данные", "/soglasie-na-obrabotku-dannyh/"],
   ] },
 ];
 
@@ -28,10 +35,7 @@ export function SiteFooter() {
       <div className="grid grid-cols-1 gap-4 border-t border-[#e9e6e2] pt-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,1.2fr)] xl:grid-cols-[1.35fr_0.9fr_0.9fr_0.95fr_1.25fr] xl:gap-8 xl:pt-7 dark:border-[#30251d]">
         <div className="min-w-0">
           <Link href="/" aria-label="Mandarin Сервис — на главную" className="inline-flex items-center gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6800] xl:gap-3">
-            <span aria-hidden="true" className="relative grid size-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(145deg,#ff9b2f,#ff5a0a_55%,#df1831)]">
-              <span className="absolute -top-1 left-1/2 h-3 w-5 -translate-x-1/2 -rotate-12 rounded-[100%_0_100%_0] bg-[#5e9f35]" />
-              <span className="mt-1 text-lg font-black text-white">M</span>
-            </span>
+            <Image src="/brand/mandarin-header-logo.svg" alt="" width={240} height={248} className="h-auto w-11 shrink-0" unoptimized />
             <span className="text-sm leading-[0.95] font-extrabold tracking-[-0.035em] xl:text-base">
               <span className="block text-[#e7550d]">Mandarin</span>
               <span className="block text-[#df2034]">Сервис</span>
@@ -69,6 +73,7 @@ export function SiteFooter() {
           <a href="tel:+375291506888" className="whitespace-nowrap text-sm font-extrabold tracking-[-0.025em] text-[#171717] hover:text-[#f04a00] xl:text-lg dark:text-[#e2d3c2] dark:hover:text-[#ff6800]">+375 29 150-68-88</a>
           <p className="text-xs leading-5 text-[#79757a] max-md:order-last max-md:basis-full md:mt-1 dark:text-[#a79b8f]">{siteConfig.openingHours.label}<span aria-hidden="true" className="mx-2 md:hidden">·</span><span className="md:block">{siteConfig.openingHours.note}</span></p>
           <div className="flex justify-end gap-2 md:mt-4 xl:gap-3">
+            <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid size-8 shrink-0 place-items-center rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c13584]"><Image src="/brand/instagram-glyph-gradient.svg" alt="" width={28} height={28} className="size-7" unoptimized /></a>
             <a href="https://t.me/+375291506888" aria-label="Написать в Telegram" className="grid size-8 place-items-center rounded-full bg-[#08a9e6] text-white transition-opacity hover:opacity-80"><IconBrandTelegram aria-hidden="true" className="size-5" /></a>
             <a href="https://wa.me/375291506888" aria-label="Написать в WhatsApp" className="grid size-8 place-items-center rounded-full bg-[#16bc39] text-white transition-opacity hover:opacity-80"><IconBrandWhatsapp aria-hidden="true" className="size-5" /></a>
             <a href="viber://chat?number=%2B375291506888" aria-label="Написать в Viber" className="grid size-8 place-items-center rounded-full bg-[#8054c7] text-white transition-opacity hover:opacity-80"><IconPhone aria-hidden="true" className="size-5" /></a>
@@ -76,7 +81,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-xs text-[#898589] dark:text-[#a79b8f]">
-        <p>© Mandarin Сервис, {new Date().getFullYear()}</p>
+        <p>© Mandarin Сервис, 2012–<CurrentYear initialYear={new Date().getFullYear()} /></p>
         <p>ИП Павловский Н. А. <span aria-hidden="true" className="mx-3">·</span> УНП 691381798</p>
       </div>
     </footer>

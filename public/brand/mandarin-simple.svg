@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320" fill="none">
+  <title>Мандарин с зелёным листиком</title>
+  <defs>
+    <radialGradient id="fruit" cx="0" cy="0" r="1" gradientTransform="translate(65 133) rotate(55) scale(209 199)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD34A"/>
+      <stop offset=".32" stop-color="#FF9D13"/>
+      <stop offset=".66" stop-color="#FF660B"/>
+      <stop offset="1" stop-color="#EE3948"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="132" y1="88" x2="239" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#187E45"/>
+      <stop offset=".5" stop-color="#48A62A"/>
+      <stop offset="1" stop-color="#95CF3C"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="84" y1="125" x2="44" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFBE5" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#FFF0A5" stop-opacity=".12"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="180" y1="256" x2="94" y2="295" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFCC8A" stop-opacity="0"/>
+      <stop offset=".65" stop-color="#FFB177" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#FFCC8A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M130 88C134 38 177 13 248 14C238 60 211 98 158 85C166 66 183 52 198 43C167 52 145 70 134 90Z" fill="url(#leaf)"/>
+  <circle cx="124" cy="204" r="108" fill="url(#fruit)"/>
+  <path d="M48 196C49 165 69 139 95 131C98 130 101 131 101 134C101 137 96 138 93 140C72 151 59 169 52 193C51 198 48 201 48 196Z" fill="url(#shine)"/>
+  <path d="M184 259C166 281 135 294 106 290" stroke="url(#rim)" stroke-width="4" stroke-linecap="round"/>
+</svg>

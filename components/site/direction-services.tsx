@@ -1,7 +1,8 @@
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
 import {
   IconArrowBigUpLines, IconBatteryCharging, IconBolt, IconBulb, IconCamera, IconChevronRight, IconCpu, IconCpu2, IconDeviceDesktop, IconDeviceLaptop,
-  IconDeviceMobile, IconDeviceSdCard, IconDeviceSpeaker, IconDroplet, IconKeyboard, IconLayoutRows,
-  IconPlug, IconPlugConnected, IconReplace, IconSettings, IconStethoscope, IconTemperature, IconVolume, IconTool, IconWind,
+  IconDatabase, IconDeviceMobile, IconDeviceSdCard, IconDeviceSpeaker, IconDroplet, IconKeyboard, IconLayoutRows, IconLock,
+  IconPlug, IconPlugConnected, IconReplace, IconSettings, IconTemperature, IconVolume, IconTool, IconWind,
 } from "@tabler/icons-react";
 import { getDirectionItemHref, type DirectionPageData, type DirectionPrice } from "@/data/directions";
 import { getServicePage } from "@/data/services";
@@ -16,7 +17,8 @@ const serviceIcons: Record<string, typeof IconTool> = {
   "zamena-zadney-kryshki": IconDeviceMobile,
   "remont-kamery": IconCamera,
   "proshivka-i-razblokirovka": IconSettings,
-  diagnostika: IconStethoscope,
+  "zabyl-parol": IconLock,
+  diagnostika: DiagnosticsIcon,
   "chistka-i-zamena-termopasty": IconTemperature,
   "zamena-matricy": IconDeviceLaptop,
   "remont-klaviatury": IconKeyboard,
@@ -30,8 +32,9 @@ const serviceIcons: Record<string, typeof IconTool> = {
   "zamena-shleyfa-i-t-con": IconLayoutRows,
   "remont-razemov": IconPlugConnected,
   "zamena-dinamikov": IconDeviceSpeaker,
-  "diagnostika-pk": IconStethoscope,
+  "diagnostika-pk": DiagnosticsIcon,
   "sborka-pk": IconDeviceDesktop,
+  "vosstanovlenie-dannyh": IconDatabase,
   "zamena-komplektuyushchih": IconReplace,
   "remont-videokarty": IconCpu2,
   "chistka-i-obsluzhivanie": IconWind,
@@ -66,7 +69,8 @@ export function DirectionServices({ data }: { data: Pick<DirectionPageData, "slu
           const edge = "border-[#e6e2de] transition-colors duration-300 group-hover:border-[#ff5000]/50 dark:border-[#46301f] dark:group-hover:border-[#ff7a18]/50";
 
           return (
-            <li key={service.slug}>
+            // A last card left alone in its row stretches across the row.
+            <li key={service.slug} className="md:max-lg:last:odd:col-span-2 lg:last:nth-[3n+1]:col-span-3">
               {/* Ticket: the dashed tear line with notches separates the service from its price stub. */}
               <a
                 href={href}

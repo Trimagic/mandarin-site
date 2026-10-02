@@ -14,6 +14,7 @@ export const siteConfig = {
   locale: "ru_BY",
   description: "Ремонт телефонов, ноутбуков, компьютеров и телевизоров в Борисове. Диагностика, согласование стоимости до ремонта, гарантия на работы.",
   telephone: "+375291506888",
+  instagram: "https://www.instagram.com/mandarin_borisov/",
   address: {
     streetAddress: "ул. Чапаева, 34",
     addressLocality: "Борисов",

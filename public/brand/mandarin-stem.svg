@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="96" viewBox="0 0 48 96" fill="none">
+  <title>Стебелёк мандарина</title>
+  <defs>
+    <linearGradient id="stem" x1="13" y1="45" x2="33" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79B747"/>
+      <stop offset=".45" stop-color="#43933B"/>
+      <stop offset="1" stop-color="#256F35"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="26" y1="18" x2="18" y2="80" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CAE391" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#CAE391" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M15 82C16 60 21 39 27 17C28 12 34 11 36 15C37 17 36 20 35 23C29 43 26 62 25 83C25 87 14 87 15 82Z" fill="url(#stem)"/>
+  <path d="M19 78C20 58 24 37 30 18" stroke="url(#highlight)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { IconBrandWindows, IconDeviceDesktop, IconDeviceLaptop, IconDeviceMobile, IconDeviceTv, IconMenu2, IconMoon, IconPhone, IconSun } from "@tabler/icons-react";
+import { IconBrandWindows, IconDeviceDesktop, IconDeviceLaptop, IconDeviceMobile, IconDeviceTv, IconDeviceSpeaker, IconDeviceTablet, IconDeviceGamepad2, IconMenu2, IconMoon, IconPhone, IconSun } from "@tabler/icons-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
@@ -14,10 +15,7 @@ import { cn } from "@/lib/utils";
 function Brand() {
   return (
     <Link href="/" className="flex items-center gap-3" aria-label="Mandarin Сервис — на главную">
-      <span className="relative grid size-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(145deg,#ff9b2f,#ff5a0a_55%,#df1831)] shadow-[0_8px_22px_-10px_rgba(220,69,0,.9)]">
-        <span className="absolute -top-1 left-1/2 h-3 w-5 -translate-x-1/2 -rotate-12 rounded-[100%_0_100%_0] bg-[#5e9f35]" />
-        <span className="mt-1 text-lg font-black text-white">M</span>
-      </span>
+      <Image src="/brand/mandarin-header-logo.svg" alt="" width={240} height={248} className="h-auto w-11 shrink-0" unoptimized />
       <span className="leading-[0.95] font-extrabold tracking-[-0.035em]">
         <span className="block text-[#e7550d]">Mandarin</span>
         <span className="block text-[#df2034]">Сервис</span>
@@ -42,6 +40,9 @@ const directions = [
   { label: "Компьютеры", href: "/remont-kompyuterov/", icon: IconDeviceDesktop },
   { label: "Телевизоры", href: "/remont-televizorov/", icon: IconDeviceTv },
   { label: "Установка Windows", href: "/ustanovka-windows/", icon: IconBrandWindows },
+  { label: "Планшеты", href: "/remont-planshetov/", icon: IconDeviceTablet },
+  { label: "Колонки", href: "/remont-kolonok/", icon: IconDeviceSpeaker },
+  { label: "Приставки", href: "/obsluzhivanie-pristavok/", icon: IconDeviceGamepad2 },
 ];
 
 export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
@@ -71,7 +72,7 @@ export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
         <Brand />
 
         <nav className="ml-8 hidden items-center gap-5 xl:flex 2xl:ml-16 2xl:gap-8" aria-label="Основная навигация">
-          {directions.map(({ label, href }) => (
+          {directions.slice(0, 4).map(({ label, href }) => (
             <Link
               key={href}
               href={href}
@@ -84,6 +85,12 @@ export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
               {label}
             </Link>
           ))}
+          <details className="group relative">
+            <summary className="cursor-pointer rounded-sm text-[13px] font-semibold text-[#211a17] hover:text-primary dark:text-[#fff7f0]">Ещё</summary>
+            <div className="absolute top-full left-0 z-50 mt-3 min-w-56 rounded-xl border border-[#eee4de] bg-[#fffaf6] p-2 shadow-lg dark:border-[#382922] dark:bg-[#120d0b]">
+              {directions.slice(4).map(({ label, href }) => <Link key={href} href={href} aria-current={pathname.startsWith(href) ? "page" : undefined} onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} className="block rounded-lg px-3 py-3 text-sm font-semibold hover:bg-[#ff5000]/8 hover:text-primary">{label}</Link>)}
+            </div>
+          </details>
           <span aria-hidden="true" className="h-5 w-px bg-[#e6d9d0] dark:bg-[#49352d]" />
           {navigation.filter(([, href]) => headerAnchors.has(href)).map(([label, href]) => (
             <Link

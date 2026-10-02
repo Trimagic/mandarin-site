@@ -1,4 +1,4 @@
-export type DirectionArt = "phone" | "laptop" | "computer" | "tv" | "windows";
+export type DirectionArt = "phone" | "laptop" | "computer" | "tv" | "windows" | "speaker" | "console" | "tablet";
 
 export function DirectionCardArt({ kind }: { kind: DirectionArt }) {
   return (
@@ -12,9 +12,13 @@ export function DirectionCardArt({ kind }: { kind: DirectionArt }) {
         <path d="m70 60 8 8 16-20M120 31v12m-6-6h12" />
       </>}
       {kind === "laptop" && <>
-        <rect x="29" y="25" width="102" height="65" rx="6" fill="currentColor" fillOpacity=".08" />
-        <path d="M37 82V33h86v49M18 91h124l-9 11H27zM65 91l3 5h24l3-5" />
-        <path d="m62 63 12-13 10 10 14-17" opacity=".6" />
+        <rect x="28" y="22" width="104" height="67" rx="7" fill="currentColor" fillOpacity=".1" />
+        <rect x="35" y="30" width="90" height="51" rx="3" fill="currentColor" fillOpacity=".04" strokeOpacity=".35" strokeWidth="1.5" />
+        <circle cx="80" cy="26" r="1" fill="currentColor" stroke="none" />
+        <path d="M18 90h124l-8 12H26z" fill="currentColor" fillOpacity=".12" />
+        <path d="M67 90l2 5h22l2-5M39 94h17m48 0h17" strokeWidth="1.5" strokeOpacity=".45" />
+        <path d="m60 48-7 7 7 7m40-14 7 7-7 7M87 43l-9 25" strokeWidth="2" strokeOpacity=".65" />
+        <path d="M42 36h23m-23 5h13M101 74h17" strokeWidth="1.5" strokeOpacity=".25" />
       </>}
       {kind === "computer" && <>
         <rect x="14" y="28" width="88" height="57" rx="5" fill="currentColor" fillOpacity=".08" />
@@ -30,6 +34,24 @@ export function DirectionCardArt({ kind }: { kind: DirectionArt }) {
       {kind === "windows" && <>
         <path d="m34 29 42-6v34H34zm49-7 45-7v42H83zM34 64h42v34l-42-6zm49 0h45v42l-45-7z" fill="currentColor" fillOpacity=".14" />
         <path d="m137 27 3-7m-1 24 8-1M22 72l-8 3" opacity=".5" />
+      </>}
+      {kind === "tablet" && <>
+        <rect x="34" y="16" width="92" height="88" rx="10" fill="currentColor" fillOpacity=".08" />
+        <rect x="42" y="25" width="76" height="70" rx="3" fill="currentColor" fillOpacity=".1" stroke="none" />
+        <circle cx="80" cy="20.5" r="1" fill="currentColor" stroke="none" />
+        <path d="m62 46 13 12-9 10 18 12" strokeWidth="2" strokeOpacity=".65" />
+        <path d="M134 34v12m-6-6h12" />
+      </>}
+      {kind === "speaker" && <>
+        <rect x="47" y="14" width="66" height="90" rx="14" fill="currentColor" fillOpacity=".08" />
+        <circle cx="80" cy="68" r="24" /><circle cx="80" cy="68" r="12" strokeOpacity=".5" />
+        <path d="M68 28h24m-12-5v10M121 47c8 8 8 20 0 28m9-36c12 12 12 31 0 44" />
+      </>}
+      {kind === "console" && <>
+        <rect x="37" y="14" width="54" height="84" rx="8" fill="currentColor" fillOpacity=".08" />
+        <path d="M49 23v64m15-62h14m-14 8h14" /><circle cx="74" cy="81" r="3" />
+        <path d="M87 64h31c9 0 13 7 17 25 2 11-6 14-13 6l-5-6H88l-5 6c-7 8-15 5-13-6 4-18 8-25 17-25Z" fill="currentColor" fillOpacity=".12" />
+        <path d="M83 76h12m-6-6v12m27-8h.1m8 7h.1" />
       </>}
     </svg>
   );

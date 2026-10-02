@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="72" viewBox="122 34 124 72" fill="none"><title>Листик мандарина</title><defs><linearGradient id="leaf" x1="130" y1="80" x2="222" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25863A"/>
+      <stop offset="1" stop-color="#79BC32"/>
+    </linearGradient></defs><g transform="translate(0 9) rotate(12 128 80)">
+    <path d="M128 80C130 36 165 13 229 14C219 61 188 92 148 81C140 79 133 79 128 80Z" fill="url(#leaf)"/>
+    <path d="M133 77C156 48 186 32 217 21C194 40 169 58 148 81C142 79 137 78 133 77Z" fill="#164F2D" opacity=".14"/>
+    <path d="M134 76C156 50 183 35 213 24" stroke="#D0E994" stroke-opacity=".5" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M157 54C159 46 161 40 166 34M174 41C184 43 191 43 198 41" stroke="#D0E994" stroke-opacity=".2" stroke-width="1.2" stroke-linecap="round"/>
+  </g></svg>

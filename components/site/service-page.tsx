@@ -23,7 +23,7 @@ import { directionRequestConfig } from "@/lib/request";
 import { breadcrumbNode, faqNode, graph, serviceNode, webPageNode } from "@/lib/structured-data";
 
 export function ServicePage({ data }: { data: ServicePageData }) {
-  const path = getDirectionItemHref(data.directionSlug, data.slug);
+  const path = data.path ?? getDirectionItemHref(data.directionSlug, data.slug);
   const stories = storiesForService(data.directionSlug, data.slug);
   const reviews = [...(data.reviews?.items ?? []).map((review) => ({ name: review.author, text: review.text, rating: review.rating })), ...storyReviews(stories)];
   return (
@@ -32,7 +32,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       <JsonLd data={graph([
         webPageNode({ path, ...data.metadata }),
         breadcrumbNode(path, data.breadcrumbs),
-        serviceNode({ directionSlug: data.directionSlug, slug: data.slug, name: `${data.hero.title} ${data.hero.accent}`, description: data.metadata.description }),
+        serviceNode({ directionSlug: data.directionSlug, slug: data.slug, path, name: `${data.hero.title} ${data.hero.accent}`, description: data.metadata.description }),
         faqNode(path, data.faq),
       ])} />
       <SiteHeader homeLinks />

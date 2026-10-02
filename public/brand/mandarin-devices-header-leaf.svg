@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320" fill="none">
+  <title>Мандарин с ноутбуком и телефоном</title>
+  <defs>
+    <linearGradient id="fruit" x1="53" y1="112" x2="205" y2="293" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFBB24"/>
+      <stop offset=".48" stop-color="#FF800B"/>
+      <stop offset="1" stop-color="#F34424"/>
+    </linearGradient>
+    <radialGradient id="leaf" cx=".32" cy=".28" r=".8"><stop stop-color="#A2D663"/><stop offset=".35" stop-color="#69B942"/><stop offset=".7" stop-color="#3C9635"/><stop offset="1" stop-color="#176B37"/></radialGradient>
+    <filter id="leaf-shadow" x="-25%" y="-20%" width="160%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="3" dy="4" stdDeviation="2.3" flood-color="#80320B" flood-opacity=".32"/>
+    </filter>
+    <linearGradient id="leaf-ridge" x1="41" y1="146" x2="94" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E3F7B2" stop-opacity="0"/>
+      <stop offset=".45" stop-color="#E3F7B2" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#E3F7B2" stop-opacity="0"/>
+    </linearGradient>
+  <linearGradient id="placed-leaf-gradient" x1="130" y1="80" x2="222" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25863A"/>
+      <stop offset="1" stop-color="#79BC32"/>
+    </linearGradient>
+</defs>
+
+  <circle cx="128" cy="198" r="113" fill="url(#fruit)"/>
+  <g stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="77" y="147" width="120" height="79" rx="8" fill="white" fill-opacity=".08"/>
+    <path d="M73 226H201L210 238C211 240 209 242 206 242H72C69 242 67 240 68 238Z" fill="white"/>
+    <path d="M127 229H151" stroke="#FF8C16" stroke-width="3"/>
+    <path d="M92 168H110M92 177H101" stroke-width="3" opacity=".55"/>
+  </g>
+  <rect x="41" y="172" width="56" height="87" rx="12" fill="url(#fruit)"/>
+  <rect x="47" y="176" width="45" height="78" rx="8" fill="white"/>
+  <rect x="51" y="180" width="37" height="70" rx="5" fill="url(#fruit)"/>
+  <path d="M61 180H78V184C78 186 76 187 74 187H65C63 187 61 186 61 184Z" fill="white"/>
+  <path d="M64 243H75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M57 198V210" stroke="white" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/>
+
+<!-- Independent leaf: adjust translate, rotate and scale to reposition. -->
+<g id="placed-leaf" transform="translate(103 90) rotate(80) scale(-1 1) rotate(480) translate(-138 -90) translate(82 116) rotate(18) scale(0.92) translate(-128 -80)">
+    <path d="M128 80C130 36 165 13 229 14C219 61 188 92 148 81C140 79 133 79 128 80Z" fill="url(#placed-leaf-gradient)"/>
+    <path d="M133 77C156 48 186 32 217 21C194 40 169 58 148 81C142 79 137 78 133 77Z" fill="#164F2D" opacity=".14"/>
+    <path d="M134 76C156 50 183 35 213 24" stroke="#D0E994" stroke-opacity=".5" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M157 54C159 46 161 40 166 34M174 41C184 43 191 43 198 41" stroke="#D0E994" stroke-opacity=".2" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+</svg>

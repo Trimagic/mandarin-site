@@ -1,3 +1,4 @@
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
 import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import {
@@ -7,7 +8,6 @@ import {
   IconMessage,
   IconReceipt,
   IconShieldCheck,
-  IconStethoscope,
   IconTag,
   IconTool,
 } from "@tabler/icons-react";
@@ -27,7 +27,7 @@ const namedBenefitIcons = {
   price: IconTag,
   clock: IconClock,
   shield: IconShieldCheck,
-  diagnostics: IconStethoscope,
+  diagnostics: DiagnosticsIcon,
 };
 
 export function DirectionHero({
@@ -63,7 +63,7 @@ export function DirectionHero({
     >
       {mobile && hero.badge && (
         <li className="flex items-center gap-2.5 py-3 text-[13px] font-semibold text-[#443a35] dark:text-[#ddd0c8]">
-          <IconStethoscope aria-hidden="true" stroke={1.5} className="size-6 shrink-0 text-[#65a832] dark:text-[#8ab943]" />
+          <DiagnosticsIcon aria-hidden="true" stroke={1.5} className="size-6 shrink-0 text-[#65a832] dark:text-[#8ab943]" />
           <span>{hero.badge.replace(/\s*\n\s*/g, " ")}</span>
         </li>
       )}
@@ -209,7 +209,7 @@ export function DirectionHero({
                       {hero.badge}
                     </span>
                     <span className="grid size-12 shrink-0 place-items-center rounded-full border border-[#7bb64b]/60 text-[#65a832] dark:border-[#83af3f]/50 dark:text-[#8ab943]">
-                      <IconStethoscope aria-hidden="true" stroke={1.5} className="size-7" />
+                      <DiagnosticsIcon aria-hidden="true" stroke={1.5} className="size-7" />
                     </span>
                   </div>
                 )}

@@ -1,0 +1,6 @@
+# Desktop background crosses refinement
+
+Tool: built-in imagegen.
+Asset: hero-desktop-crosses-v2.png. Preview candidate; previous assets retained.
+
+Use case: precise-object-edit. Edit this desktop website hero, changing ONLY the background plus-sign pattern. Composition is already excellent: preserve exactly laptop and smartphone placement, geometry, screen text 'Mandarin Сервис', fruit, leaf, colors, lighting, rounded orange platform silhouette, framing and transparent alpha exterior. Re-render the background crosses as an elegant precise consistent grid of small delicate plus signs: identical perpendicular horizontal and vertical arms, equal arm lengths, thin uniform strokes, equal spacing, perfectly aligned rows and columns, subtle pale warm orange/cream low opacity, smooth restrained fade toward lower left. Keep crosses behind products, never overlay devices or fruit. No distorted crosses, no doubled strokes, no wandering spacing, no random missing arms, no grid lines. Preserve crisp photographic detail and high quality. Request native 2960x2124 if supported; otherwise maintain original aspect ratio. Outside platform fully transparent, no glow, no stray colored fragments. Do not alter anything else.

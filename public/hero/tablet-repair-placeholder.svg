@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" fill="none">
+<!-- Placeholder: replace with a real photo (tablet repair). -->
+<rect x="404" y="110" width="640" height="720" rx="44" fill="#1d1f22"/>
+<rect x="432" y="138" width="584" height="664" rx="22" fill="#fff4ea"/>
+<circle cx="724" cy="124" r="6" fill="#3a3d42"/>
+<path d="M560 300 700 420 640 520 820 640" stroke="#ff5000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M700 420 860 360M640 520 540 600" stroke="#ffb98f" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect x="1080" y="420" width="190" height="300" rx="30" fill="#1d1f22"/>
+<rect x="1096" y="436" width="158" height="268" rx="18" fill="#ff5000"/>
+<rect x="1146" y="448" width="58" height="12" rx="6" fill="#1d1f22"/>
+<rect x="404" y="880" width="640" height="70" rx="35" fill="#fffefd" stroke="#ff5000" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="724" y="925" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#e74700">Фото скоро появится</text>
+</svg>

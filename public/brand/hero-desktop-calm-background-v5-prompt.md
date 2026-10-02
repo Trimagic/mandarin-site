@@ -1,0 +1,6 @@
+# Calm homepage backdrop
+
+Tool: built-in imagegen. Asset: hero-desktop-calm-background-v5.png.
+Previous version preserved: hero-desktop-matched-background-v4.png.
+
+Use case: precise-object-edit. Change ONLY the orange platform/background pattern in this homepage hero. Remove ALL plus-sign crosses and grid. Replace with an elegant calm silky warm orange gradient, lighter soft amber top left to deeper burnt orange right, with only two or three extremely subtle broad tone-on-tone flowing curved contour bands on far right, low contrast, clean smooth surface, no fine repetitive detail, no noise, no crosses, no dots, no circuitry. Background should be tasteful and unobtrusive at website display sizes. Preserve EXACT existing platform silhouette and rounded corners, its tilt and proportions, canvas1484x1060, all object placement and size, laptop and phone geometry, fruit and leaf, screen logos, white lettering 'Mandarin Сервис', screen red-to-orange gradients, lighting and contact shadows. Do not change screens or foreground objects. Transparent alpha outside orange shape, clean edges, no colored fragments, no external glow. Crisp premium product photography. Existing composition is already approved, only change backdrop decoration.

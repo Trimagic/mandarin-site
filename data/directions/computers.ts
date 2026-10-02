@@ -7,7 +7,7 @@ export const computerRepairData: DirectionPageData = {
   hero: {
     title: "Ремонт и модернизация компьютеров", accent: "в Борисове",
     description: "От диагностики до сборки ПК под ваши задачи. Согласуем стоимость и комплектующие до начала работ.",
-    image: { src: "/hero/computer-repair-cutout-v1.png", alt: "Системный блок, монитор, клавиатура и мандарин" },
+    image: { src: "/hero/computer-repair-cutout-v3.png", alt: "Системный блок, монитор с оранжевой волной на тёмном экране и клавиатура" },
     backgrounds: { desktop: "/backgrounds/hero-background-empty-v1.png", tablet: "/backgrounds/hero-background-wide-draft.png", mobile: "/backgrounds/hero-background-mobile-v1.png" },
     badge: "Диагностика при\nремонте — бесплатно",
     primaryAction: { label: "Узнать стоимость", href: "#services" },
@@ -23,6 +23,7 @@ export const computerRepairData: DirectionPageData = {
       { slug: "zamena-komplektuyushchih", title: "Замена комплектующих", description: "Замена блока питания, платы, процессора, памяти или накопителя.", price: { kind: "from", amount: 35, currency: "BYN" } },
       { slug: "remont-videokarty", title: "Ремонт видеокарты", description: "Диагностика отсутствия изображения, артефактов, перегрева и питания.", price: { kind: "from", amount: 40, currency: "BYN" } },
       { slug: "chistka-i-obsluzhivanie", title: "Чистка и обслуживание", description: "Удаление пыли, замена термопасты, обслуживание вентиляторов и тест под нагрузкой.", price: { kind: "from", amount: 35, currency: "BYN" } },
+      { slug: "vosstanovlenie-dannyh", title: "Восстановление данных", description: "Файлы и фото с жёстких дисков, SSD, флешек и карт памяти. Шансы оцениваем до начала работ.", price: { kind: "after-diagnosis" } },
       { slug: "modernizaciya-pk", title: "Модернизация компьютера", description: "Подбор SSD, RAM, видеокарты и процессора с оценкой целесообразности обновления.", price: { kind: "negotiated" } },
     ],
   },
@@ -41,6 +42,7 @@ export const computerRepairData: DirectionPageData = {
     { title: "Согласование", text: "Обсуждаем работы, совместимые детали и стоимость до ремонта." },
     { title: "Сроки и гарантия", text: "Зависят от неисправности и наличия деталей. Уточняем при согласовании." },
     { title: "Ваши данные", text: "Обсуждаем сохранение файлов. Перед передачей работающего ПК сделайте резервную копию." },
+    { title: "Забор и доставка", text: "Заберём системный блок и привезём обратно по Борисову бесплатно, в Залинейный район — 5 BYN." },
   ] },
   process: { title: "Как проходит ремонт", items: [
     { title: "Обращение", text: "Опишите проблему и сообщите конфигурацию компьютера, если она известна." },

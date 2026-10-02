@@ -1,0 +1,6 @@
+# Hero background matching
+
+Tool: built-in imagegen.
+Asset: hero-desktop-matched-background-v4.png.
+
+Use case: precise-object-edit. Image1 is edit target homepage hero. Image2 is color/texture/pattern reference ONLY for orange platform backdrop. Change ONLY the orange backdrop inside image1 existing silhouette to match image2: rich warm burnt-orange/coral gradient with soft lighter orange glow left, subtle fine matte texture, delicate low-contrast thin small cream plus-sign grid on right fading gradually toward left. Current backdrop yellow and high-contrast crosses must become the reference's restrained warm orange background. DO NOT copy image2 silhouette or proportions. Preserve EXACT original image1 canvas aspect ratio1484x1060, rounded platform silhouette, perspective, dimensions, margins, device and fruit placement, laptop and phone geometry, screen text 'Mandarin Сервис', screen graphics, fruit, leaf, lighting and contact shadows. Do not change screen backgrounds. Only change orange platform coloring and pattern. Outside platform genuine fully transparent alpha with clean smooth edges, no black backdrop, no glow or stray pixels. Sharp premium photographic quality. All products untouched.

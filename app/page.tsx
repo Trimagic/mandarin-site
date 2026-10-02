@@ -1,3 +1,4 @@
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
 import type { Metadata } from "next";
 import Image, { getImageProps } from "next/image";
 import {
@@ -6,7 +7,6 @@ import {
   IconClock,
   IconReceipt,
   IconShieldCheck,
-  IconStethoscope,
 } from "@tabler/icons-react";
 
 import { HomeDirections } from "@/components/site/home-directions";
@@ -35,7 +35,7 @@ export const metadata: Metadata = pageMetadata(homeSeo);
 
 export default function HomePage() {
   const { props: mobileHero } = getImageProps({
-    src: "/brand/hero-devices-platform-mobile.png",
+    src: "/brand/hero-mobile-calm-background-v3.png",
     alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
     width: 921,
     height: 1708,
@@ -43,7 +43,7 @@ export default function HomePage() {
     sizes: "100vw",
   });
   const { props: tabletHero } = getImageProps({
-    src: "/brand/hero-devices-platform-tablet.png",
+    src: "/brand/hero-tablet-calm-background-v4.png",
     alt: "Ноутбук, телефон и мандарин на фирменной оранжевой площадке",
     width: 1536,
     height: 1024,
@@ -57,8 +57,8 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <section className="relative overflow-x-clip">
-          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-5 pt-4 md:px-6 md:pt-6 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:gap-6 xl:px-12 xl:pb-10">
-            <div className="relative z-10 min-w-0 pt-2 pb-2 text-left md:text-center xl:pt-8 xl:text-left">
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-0 px-5 pt-4 md:px-6 md:pt-6 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:gap-6 xl:px-12 xl:pb-[104px]">
+            <div className="relative z-10 min-w-0 pt-2 pb-2 text-left md:text-center xl:pt-8 xl:pb-0 xl:text-left">
               <p className="mb-4 text-[11px] font-extrabold tracking-[0.06em] text-[#ef101c] uppercase md:mb-5 md:text-xs md:tracking-[0.14em] dark:text-[#ff2533]">
                 Ремонт техники в Борисове
               </p>
@@ -111,7 +111,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative mx-auto mt-6 flex min-w-0 h-[calc(100vw*1.2)] w-full max-w-[928px] items-center justify-center md:-mt-4 md:h-auto xl:mx-0 xl:mt-0 xl:max-w-none xl:justify-start">
+            <div className="relative mx-auto mt-6 flex min-w-0 h-[calc(100vw*1.2)] w-full max-w-[928px] items-center justify-center md:-mt-4 md:h-auto xl:mx-0 xl:mt-0 xl:h-full xl:max-w-none xl:items-start xl:justify-start">
               <div className="absolute top-2 left-0 z-20 flex items-center gap-3 rounded-xl border border-[#eee7df] bg-[#fffefd] px-4 py-3 md:top-[14%] md:left-[4%] xl:top-10 xl:left-3 xl:gap-4 xl:px-5 xl:py-4 dark:border-[#78502d] dark:bg-[#211810]">
                 <p className="text-sm leading-5 font-bold text-[#171717] dark:text-[#fff7f0]">
                   Диагностика при
@@ -119,14 +119,14 @@ export default function HomePage() {
                   ремонте — бесплатно
                 </p>
                 <span className="grid size-12 shrink-0 place-items-center rounded-full border border-[#7bb64b]/60 text-[#65a832] dark:border-[#83af3f]/50 dark:text-[#8ab943]">
-                  <IconStethoscope
+                  <DiagnosticsIcon
                     aria-hidden="true"
                     stroke={1.5}
                     className="size-7"
                   />
                 </span>
               </div>
-              <picture className="absolute top-[calc(-28vw_-_40px)] left-[-20px] z-0 block w-[calc(100%+40px)] shrink-0 md:relative md:top-auto md:left-auto md:z-10 md:w-full xl:w-[800px] xl:shrink-0">
+              <picture className="absolute top-[calc(-28vw_-_40px)] left-[-20px] z-0 block w-[calc(100%+40px)] shrink-0 md:relative md:top-auto md:left-auto md:z-10 md:w-full xl:absolute xl:top-0 xl:left-0 xl:w-[calc(100%+32px)] xl:max-w-[840px] xl:origin-top-left xl:scale-110 xl:shrink-0">
                 <source
                   media="(max-width: 767px)"
                   srcSet={mobileHero.srcSet}
@@ -142,12 +142,12 @@ export default function HomePage() {
                   height={1024}
                 />
                 <Image
-                  src="/brand/hero-devices-platform-2x-v2.webp"
+                  src="/brand/hero-desktop-fresh-mandarin-v7.png"
                   alt="Ноутбук, телефон и мандарин на фирменной оранжевой площадке"
-                  width={2960}
-                  height={2124}
+                  width={1484}
+                  height={1060}
                   quality={100}
-                  sizes="(min-width: 1280px) 800px, calc(100vw - 48px)"
+                  sizes="(min-width: 1280px) 924px, calc(100vw - 48px)"
                   className="h-auto w-full object-contain"
                   loading="eager"
                   fetchPriority="high"

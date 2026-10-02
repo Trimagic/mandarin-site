@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" fill="none">
+<!-- Placeholder: replace with a real photo (iPhone, iPad and MacBook on the workbench). -->
+<rect x="200" y="210" width="720" height="460" rx="24" fill="#1d1f22"/>
+<rect x="226" y="236" width="668" height="408" rx="6" fill="#fff4ea"/>
+<path d="M120 690h880l-34 48H154z" fill="#c6cace"/>
+<rect x="120" y="672" width="880" height="24" rx="10" fill="#d9dce0"/>
+<rect x="880" y="330" width="300" height="410" rx="30" fill="#1d1f22"/>
+<rect x="898" y="348" width="264" height="374" rx="14" fill="#ffe3cf"/>
+<rect x="1120" y="470" width="170" height="340" rx="32" fill="#1d1f22"/>
+<rect x="1134" y="484" width="142" height="312" rx="22" fill="#ff5000"/>
+<rect x="1176" y="496" width="58" height="14" rx="7" fill="#1d1f22"/>
+<g transform="translate(560 440)" fill="#ff5000"><path d="M-6-62c10-14 28-22 40-22 2 16-6 32-16 42-10 10-26 16-38 14-2-14 6-26 14-34z"/><path d="M60 36c-8 20-20 42-38 42-14 0-18-8-34-8s-22 8-34 8c-18 0-34-26-42-48-14-38-8-86 30-98 14-4 30 4 40 4s24-10 44-6c14 2 28 10 36 24-32 20-28 64 0 80z"/></g>
+<rect x="404" y="880" width="640" height="70" rx="35" fill="#fffefd" stroke="#ff5000" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="724" y="925" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#e74700">Фото скоро появится</text>
+</svg>

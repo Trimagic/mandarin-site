@@ -1,4 +1,5 @@
-import { IconCalculator, IconChevronRight, IconClipboardCheck } from "@tabler/icons-react";
+import { DiagnosticsIcon } from "@/components/site/diagnostics-icon";
+import { IconCalculator, IconChevronRight } from "@tabler/icons-react";
 import { useId, type ReactNode } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import type { ServicePricingData } from "@/data/services/types";
@@ -13,7 +14,7 @@ function PricingAction({ href, className, children, "aria-label": ariaLabel }: {
 
 export function ServicePricing({ data }: { data: ServicePricingData }) {
   const headingId = useId();
-  const CalloutIcon = data.callout?.icon === "diagnostics" ? IconClipboardCheck : IconCalculator;
+  const CalloutIcon = data.callout?.icon === "diagnostics" ? DiagnosticsIcon : IconCalculator;
   if (data.items.length === 0) return null;
 
   return (

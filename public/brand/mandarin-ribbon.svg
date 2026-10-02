@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320" fill="none">
+  <title>Мандарин из переплетающихся лент</title>
+  <defs>
+    <linearGradient id="upper" x1="49" y1="96" x2="206" y2="231" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB21A"/>
+      <stop offset=".5" stop-color="#FF7708"/>
+      <stop offset="1" stop-color="#F34215"/>
+    </linearGradient>
+    <linearGradient id="lower" x1="46" y1="177" x2="195" y2="302" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9410"/>
+      <stop offset=".48" stop-color="#FF6508"/>
+      <stop offset="1" stop-color="#F12C24"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="142" y1="79" x2="216" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48A92B"/>
+      <stop offset="1" stop-color="#299421"/>
+    </linearGradient>
+  </defs>
+  <path d="M124 79C127 34 166 13 229 14C220 54 198 87 154 79C160 62 177 48 190 40C162 48 140 64 130 80Z" fill="url(#leaf)"/>
+  <path d="M127 88C67 88 22 128 16 184C35 156 62 147 94 154C126 161 151 185 181 193C205 200 227 198 240 187C235 130 188 88 127 88Z" fill="url(#upper)"/>
+  <path d="M15 201C17 264 66 311 128 311C188 311 237 266 241 205C222 223 196 226 169 217C138 207 113 182 82 177C52 172 30 180 15 201Z" fill="url(#lower)"/>
+  <path d="M22 225C34 257 58 280 88 291C62 272 48 247 45 220C38 218 30 220 22 225Z" fill="#FFC12C" opacity=".4"/>
+</svg>

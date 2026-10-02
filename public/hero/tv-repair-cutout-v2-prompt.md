@@ -1,0 +1,5 @@
+# TV hero — contrasting screen
+
+Generated with built-in imagegen. Edit target: tv-repair-cutout-v1.png.
+
+Use case: precise-object-edit. Edit target: attached transparent product cutout for Mandarin electronics repair website hero. Change ONLY the television screen content: replace its orange-red fill with a beautiful premium deep navy blue to teal/cyan gradient with one smooth softly illuminated flowing abstract wave, subtle dimensionality, crisp high quality. The cool screen must stand out strongly against an orange website background. Keep the exact television geometry, camera angle, framing, black bezel, feet, remote control at lower left, realistic mandarin fruit and green leaf at lower right, positions and scale unchanged. Preserve transparent alpha outside all objects. Screen is fully opaque. No text, no logos, no UI, no new objects, no background or floor, no glow outside TV, no checkerboard. Match original landscape 4:3 framing and margins. High resolution clean product photograph.

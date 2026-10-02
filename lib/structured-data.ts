@@ -26,7 +26,8 @@ export function businessNode(): Node {
       opens: siteConfig.openingHours.opens,
       closes: siteConfig.openingHours.closes,
     }],
-    // Coordinates and sameAs profiles are omitted until the workshop confirms them.
+    sameAs: [siteConfig.instagram],
+    // Coordinates are omitted until the workshop confirms them.
   };
 }
 
@@ -106,8 +107,7 @@ export function directionServiceNode(data: DirectionPageData): Node {
 }
 
 /** A service page. The price comes from the direction catalogue so both pages always agree. */
-export function serviceNode({ directionSlug, slug, name, description }: { directionSlug: string; slug: string; name: string; description: string }): Node {
-  const path = getDirectionItemHref(directionSlug, slug);
+export function serviceNode({ directionSlug, slug, path = getDirectionItemHref(directionSlug, slug), name, description }: { directionSlug: string; slug: string; path?: string; name: string; description: string }): Node {
   const direction = getDirectionPage(directionSlug);
   const price = direction?.services.items.find((item) => item.slug === slug)?.price;
   return {

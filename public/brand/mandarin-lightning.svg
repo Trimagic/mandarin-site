@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="320" viewBox="0 0 256 320" fill="none">
+  <title>Мандарин с молнией</title>
+  <defs>
+    <linearGradient id="fruit" x1="48" y1="105" x2="210" y2="296" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFA609"/>
+      <stop offset=".48" stop-color="#FF7108"/>
+      <stop offset="1" stop-color="#FF3020"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="142" y1="79" x2="216" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48A92B"/>
+      <stop offset="1" stop-color="#299421"/>
+    </linearGradient>
+  </defs>
+  <path d="M124 79C127 34 166 13 229 14C220 54 198 87 154 79C160 62 177 48 190 40C162 48 140 64 130 80Z" fill="url(#leaf)"/>
+  <circle cx="128" cy="198" r="113" fill="url(#fruit)"/>
+  <path d="M147 124L86 200Q82 206 90 206H120L107 267Q106 273 111 268L173 191Q177 185 169 185H139L152 128Q153 121 147 124Z" fill="white"/>
+</svg>

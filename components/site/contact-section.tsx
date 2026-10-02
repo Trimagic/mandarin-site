@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   IconBrandTelegram,
   IconBrandWhatsapp,
@@ -52,6 +53,7 @@ export function ContactSection({ data = defaultData, id = "contacts" }: { data?:
                   Борисов, ул. Чапаева, 34
                 </a>
                 <p className="mt-1 text-xs leading-5 text-[#79757a] dark:text-[#b6a99b]">ТЦ «Мир Стиля», левый боковой вход</p>
+                <p className="mt-1 text-xs leading-5 text-[#79757a] dark:text-[#b6a99b]">Обслуживаем Борисов и Жодино</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -68,14 +70,17 @@ export function ContactSection({ data = defaultData, id = "contacts" }: { data?:
               </div>
             </div>
           </address>
-          <div className="mt-5 flex flex-wrap gap-2 max-md:[&>a]:flex-1 max-md:[&>a]:gap-1 max-md:[&>a]:px-2 xl:mt-6 xl:flex-nowrap">
-            <a href="viber://chat?number=%2B375291506888" className="inline-flex h-10 items-center justify-center gap-2 rounded-[6px] border border-[#9975e0]/60 px-3 text-xs font-medium text-[#8254d0] hover:bg-[#8254d0]/5 dark:text-[#b38bed]">
+          <div className="mt-5 grid grid-cols-2 gap-2 xl:mt-6">
+            <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 items-center justify-center gap-2 rounded-[6px] border border-[#c13584]/40 bg-[#c13584]/5 px-3 text-xs font-semibold text-[#a92b73] transition-colors hover:border-[#c13584]/70 hover:bg-[#c13584]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c13584] dark:text-[#f08ac2]">
+              <Image src="/brand/instagram-glyph-gradient.svg" alt="" width={20} height={20} className="size-5 shrink-0" unoptimized />Instagram
+            </a>
+            <a href="viber://chat?number=%2B375291506888" className="inline-flex h-11 items-center justify-center gap-2 rounded-[6px] border border-[#9975e0]/60 px-3 text-xs font-medium text-[#8254d0] hover:bg-[#8254d0]/5 dark:text-[#b38bed]">
               <IconPhone aria-hidden="true" className="size-4" />Viber
             </a>
-            <a href="https://t.me/+375291506888" className="inline-flex h-10 items-center justify-center gap-2 rounded-[6px] border border-[#25a4e3]/50 px-3 text-xs font-medium text-[#159bde] hover:bg-[#159bde]/5 dark:text-[#36b5f5]">
+            <a href="https://t.me/+375291506888" className="inline-flex h-11 items-center justify-center gap-2 rounded-[6px] border border-[#25a4e3]/50 px-3 text-xs font-medium text-[#159bde] hover:bg-[#159bde]/5 dark:text-[#36b5f5]">
               <IconBrandTelegram aria-hidden="true" className="size-4" />Telegram
             </a>
-            <a href="https://wa.me/375291506888" className="inline-flex h-10 items-center justify-center gap-2 rounded-[6px] border border-[#40b951]/50 px-3 text-xs font-medium text-[#279e3b] hover:bg-[#279e3b]/5 dark:text-[#6cc952]">
+            <a href="https://wa.me/375291506888" className="inline-flex h-11 items-center justify-center gap-2 rounded-[6px] border border-[#40b951]/50 px-3 text-xs font-medium text-[#279e3b] hover:bg-[#279e3b]/5 dark:text-[#6cc952]">
               <IconBrandWhatsapp aria-hidden="true" className="size-4" />WhatsApp
             </a>
           </div>
