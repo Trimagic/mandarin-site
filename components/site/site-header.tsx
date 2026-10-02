@@ -4,10 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { IconBrandWindows, IconDeviceDesktop, IconDeviceLaptop, IconDeviceMobile, IconDeviceTv, IconDeviceSpeaker, IconDeviceTablet, IconDeviceGamepad2, IconMenu2, IconMoon, IconPhone, IconSun } from "@tabler/icons-react";
+import { IconBrandWindows, IconChevronDown, IconDeviceDesktop, IconDeviceLaptop, IconDeviceMobile, IconDeviceTv, IconDeviceSpeaker, IconDeviceTablet, IconDeviceGamepad2, IconMenu2, IconMoon, IconPhone, IconSun } from "@tabler/icons-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { RequestTrigger } from "@/components/site/request-provider";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -85,12 +86,19 @@ export function SiteHeader({ homeLinks = false }: { homeLinks?: boolean }) {
               {label}
             </Link>
           ))}
-          <details className="group relative">
-            <summary className="cursor-pointer rounded-sm text-[13px] font-semibold text-[#211a17] hover:text-primary dark:text-[#fff7f0]">Ещё</summary>
-            <div className="absolute top-full left-0 z-50 mt-3 min-w-56 rounded-xl border border-[#eee4de] bg-[#fffaf6] p-2 shadow-lg dark:border-[#382922] dark:bg-[#120d0b]">
-              {directions.slice(4).map(({ label, href }) => <Link key={href} href={href} aria-current={pathname.startsWith(href) ? "page" : undefined} onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} className="block rounded-lg px-3 py-3 text-sm font-semibold hover:bg-[#ff5000]/8 hover:text-primary">{label}</Link>)}
-            </div>
-          </details>
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger className="group inline-flex cursor-pointer items-center gap-1 rounded-sm text-[13px] font-semibold text-[#211a17] hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary dark:text-[#fff7f0]">
+              Ещё
+              <IconChevronDown aria-hidden="true" className="size-3.5 transition-transform duration-150 group-aria-expanded:rotate-180 motion-reduce:transition-none" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent sideOffset={12} className="min-w-56 rounded-xl border border-[#eee4de] bg-[#fffaf6] p-2 shadow-lg ring-0 motion-reduce:animate-none dark:border-[#382922] dark:bg-[#120d0b]">
+              {directions.slice(4).map(({ label, href }) => (
+                <DropdownMenuItem key={href} className="cursor-pointer rounded-lg px-3 py-3 font-semibold focus:bg-[#ff5000]/8 focus:text-primary dark:focus:text-[#ff8a32]" render={<Link href={href} aria-current={pathname.startsWith(href) ? "page" : undefined} />}>
+                  {label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <span aria-hidden="true" className="h-5 w-px bg-[#e6d9d0] dark:bg-[#49352d]" />
           {navigation.filter(([, href]) => headerAnchors.has(href)).map(([label, href]) => (
             <Link

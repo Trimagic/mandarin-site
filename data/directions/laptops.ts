@@ -63,7 +63,7 @@ export const laptopRepairData = {
   },
   devices: {
     title: "Какие ноутбуки ремонтируем",
-    brands: ["Asus", "Lenovo", "HP", "Acer", "Dell", "Apple", "MSI"],
+    brands: ["Asus", "Lenovo", "HP", "Acer", "Dell", "Apple", "MSI", "Honor", "Huawei"],
     note: "Ремонтируем и другие марки. Возможность ремонта и наличие запчастей уточним по модели.",
   },
   conditions: {
